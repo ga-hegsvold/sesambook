@@ -1,0 +1,1741 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Sesambook</title><link rel="stylesheet" type="text/css" href="docbook.css"><meta name="generator" content="DocBook XSL Stylesheets V1.77.0"><meta name="description" content="Lorem ipsum."></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h1 class="title"><a name="idp1"></a>Sesambook</h1></div><div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">Morten</span> <span class="surname">Frellumstad</span></h3></div><div class="author"><h3 class="author"><span class="firstname">Erik</span> <span class="surname">Leven</span></h3></div><div class="author"><h3 class="author"><span class="firstname">Gabriel Constantin</span> <span class="surname">Vig</span></h3></div><div class="author"><h3 class="author"><span class="firstname">Geir Atle</span> <span class="surname">Hegsvold</span></h3></div></div></div><div><div class="revhistory"><table style="border-style:solid; width:100%;" summary="Revision History"><tr><th align="left" valign="top" colspan="3"><b>Revision History</b></th></tr><tr><td align="left">Revision 01</td><td align="left">2021-03-01</td><td align="left">GAH</td></tr><tr><td align="left" colspan="3">Initial version.</td></tr></table></div></div><div><div class="abstract"><div class="abstract-title">Abstract</div><p>
+				Lorem ipsum.
+			</p></div></div></div><hr></div><div class="toc"><dl><dt><span class="sect1"><a href="#prologue">1. Prologue</a></span></dt><dt><span class="sect1"><a href="#architecture-and-concepts">2. Architecture and Concepts</a></span></dt><dd><dl><dt><span class="sect2"><a href="#introduction">2.1. Introduction</a></span></dt><dt><span class="sect2"><a href="#architecture">2.2. Architecture</a></span></dt><dt><span class="sect2"><a href="#architecture-and-concepts-advanced">2.3. 1.4 Architecture and Concepts: Advanced</a></span></dt><dt><span class="sect2"><a href="#epilogue">2.4. Epilogue</a></span></dt></dl></dd><dt><span class="sect1"><a href="#systems-1">3. Systems</a></span></dt><dd><dl><dt><span class="sect2"><a href="#introduction-1">3.1. Introduction</a></span></dt><dt><span class="sect2"><a href="#epilogue-1">3.2. Epilogue</a></span></dt></dl></dd><dt><span class="sect1"><a href="#dtl-the-language-of-pipes">4. DTL &#8211; The language of Pipes</a></span></dt><dd><dl><dt><span class="sect2"><a href="#introduction-2">4.1. Introduction</a></span></dt><dt><span class="sect2"><a href="#epilogue-2">4.2. Epilogue</a></span></dt></dl></dd><dt><span class="sect1"><a href="#projects-infrastructure">5. 4. Projects &amp; Infrastructure</a></span></dt><dd><dl><dt><span class="sect2"><a href="#introduction-3">5.1. Introduction</a></span></dt><dt><span class="sect2"><a href="#projects-infrastructure-beginner">5.2. 4.1 Projects &amp; Infrastructure Beginner</a></span></dt><dt><span class="sect2"><a href="#epilogue-3">5.3. Epilogue</a></span></dt></dl></dd><dt><span class="sect1"><a href="#microservices">6. Microservices</a></span></dt><dd><dl><dt><span class="sect2"><a href="#introduction-4">6.1. Introduction</a></span></dt><dt><span class="sect2"><a href="#epilogue-4">6.2. Epilogue</a></span></dt></dl></dd><dt><span class="sect1"><a href="#sesam-in-the-wild-wip">7. Sesam in the Wild [WIP]</a></span></dt><dd><dl><dt><span class="sect2"><a href="#introduction-5">7.1. Introduction</a></span></dt><dt><span class="sect2"><a href="#sesam-in-the-wild-beginner">7.2. Sesam in the Wild: Beginner</a></span></dt><dt><span class="sect2"><a href="#sesam-in-the-wild-novice">7.3. Sesam in the Wild: Novice</a></span></dt><dt><span class="sect2"><a href="#sesam-in-the-wild-intermediate">7.4. Sesam in the Wild: Intermediate</a></span></dt><dt><span class="sect2"><a href="#sesam-in-the-wild-advanced">7.5. Sesam in the Wild: Advanced</a></span></dt><dt><span class="sect2"><a href="#epilouge">7.6. Epilouge</a></span></dt></dl></dd><dt><span class="sect1"><a href="#appendix">8. Appendix</a></span></dt></dl></div>
+  
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="prologue"></a>1. Prologue</h2></div></div></div><div class="blockquote"><blockquote class="blockquote"><p>
+      Introduction to the book
+    </p><p>
+      Who is this book for?
+    </p><p>
+      Who are we?
+    </p><p>
+      What is Sesam?
+    </p><p>
+      What problems do we seek to solve?
+    </p><p>
+      What should you expect to learn?
+    </p><p>
+      Innholdsfortegnelse og forklaring/justification for det.
+    </p></blockquote></div></div>
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-and-concepts"></a>2. Architecture and Concepts</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="introduction"></a>2.1. Introduction</h3></div></div></div><p>
+      Sesam opens the door to running a data-driven business, but what
+      is a data driven business and how does the journey towards it
+      look?
+    </p><p>
+      In this chapter we will introduce you to Sesam as a way of not
+      only developing but thinking. You will learn about overarching
+      themes for designing integrations, the components you build with
+      and the pitfalls to look out for along the way.
+    </p><p>
+      After reading you can expect to recognize and design a data driven
+      Integration of your own.
+    </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="architecture"></a>2.2. Architecture</h3></div></div></div><p>
+      What do we mean about architecture
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"></ol></div></li></ol></div><p>
+      There are some integration architectures which have been used
+      historically and today even. One is p2p, where systems create
+      connections on-demand between them, as seen in Figure 1.1.1A:
+      Point 2 Point.
+    </p><p>
+      * P2P
+    </p><p>
+      * ESB
+    </p><p>
+      <span class="inlinemediaobject"><img src="img/media/image1.png" width="90"></span>
+    </p><p>
+      Figure 1 .1.1A: Point 2 Point
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"></ol></div><p>
+      What do we mean about datahub, and why is sesam a datahub
+    </p><p>
+      Pros/Cons
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"></ol></div><p>
+      Terminology
+    </p><p>
+      Systems, pipes, datasets
+    </p><p>
+      In order to understand how Sesam works, it is important to
+      understand the parts Sesam is made up of.
+    </p><p>
+      There are three central re-occurring concepts in Sesam which you
+      will encounter in your everyday life working with the integration
+      platform: systems, pipes and datasets. These are the fundamental
+      parts which make up a Sesam integration pipeline. Figure 1.1.5A
+      gives you an insight into how a standard Sesam integration
+      pipeline would look.
+    </p><p>
+      <span class="inlinemediaobject"><img src="img/media/image3.png" height="45"></span>
+    </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+          Systems:
+        </p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><p>
+        A system&#8217;s main feature is to import and export data into and
+        out of the Sesam portal. They are therefore found in the
+        beginning and end of the pipeline flows. A system could connect
+        to a REST API, directly to a database of simply send data to a
+        waiting http server. Sesam has several of these system types
+        built into the product to simplify the workings inside the
+        portal. In situations where the built-in system types are not
+        enough for your requirements Sesam also supports connecting
+        systems to a microservice which in turn can manipulate and
+        delegate data according to your own specifications, making Sesam
+        a very robust and comprehensive tool.
+      </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+          Pipes:
+        </p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><p>
+        Pipes handles the transformation of the data and specifies where
+        the data is supposed to be sent. Manipulation of the data is
+        done through Sesam&#8217;s own Data Transformation Language (DTL)
+        which allows you to add, remove, transform and combine data
+        according to you own needs. A pipe generally acquires data from
+        a system or from a dataset depending on where the pipe is
+        located inside the integration pipeline.
+      </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+          Datasets:
+        </p></li></ul></div><div class="blockquote"><blockquote class="blockquote"><p>
+        Datasets are Sesam&#8217;s storage units. This is where pipes store
+        the data after configuring them and in a pipeline flow, they are
+        generally found between pipes. Sesam stores data in order to be
+        able to perform tracking and indexing, but you will learn more
+        about these functionalities later in this book (maybe a link?).
+      </p></blockquote></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="the-sesam-portal"></a>2.2.1. The Sesam portal</h4></div></div></div><p>
+        Show <span class="emphasis"><em><span class="emphasis"><em>basics</em></span></em></span> of portal
+      </p><p>
+        (Here also refer to a full chapter for portal or from the
+        projects chapter?)
+      </p><p>
+        Integrations, connections and configurations can all be accessed
+        inside the Sesam portal; the user interface of the Sesam
+        product, The Sesam portal can be accessed at portal.sesam.io,
+        and in this section you will learn the most commonly used parts
+        of the portal such that you can orient yourself, as well as
+        manage existing integrations. For a full explanation if the
+        workings and functionality of the Sesam portal, please look
+        [here (with a link)].
+      </p><p>
+        When logging in to the portal you will be met with a page like
+        figure 1.1.6A
+      </p><p>
+        <span class="inlinemediaobject"><img src="img/media/image4.png" height="181"></span>
+      </p><p>
+        The cards on the Dashboard are often referred to as
+        &#8220;subscriptions&#8221; or &#8220;nodes&#8221; and they represent separate instances
+        of Sesam installations. Each node comes in different sizes
+        (memory available) depending on the requirements of the
+        customer/project/user. In this example you will be shown the
+        portal inside the node called &#8220;Training Node&#8221;, but all nodes
+        will have the same setup, only different set of systems, pipes
+        and datasets.
+      </p><p>
+        When entering the &#8220;Training Node&#8221; you will be met with the page
+        seen in figure 1.1.6B.
+      </p><p>
+        <span class="inlinemediaobject"><img src="img/media/image5.png" height="270"></span>
+      </p><p>
+        In this section we will only focus on the specific parts of the
+        portal needed to start working with Sesam, namely the &#8220;Pipes&#8221;
+        page and the &#8220;Systems&#8221; page.
+      </p><p>
+        When entering the &#8220;Pipes&#8221; page you will be met by figure 1.1.6C.
+        This figure shows you all the available pipes in your
+        subscription as well as some of their corresponding meta-data.
+        There are also several search and filter options available,
+        which are specially handy when trying to located one, or a set
+        of pipes, in a subscription with many pipes.
+      </p><p>
+        <span class="inlinemediaobject"><img src="img/media/image6.png" height="269"></span>
+      </p><p>
+        If you now enter the pipe called &#8220;person-cmm&#8221; we can look into
+        more of details regarding how you may use the portal to
+        navigate, troubleshoot and configure you pipes.
+      </p><p>
+        Upon entering a pipe you by default be sent to the pipe&#8217;s
+        &#8220;Graph&#8221; view, as seen in figure 1.1.6D.
+      </p><p>
+        <span class="inlinemediaobject"><img src="img/media/image7.png" height="220"></span>
+      </p><p>
+        The graph view shows you which pipes are upstream and downstream
+        to your the specific pipe you have selected, and it also shows
+        connections to related pipes (you will learn more about
+        connected pipes later [link maybe?]). For now we will focus on
+        three of the pipe&#8217;s subpages; Config, Input and Output.
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+            Config: The config subpage is where the actual coding takes
+            place. This is where you define what this specific pipe is
+            supposed to do.
+          </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"></ol></div></li></ul></div><p>
+        Something general about JSON
+      </p><p>
+        JSON configuration of pipes and systems
+      </p><p>
+        DTL also validated as JSON?
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="namegiving-conventions"></a>2.2.2. Namegiving conventions</h4></div></div></div><p>
+        How (maybe a table) to give good names to the different parts in
+        sesam
+      </p><p>
+        Why this is <span class="emphasis"><em><span class="emphasis"><em>really</em></span></em></span>
+        important
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="systems"></a>2.2.3. Systems</h4></div></div></div><p>
+        Short about systems (where in the sesam-world-map)
+      </p><p>
+        Something more general about pipes maybe in context of pipes and
+        datasets
+      </p><p>
+        Very low level but enough to set up an inputpipe after maybe?
+      </p><p>
+        and refer to systems chapter
+      </p><p>
+        Namegivingconventions ref. 1.1.8
+      </p><p>
+        Where to make new ref 1.1.6
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="pipes"></a>2.2.4. Pipes</h4></div></div></div><p>
+        Something more general about pipes maybe in context of systems
+        and datasets
+      </p><p>
+        Inbound(Input?)/Preparation/Outbound(Output?)
+      </p><p>
+        Very low level but enough to connect to system?
+      </p><p>
+        and refer to pipes chapter
+      </p><p>
+        Pump
+      </p><p>
+        Input &amp; output(sink)
+      </p><p>
+        Namegivingconventions ref. 1.1.8
+      </p><p>
+        Where to make new ref 1.1.6
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="datasets"></a>2.2.5. Datasets</h4></div></div></div><p>
+        Something more general about pipes maybe in context of systems
+        and pipes
+      </p><p>
+        Very low level but enough to see entities?
+      </p><p>
+        and refer to entities subchapter ref. 1.1.12
+      </p><p>
+        Namegivingconventions ref. 1.1.8
+      </p><p>
+        Where to make new ref 1.1.6
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="datasets-vs.-tables"></a>2.2.6. Datasets vs. tables</h4></div></div></div><p>
+        Examples end ref to 1.1.13
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"></ol></div><p>
+        Why globals
+      </p><p>
+        Golden records
+      </p><p>
+        Gjør data tilgjengelig
+      </p><p>
+        Ref. 1.2.19, 3.2.14
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="special-sesam-attributes"></a>2.2.7. Special sesam attributes</h4></div></div></div><p>
+        Namespace
+      </p><p>
+        Rdf:type
+      </p><p>
+        _id
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-architecture-and-concepts-beginner"></a>2.2.8. 1.1 Tasks for Architecture and Concepts: Beginner</h4></div></div></div><p>
+        1. <span class="emphasis"><em>In what component is data stored in
+        Sesam?</em></span>
+      </p><p>
+        2. <span class="emphasis"><em>Which component moves data in Sesam?</em></span>
+      </p><p>
+        3. <span class="emphasis"><em>What moves through Sesam?</em></span>
+      </p><div class="literallayout"><p><span class="emphasis"><em>4. Name the input pipe for this system &amp; table:</em></span><br>
+<span class="emphasis"><em>System name : IFS<br>
+Table name: workorder<br>
+Pipe name: ______</em></span></p></div><p>
+        5. <span class="emphasis"><em>in an entity representing a row, how would the
+        column &#8220;personalid&#8221; with row value &#8220;123&#8221; look after it is read
+        by a pipe named crm-person and stored inside an entity of the
+        output dataset?</em></span>
+      </p><p>
+        6. <span class="emphasis"><em>What is the difference between and entity stored as
+        a row in a table vs in a Sesam Dataset?</em></span>
+      </p><p>
+        7. <span class="emphasis"><em>What is the minimum required to define an
+        entity?</em></span>
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="2"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="16"></ol></div></li></ol></div><p>
+        The value of joining data
+      </p><p>
+        Short overview of what data joining is
+      </p><p>
+        1-1, 1-n, n-m
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="16"><li class="listitem"></ol></div><p>
+        All data from input ends up in output
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="left-join-hops"></a>2.2.9. Left Join (Hops)</h4></div></div></div><p>
+        Data is appended to the output
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="global"></a>2.2.10. Global</h4></div></div></div><p>
+        Golden &#8211; the best truth about common attributes of a concept
+        collected from multiple sources
+      </p><p>
+        Coalesce, prioritization of source data (master data)
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="generic-input-pipes-custom-output-pipes"></a>2.2.11. Generic input pipes, custom output pipes</h4></div></div></div><p>
+        Write about where globals fit into the bigger picture of data
+        flows, how do pipes going in look and how do pipes going out
+        look?
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="filter-entities-on-the-way-out"></a>2.2.12. Filter entities on the way out</h4></div></div></div><div class="literallayout"><p>Filter gives the ability to stop entities from being sent by providing a logical gate.<br>
+On the other hand, it can make sure you only send the entities you wish to receive in an endpoint.</p></div><div class="literallayout"><p>Makes sure the endpoint only receives the entities they want.<br>
+Can stop entities from triggering events they shouldn&#8217;t trigger.</p></div><div class="literallayout"><p>+ + many examples<br>
+filtering on source data<br>
+on target data (from hops f.ex) &#8211; typical example, hop to global-classification and map status, if cancelled then filter</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tag-your-entities---categorization-of-sub-concepts"></a>2.2.13. Tag your entities - Categorization of sub-concepts</h4></div></div></div><p>
+        Extra:type
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="customize-data-structure-for-endpoints"></a>2.2.14. Customize data structure for endpoints</h4></div></div></div><div class="literallayout"><p>Sesam has transformative functions to add, remove,Copy the attributes you want the end system to receive.<br>
+All changes to attributes you add to the target will cause an entity update.</p></div><p>
+        Referring to namespace 1.1.15 to know property origin, rename,
+        add, copy
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="change-tracking-data-delta"></a>2.2.15. Change tracking &amp; data delta</h4></div></div></div><p>
+        All entities stored inside sesam have a _hash value. This is a
+        quantification of an entity and is calculated every time an
+        entity is processed by a pipe. If the _hash value changes or is
+        new, the entity will be stored as a new version in dataset. We
+        call this change in _hash value a data-delta.
+      </p><p>
+        Any data-delta for an entity in a dataset causes downstream
+        pipes to see this as a new sequence number they haven&#8217;t yet
+        read. This in turn makes the pipe process the entity. If the
+        processed entity does not exist or gets a new _hash in the
+        output of the pipe, it will cause an update to the output
+        dataset.
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="2"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="26"></ol></div></li></ol></div><p>
+        Dependency tracking
+      </p><p>
+        Stacking av hops (dvs flere datasett)
+      </p><p>
+        Indeksering
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="incremental-system-queries"></a>2.2.16. Incremental System queries</h4></div></div></div><p>
+        Dataset vs database-tabell (oppdatere data)
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="subset"></a>2.2.17. Subset</h4></div></div></div><p>
+        Grabbing the rdf:type or type of data you need from a global
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dynamic-static-timeseries-data"></a>2.2.18. Dynamic, Static &amp; Timeseries Data</h4></div></div></div><div class="literallayout"><p>Dynamic data = frequent updates to the same object<br>
+Static data = rare/never update to the same object<br>
+Timeseries = Frequent new entities about the same object. (f.ex _id = meterpoint &amp; timestamp and attribute attached is reading the last hour)</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="when-to-use-a-microservice"></a>2.2.19. When to use a microservice</h4></div></div></div><p>
+        For everything Sesam is bad at or can&#8217;t do.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-architecture-and-concepts-intermediate"></a>2.2.20. 1.3 Tasks for Architecture and Concepts:
+      Intermediate</h4></div></div></div><p>
+      </p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="architecture-and-concepts-advanced"></a>2.3. 1.4 Architecture and Concepts: Advanced</h3></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="choosing-a-source-dataset-for-your-pipe"></a>2.3.1. Choosing a source dataset for your pipe</h4></div></div></div><p>
+        Do not create children based on a hop, rather read from the
+        dataset you hop to.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="eventual-consistency"></a>2.3.2. Eventual Consistency</h4></div></div></div><p>
+        Dependency tracking causes reprocessing of source entity in the
+        pipe with the hops.
+      </p><p>
+        Idempotency
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="create-child-emit-children"></a>2.3.3. Create Child &amp; Emit children</h4></div></div></div><p>
+        Change-tracking
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-architecture-and-concepts-advanced"></a>2.3.4. 1.4 Tasks for Architecture and Concepts: Advanced</h4></div></div></div><p>
+      </p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="epilogue"></a>2.4. Epilogue</h3></div></div></div><p>
+      Congratulations on making your way through this treacherous
+      territory and finding your way out. Let&#8217;s have a quick chat about
+      the path you&#8217;ve walked before moving on to greener pastures.
+    </p></div></div>
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="systems-1"></a>3. Systems</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="introduction-1"></a>3.1. Introduction</h3></div></div></div><p>
+      In this chapter you will learn about Systems; the component which
+      connects Sesam to the external world. They are an integral
+      component of Sesam and have a wide array of uses, so we will start
+      off by introducing the general knowledge you should have at-hand
+      while setting one up.
+    </p><p>
+      Onwards you will learn how Systems interface with Pipes and how to
+      use customized solutions when Sesams built-in systems cannot.
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"></ol></div></li></ol></div><p>
+      Everything external to the node
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"></ol></div><p>
+      Input, output (mention transform?)
+    </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"></ol></div><p>
+      How are secrets stored in the backend? &#8211; Discuss with product
+    </p><p>
+      How do systems read secrets? Encrypted and decrypted in
+      transmission or passed as plain text?
+    </p><p>
+      $SECRET
+    </p><p>
+      $ENV
+    </p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="json-push-pull-protocol"></a>3.1.1. JSON Push &amp; Pull protocol</h4></div></div></div><p>
+        Lots of info in docs.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-systems-beginner"></a>3.1.2. Tasks for Systems: Beginner</h4></div></div></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="2"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="7"></ol></div></li></ol></div><div class="literallayout"><p>General introduction to what systems are and what problems they solve.<br>
+Everything external to the node</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="systems-as-a-pipe-source"></a>3.1.3. Systems as a pipe source</h4></div></div></div><p>
+        System configuration (mostly) defines the possibilities pipes
+        have to pull data.
+      </p><p>
+        We need to write about what a system is in the context of a pipe
+        source, with not only configs but explanations. Keep it simple
+        don&#8217;t go into too many system types (json &amp; SQL?). Write
+        more text than configurations, draw stuff. (1-N)
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="systems-as-a-pipe-sink"></a>3.1.4. Systems as a pipe sink</h4></div></div></div><p>
+        Same as above only with system as a sink. What is a system in
+        the context of a sink? What does the pipe see? What does the
+        system see? (1-N)
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="system-authentication-methods"></a>3.1.5. [System?] Authentication methods </h4></div></div></div><div class="literallayout"><p>Default authentication methods built in for systems handling URLS $SECRET()<br>
+Basic, Oauth2, JWT, microservices</p></div><div class="literallayout"><p>Authentication methods for specific systems: ?? worth mentioning<br>
+SQL, oracle</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="system-types"></a>3.1.6. System Types</h4></div></div></div><div class="literallayout"><p>Mention all built in system types, is there a common denominator?<br>
+refer to appendix/documentation for more information</p></div><p>
+        &#8220;Type&#8221;: &#8220;system_XXXX&#8221;
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="12"></ol></div></li></ol></div><p>
+        How does Sesam look at microservices?
+      </p><p>
+        What is a microservice?
+      </p><p>
+        How do I use one?
+      </p><p>
+        Don&#8217;t go too deep, we have a whole module for these.
+      </p><p>
+        Probably want to wait with this subchapter until we&#8217;ve written
+        the microservices module.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="http-transforms"></a>3.1.7. HTTP Transforms</h4></div></div></div><p>
+        When you need to transform or append information which Sesam
+        isn&#8217;t good at handling, you&#8217;d use an http_transform.
+      </p><p>
+        When you don&#8217;t want all the data from a system, but need to
+        append it to the data you&#8217;re processing, you&#8217;d typically do a
+        http_transform.
+      </p><p>
+        Example: You want to get the current weather for a location, but
+        you don&#8217;t want to read all the weather around the world
+        constantly into sesam. What you&#8217;re interested in is the weather
+        for a location specified by an entity at runtime. You can get
+        this by querying an API per entity being processed.vor
+      </p><p>
+        Example: You need to convert UTM to LatLong coordinates. Sesam
+        doesn&#8217;t have a function to do this built in, so you make a
+        microservice to do the conversion and call this with an
+        http_transform.
+      </p><p>
+        General Example: appending time-dependent datapoints to your
+        output without reading absolutely all of the time-dependented
+        data.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="chaining-of-systems"></a>3.1.8. Chaining of Systems</h4></div></div></div><p>
+        Microservices are easily re-used if they do generic stuff.
+      </p><p>
+        The point of chaining microservices or API&#8217;s is to use multiple
+        generic, simple services to solve a bigger complex problem.
+      </p><p>
+        Pros: Usually re-use of microservices makes development time
+        shorter
+      </p><p>
+        Cons: Debugging can be complex and unforeseen issues hard to
+        find &amp; pinpoint. Can&#8217;t see it in the graph, need to search
+        the whole node configuration to find the systems.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-systems-intermediate"></a>3.1.9. 2.3 Tasks for Systems: Intermediate</h4></div></div></div><p>
+      </p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="epilogue-1"></a>3.2. Epilogue</h3></div></div></div><p>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </p><p>
+      In relation to the introduction, tell them what they&#8217;ve learned
+      and what they should be capable of using this knowledge to do.
+    </p></div></div>
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="dtl-the-language-of-pipes"></a>4. DTL &#8211; The language of Pipes</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="introduction-2"></a>4.1. Introduction</h3></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="what-is-dtl"></a>4.1.1. What is DTL?</h4></div></div></div><p>
+        Data transformation language - Programming language, mix of JSON
+        &amp; func_programming etc
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="why-dtl"></a>4.1.2. Why DTL?</h4></div></div></div><p>
+        What problems does it solve? Why did we need to make a new
+        programming language?
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="where-is-dtl-used-can-fit-into-3.1.1-probably."></a>4.1.3. Where is DTL used? &#8211; Can fit into 3.1.1 probably.</h4></div></div></div><p>
+        Where do you write it? Why only in pipes?
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"></ol></div></li></ol></div><p>
+        What happens when a pipe runs?
+      </p><p>
+        What is the relationship of pipes and DTL?
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="entities-pipes-and-_id"></a>4.1.4. Entities, pipes and <code class="code">_id</code> @Geir Atle</h4></div></div></div><p>
+        What is an <code class="code"><code class="code">_id</code></code>? Why do we need it? Is it used for the same thing
+        always? What is it good for?
+        <span class="strikethrough">Absolutely nothing</span>
+        quite a bit!
+      </p><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="the-reserved-property-_id"></a>4.1.4.1. The reserved property <code class="code">_id</code></h5></div></div></div><p>
+          Everything in Sesam must have a unique identity, whether it is
+          a system configuration, a pipe configuration, a dataset, an
+          entity within a dataset, etc.
+        </p><p>
+          The reserved property named <code class="code">_id</code> is used as unique identity for
+          components in Sesam.
+        </p><p>
+          This unique identity allows for precise references between
+          configurations and precise connections between data entities.
+        </p><p>
+          See &lt;ref to <code class="code">_id</code> restrictions&gt; for more information on
+          how to create valid identifiers.
+        </p></div><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="system-_id"></a>4.1.4.2. System <code class="code">_id</code></h5></div></div></div><p>
+          The identity (<code class="code">_id</code>) of a system must be unique within a Sesam
+          node instance.
+        </p><p>
+          Once a system configuration is saved, its identity cannot be
+          changed. If you need to change a system&#8217;s identity, you can
+          Duplicate the system configuration, save the duplicated
+          configuration with the desired identity, and then delete the
+          original configuration.
+        </p><p>
+          Remember to also update any other configurations that were
+          referencing the original system to reference the new identity.
+        </p><p>
+          In the Sesam Management Studio, when you view the list of all
+          systems in the Systems menu, the System column will by default
+          show you the identity of all the defined systems in that Sesam
+          node.
+        </p><p>
+          If the name property is also defined for a system
+          configuration, then the System column will show that value
+          instead of the identity.
+        </p><p>
+          Regardless, if you need to reference a system configuration
+          from another configuration in Sesam, you reference the
+          system&#8217;s identity.
+        </p><p>
+          See &lt;ref to naming conventions&gt; for more information on
+          system naming conventions.
+        </p><p>
+          See &lt;ref to system config&gt; for more information on how
+          to define systems in Sesam.
+        </p></div><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="pipe-_id"></a>4.1.4.3. Pipe <code class="code">_id</code></h5></div></div></div><p>
+          The identity (<code class="code">_id</code>) of a pipe must be unique within a Sesam
+          node instance.
+        </p><p>
+          Once a pipe configuration is saved, its identity cannot be
+          changed. If you need to change a pipe&#8217;s identity, you can
+          Duplicate the pipe configuration, save the duplicated
+          configuration with the desired identity, and then delete the
+          original configuration.
+        </p><p>
+          In the Sesam Management Studio, when you view the list of all
+          pipes in the Pipes menu, the Pipe column will by default show
+          you the identity of all the defined pipes in that Sesam node.
+        </p><p>
+          If the name property is also defined for a pipe configuration,
+          then the Pipe column will show that value instead of the
+          identity.
+        </p><p>
+          Regardless, if you need to reference a pipe configuration from
+          another configuration in Sesam, you reference the pipe&#8217;s
+          identity.
+        </p><p>
+          See &lt;ref to naming conventions&gt; for more information on
+          pipe naming conventions.
+        </p><p>
+          See &lt;ref to system config&gt; for more information on how
+          to define pipes in Sesam.
+        </p></div><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="dataset-_id"></a>4.1.4.4. Dataset <code class="code">_id</code></h5></div></div></div><p>
+          The identity (<code class="code">_id</code>) of a dataset must be unique within a Sesam
+          node instance.
+        </p><p>
+          By default, a dataset will have the same identity as the pipe
+          it is generated from.
+        </p><p>
+          You can override the default dataset identity by defining the
+          dataset property in the pipe&#8217;s sink configuration. (reference
+          to sink config).
+        </p><p>
+          Once a dataset is generated, its identity cannot be changed.
+          If you need to change a dataset&#8217;s identity, you can edit the
+          dataset property in the pipe&#8217;s sink configuration, delete the
+          sink dataset, and restart the pipe. This will generate a new
+          dataset with the new identity.
+        </p><p>
+          Remember to also update any other configurations that were
+          referencing the original dataset to reference the new
+          identity.
+        </p><p>
+          In the Sesam Management Studio, when you view the list of all
+          datasets in the Datasets menu, the Dataset column will show
+          you the identity of all the datasets in that Sesam node.
+        </p><p>
+          If you need to reference a dataset from another configuration
+          in Sesam, you reference the pipe&#8217;s identity.
+        </p></div><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="entity-_id"></a>4.1.4.5. Entity <code class="code">_id</code></h5></div></div></div><p>
+          The identity (<code class="code">_id</code>) of an entity must be unique within the
+          dataset in which it resides. The identity for an entity is
+          similar to a primary key in a database table.
+        </p><p>
+          What makes an entity unique is usually dictated by the source
+          system the entity is imported from. This can typically be the
+          primary key(s) of a database table.
+        </p><p>
+          This means that you usually define the identity for entities
+          in inbound pipes.
+        </p><p>
+          If the source system has multiple properties that combined
+          makes the entity unique, you must combine all these properties
+          into the <code class="code">_id</code> property to ensure that uniqueness is preserved
+          in Sesam.
+        </p><p>
+          In some cases, you can handle this in the source configuration
+          part of the inbound pipe. SQL sources, as an example, allows
+          you to specify multiple columns from the source database as
+          primary keys. Sesam will then combine these columns
+          automatically into the <code class="code">_id</code> during import.
+        </p><p>
+          In other cases, you may have to explicitly add the <code class="code">_id</code>
+          property with DTL in a transform step in the inbound pipe.
+          This may be relevant when the source configuration does not
+          support specifying multiple properties as primary keys.
+        </p></div><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="entity-_id-and-namespaces"></a>4.1.4.6. Entity <code class="code">_id</code> and namespaces</h5></div></div></div><p>
+          By default, the pipe identity of the pipe where the entity
+          originates is used as namespace for both the entity&#8217;s
+          identifier and the entity&#8217;s properties.
+        </p><p>
+          Note that there is a slight, but significant, difference in
+          the placement of the namespace for the entity&#8217;s <code class="code">_id</code> property
+          compared to its other properties.
+        </p><p>
+          For the <code class="code">_id</code> property, the namespace prefixes the property
+          <span class="strong"><strong>value</strong></span>:
+        </p><pre class="programlisting">
+&#8220;<code class="code">_id</code>&#8221;: &#8221;<span class="strong"><strong>&lt;namespace&gt;</strong></span>:&lt;value&gt;&#8221;
+        </pre><p>
+          For other properties, the namespace prefixes the property
+          <span class="strong"><strong>name</strong></span>:
+        </p><pre class="programlisting">
+&#8220;<span class="strong"><strong>&lt;namespace&gt;</strong></span>:property1&#8221;: &#8221;&lt;value&gt;&#8221;
+        </pre><p>
+          The reason the namespace is put into the value of the <code class="code">_id</code> is
+          to ensure that all entities are unique across all source
+          systems.
+        </p><p>
+          Example:
+        </p><p>
+          An entity imported from a system called &#8220;crm&#8221; with a &#8220;user&#8221;
+          table consisting of a primary key &#8220;userId&#8221; with value &#8220;123&#8221;,
+          and a column &#8220;email&#8221; with value &#8220;john.doe@foo.no&#8221; would look
+          something like this:
+        </p><pre class="programlisting">
+{
+  &#8220;<code class="code">_id</code>&#8221;: &#8220;<span class="strong"><strong>crm-user</strong></span>:123&#8221;,
+  &#8220;<span class="strong"><strong>crm-user</strong></span>:userId&#8221;: &#8220;123&#8221;,
+  &#8220;<span class="strong"><strong>crm-user</strong></span>:email&#8221;: &#8220;john.doe@foo.com&#8221;
+}
+        </pre><p>
+          Now imagine you have another source where one of the entities
+          are also identified by &#8220;123&#8221;.
+        </p><p>
+          Unless the namespace is part of the property value of <code class="code">_id</code>,
+          both entities would have the same <code class="code">_id</code>, namely &#8220;123&#8221;. So by
+          prefixing this value with a namespace we ensure that these
+          entities do not come into conflict with each other.
+        </p><p>
+          See &lt;namespace ref&gt; for more info on namespaces.
+        </p><p>
+          See &lt;make-ni ref&gt; for more info on namespaced
+          identifiers and connecting data in Sesam.
+        </p></div><div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="the-autogenerated-property-ids"></a>4.1.4.7. The autogenerated property $ids</h5></div></div></div><p>
+          Should probably write something sensible about the connection
+          between <code class="code">_id</code> and $ids somewhere. Maybe related to merge pipes?
+        </p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="entity-data-model-data-types-gabriell"></a>4.1.5. Entity Data model &#8211; Data Types @Gabriell</h4></div></div></div><p>
+        Give quick examples of each of these types.
+      </p><p>
+        Dict {}
+      </p><p>
+        Entity {<code class="code">_id</code>}
+      </p><p>
+        Må inneholde en identifikator <code class="code">_id</code>
+      </p><p>
+        List
+      </p><p>
+        String
+      </p><p>
+        Integer
+      </p><p>
+        Decimal
+      </p><p>
+        Float
+      </p><p>
+        Boolean
+      </p><p>
+        Null
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="syntax"></a>4.1.6. Syntax</h4></div></div></div><p>
+        All configurations in JSON
+      </p><p>
+        [&lt;func_name&gt;, &lt;key&gt;, +&lt;arg/value&gt;]
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Transformative funksjoner, funksjoner for å endre Target
+            </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                  Kopierer value fra Source til Target og kan endre key
+                </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: square; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                      Copy kopierer hele key-value parret.
+                    </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                      Rename setter ny key og kopierer value
+                    </p></blockquote></div></li></ul></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                  Legger til ny Key som et datapunkt. Verdien kan være
+                  en transformasjon av et datapunkt eller et helt nytt
+                  datapunkt på Target.
+                </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: square; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                      Add, key, value : Her legger du på en ny key, hvor
+                      verdien ikke nødvendigvis finnes fra før. Derfor
+                      er det ikke implisitt om det er fra _T eller _S
+                    </p></blockquote></div></li></ul></div></li></ul></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Utrykk/Expressions
+            </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                  Utregninger, funksjoner på verdier
+                </p></blockquote></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"></ol></div></li></ul></div></li></ul></div><p>
+        Gå gjennom prosessen fra man trykker "New pipe" til
+        "Save" til "Start" til "Restart"
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Sette <code class="code">_id</code>
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Bruke templater
+            </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                  Source system "sesam:node" (refers to
+                  itself)
+                </p></blockquote></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: square; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                      Provider: premade dataset
+                    </p></blockquote></div></li></ul></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+                  "add DTL transform"
+                </p></blockquote></div></li></ul></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              ["add", "hello", "world"]
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Save
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Starte
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              ["add", "key", "value"]
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Save
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Start - ikke noe nytt i output
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Referer "Proessser ny data" over, vis det også.
+            </p></blockquote></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"></ol></div></li></ul></div><p>
+        Preview, Ctrl + Enter
+      </p><p>
+        Formatering alt + .
+      </p><p>
+        Save ctrl + s
+      </p><p>
+        Find/replace
+      </p><p>
+        Ctrl+space = Search/autocomplete
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="7"></ol></div></li></ol></div><p>
+        Explain copy, based on ref 3.1.4 above
+      </p><p>
+        Wildcard * [namespace:*]
+      </p><p>
+        "Copy" whitelist, blacklist
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="add"></a>4.1.7. &#8220;Add&#8221;</h4></div></div></div><p>
+        Explain the add, based on ref 3.1.4 above
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="concat-concatination"></a>4.1.8. &#8220;Concat&#8221; &#8211; Concatination</h4></div></div></div><p>
+        Concatenation of strings, examples etc
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="rdftype"></a>4.1.9. rdf:type</h4></div></div></div><p>
+        Resource Description Framework (?) explain what it means in
+        Sesam context
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="namespace"></a>4.1.10. Namespace</h4></div></div></div><p>
+        Explain namespace in <code class="code">_id</code> (value) and keys.
+      </p><p>
+        EXAMPLESSS
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="make-ni"></a>4.1.11. &#8220;Make-ni&#8221;</h4></div></div></div><p>
+        Declaraiton of foreign key in Sesam, explain /reference
+        Namespace
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="eq-equality"></a>4.1.12. &#8220;Eq&#8221; &#8211; Equality</h4></div></div></div><p>
+        Equality for joins [n-n]
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="merge-as-a-source"></a>4.1.13. Merge as a Source</h4></div></div></div><p>
+        Examples, steal from PP training, show in tables vs json,
+        everything coming in goes out.
+      </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Strategy
+            </p></blockquote></div></li><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              Identidy - <code class="code">_id</code> etter merge
+            </p></blockquote></div></li></ul></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><div class="blockquote"><blockquote class="blockquote"><p>
+              datasets
+            </p></blockquote></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="7"></ol></div></li></ul></div><p>
+        Explain in the context of reading from global pipes
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="coalesce"></a>4.1.14. Coalesce</h4></div></div></div><p>
+        ref 1.2.19
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="nested-dictionaries"></a>4.1.15. Nested dictionaries</h4></div></div></div><p>
+        As you can see in <span class="emphasis"><em>Example 3.2.17A: Dotted
+        Notation</em></span>, we can get attributes inside dictionaries
+        by using &#8220;.&#8221;
+      </p><p>
+        Dotted notation
+      </p><p>
+        list of dicts can give you list of values from a single key.
+      </p><p>
+        A: [{&#8220;foo&#8221;:1},{&#8220;foo&#8221;:2}] -&gt; _S.A.foo = [1,2]
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
+            [&#8220;add&#8221;, &#8220;some-nested-attribute&#8221;,
+            &#8220;_S.somedict.some-nested-attribute&#8221;] 
+          </p></li></ol></div><p>
+        <span class="emphasis"><em>Example 3.2.17A: Dotted Notation</em></span>,
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="apply-custom-functions"></a>4.1.16. Apply &#8211; Custom Functions</h4></div></div></div><p>
+        Basic, bare bruk på data fra _S, forklar det uten å bruke hops
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="merge-as-a-function"></a>4.1.17. Merge as a function</h4></div></div></div><p>
+        Source type Merge VS Transformation Merge
+      </p><p>
+        Merging dictionaries up to the root level of entities.
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="hops-1"></a>4.1.18. Hops</h4></div></div></div><p>
+        Basics, uten apply
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="properties"></a>4.1.19. _ Properties</h4></div></div></div><p>
+        (_deleted, filtered, <code class="code">_id</code>, _previous, _updated, <span class="emphasis"><em>_hash?
+        REF 1.2.24</em></span>)
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="type-examples"></a>4.1.20. Type examples</h4></div></div></div><p>
+        Type eksempler:
+      </p><p>
+        &#8226; Datettime
+      </p><p>
+        &#8226; Dict {}
+      </p><p>
+        &#8226; List
+      </p><p>
+        &#9675; First
+      </p><p>
+        &#9675; Unique/Distinct
+      </p><p>
+        &#9675; Last
+      </p><p>
+        &#9675; Count
+      </p><p>
+        &#9675; nth
+      </p><p>
+        &#8226; String
+      </p><p>
+        &#8226; Integer
+      </p><p>
+        &#8226; Decimal
+      </p><p>
+        &#8226; Float
+      </p><p>
+        &#8226; Boolean
+      </p><p>
+        &#9675; And
+      </p><p>
+        &#9675; Or
+      </p><p>
+        &#9675; Not
+      </p><p>
+        &#9675; In
+      </p><p>
+        &#9675; Eq
+      </p><p>
+        &#9675; If-null
+      </p><p>
+        &#9675; Is-empty
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="23"></ol></div></li></ol></div><p>
+        &#8226; Pump
+      </p><p>
+        &#9675; Dead-letter&#8230;
+      </p><p>
+        &#8226; Metadata
+      </p><p>
+        &#8226; Reset-to-end
+      </p><p>
+        &#8226; Stop
+      </p><p>
+        &#8226; Enable/disable
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="pipe-sink"></a>4.1.21. Pipe Sink</h4></div></div></div><p>
+        Eksplisitt (vs implicit dataset) Sink - til system/fil
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="23"><li class="listitem"><li class="listitem"></ol></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dependency-tracking-in-hops"></a>4.1.22. 3.3.27 Dependency tracking in Hops</h4></div></div></div><p>
+        When does dependency tracking work? How does it work? When
+        doesn&#8217;t it work (multiple transforms) Ref 1.3.25
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="apply-hops"></a>4.1.23. "Apply-hops"</h4></div></div></div><p>
+        Apply a function to the entities retrieved by your hop
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="source-subset"></a>4.1.24. Source Subset</h4></div></div></div><p>
+        You don&#8217;t really need to filter :P
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-dtl-intermediate"></a>4.1.25. Tasks for DTL: Intermediate</h4></div></div></div><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="4"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="30"></ol></div></li></ol></div><p>
+        VS as a transform (filter objects in list)
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="syntax-and-functions"></a>4.1.26. _. Syntax and Functions</h4></div></div></div><p>
+        _. : path, map, filter, what does it reference? How does it
+        work?
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="map"></a>4.1.27. Map</h4></div></div></div><p>
+        Map, map-values, map-dict
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="p-_r-parent-root"></a>4.1.28. _P &amp; _R &#8211; Parent &amp; Root</h4></div></div></div><p>
+        How do I use _P. notation? Where does it point?
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="create-child"></a>4.1.29. &#8220;Create-child&#8221;</h4></div></div></div><p>
+        1-N
+      </p><p>
+        dep. Tracking, $children, emit_child transform type (2 pipes
+        necessary for all updates to propagate)
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="30"><li class="listitem"><li class="listitem"></ol></div><p>
+        Add ::hello
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-dtl-advanced"></a>4.1.30. 3.4 Tasks for DTL: Advanced</h4></div></div></div><p>
+      </p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="epilogue-2"></a>4.2. Epilogue</h3></div></div></div><p>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </p><p>
+      In relation to the introduction, tell them what they&#8217;ve learned
+      and what they should be capable of using this knowledge to do.
+    </p></div></div>
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="projects-infrastructure"></a>5. 4. Projects &amp; Infrastructure</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="introduction-3"></a>5.1. Introduction</h3></div></div></div><p>
+      @todo Gabriell
+    </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="projects-infrastructure-beginner"></a>5.2. 4.1 Projects &amp; Infrastructure Beginner</h3></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="portal-gui"></a>5.2.1. Portal GUI</h4></div></div></div><p>
+        Bli kjent med gui
+      </p><p>
+        Datasets
+      </p><p>
+        previous version etc.
+      </p><p>
+        Task på å sette opp ting som gjøres når man er i prosjekt
+      </p><p>
+        Laste opp/ned node i tools
+      </p><p>
+        Legge til brukere
+      </p><p>
+        Legge til env-vars/secrets (system secrets vs secrets)
+      </p><p>
+        Lage JWT
+      </p><p>
+        se på Execution logs/system dataset
+      </p><p>
+        system:config-dataset
+      </p><p>
+        Lage grupp/tilganger
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="sesam-cli"></a>5.2.2. sesam-CLI</h4></div></div></div><p>
+        NB!! IKKE BRUK SYNCCONFIG TIL Å LASTE OPP/NED TIL AKTIVE NODER
+        (PROD)
+      </p><p>
+        pre-requisite lære seg hvordan man installerer det.
+      </p><p>
+        lag en sesam-init &lt;- feature request
+      </p><p>
+        setup
+      </p><p>
+        expected folder
+      </p><p>
+        test.conf.json
+      </p><p>
+        whitelist/blacklist
+      </p><p>
+        test.json
+      </p><p>
+        entiteter
+      </p><p>
+        env-var-folder
+      </p><p>
+        set up vars for different environments
+      </p><p>
+        test-env
+      </p><p>
+        .syncconfig
+      </p><p>
+        jwt, node
+      </p><p>
+        kommandoer
+      </p><p>
+        sesam upload/download
+      </p><p>
+        test
+      </p><p>
+        update
+      </p><p>
+        -print-scheduler-log
+      </p><p>
+        -vv
+      </p><p>
+        -use-internal-scheduler
+      </p><p>
+        wipe
+      </p><p>
+        restart
+      </p><p>
+        verify
+      </p><p>
+        run
+      </p><p>
+        -version
+      </p><p>
+        Hvordan funker expected output
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="testing-testdata"></a>5.2.3. Testing &amp; Testdata</h4></div></div></div><p>
+        testing
+      </p><p>
+        Manuell testing med sesam-cli før opplasting til
+        versjonskontroll
+      </p><p>
+        Manuell testing med config-group på live node
+      </p><p>
+        Automatisk testing med ci-node
+      </p><p>
+        Testdata
+      </p><p>
+        Bør lage data som reflekterer virkelige koblinger mellom data i
+        systemer
+      </p><p>
+        Bør være nok for å beskrive de caser man kan møte i
+        virkeligheten
+      </p><p>
+        Bør ikke være all data i prod
+      </p><p>
+        Bør være anonymisert
+      </p><p>
+        Bør reflektere *innkommende* data
+      </p><p>
+        Bør utvidet behov legges til data, ikke endre eksisterende
+      </p><p>
+        Bør gis navn utfra det case du vil teste, f.eks gi entiteten
+        navn utfra casen
+      </p><p>
+        Dokumenter testdata
+      </p><p>
+        \\oppdater prosjekt i docs utfra hva vi skriver\\
+      </p><p>
+        Hvordan funker expected output
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dokumentasjon"></a>5.2.4. Dokumentasjon</h4></div></div></div><p>
+        Hvordan bruke docs.sesam.io
+      </p><p>
+        developer guide!!
+      </p><p>
+        ctrl + f "hva du tror funksjon heter"
+      </p><p>
+        Hvordan dokumentere
+      </p><p>
+        Schema definition
+      </p><p>
+        hva mener vi er dokumentasjon
+      </p><p>
+        Generell dokumentasjon
+      </p><p>
+        DTL dokumentasjon(comments)
+      </p><p>
+        clean code
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="jwtauthentisering"></a>5.2.5. JWT/Authentisering</h4></div></div></div><p>
+        Hvordan fungerer JWT&#8217;er?
+      </p><p>
+        NB: Skal snake mer om API I sesam-in-the-wild
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="groups-permissions"></a>5.2.6. Groups &amp; Permissions</h4></div></div></div><p>
+        Hvordan virker det
+      </p><p>
+        Får man satt opp tilgangsstyring i Sesam?
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="7"></ol></div></li></ol></div><p>
+        Mappestruktur
+      </p><p>
+        System
+      </p><p>
+        Pipes
+      </p><p>
+        Node-metadata.conf.json
+      </p><p>
+        +expected
+      </p><p>
+        Global metadata
+      </p><p>
+        Namespaces
+      </p><p>
+        Tag for å inkludere c++ ext.
+      </p><p>
+        Dependency tracking hops limit
+      </p><p>
+        signalling
+      </p><p>
+        Referer mye til dokumentasjon
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="deployment"></a>5.2.7. Deployment</h4></div></div></div><p>
+        Når trenger man å resette pipes?/Når trenger man ikke det
+      </p><p>
+        Update last seen
+      </p><p>
+        reset to end
+      </p><p>
+        reset
+      </p><p>
+        Disable/enable pipes (spesifik endpoint)
+      </p><p>
+        Indexering
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="monitorering"></a>5.2.8. Monitorering </h4></div></div></div><p>
+        microservices
+      </p><p>
+        pipes
+      </p><p>
+        ekstern monitorering
+      </p><p>
+        Execution logs/system dataset
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="arbeidsmetodikk"></a>5.2.9. Arbeidsmetodikk</h4></div></div></div><p>
+        1. Dokumentere source-data og sink-data før en flyt
+      </p><p>
+        formater
+      </p><p>
+        datamengde
+      </p><p>
+        frekvens
+      </p><p>
+        2. Analysere innkommende data for globala dataset
+      </p><p>
+        3. Lage testdata
+      </p><p>
+        4. Drøfte behov &amp; Løsninger
+      </p><p>
+        5. Velge løsning
+      </p><p>
+        6. Lag løsning
+      </p><p>
+        Mer?
+      </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="8"></ol></div></li></ol></div><p>
+        dev = personlig node der utvikling foregår
+      </p><p>
+        test = node som kjører samme config som prod med testdata for å
+        finne bugs
+      </p><p>
+        CI = do tests for pull requests /deployments before deploying.
+      </p><p>
+        prod = live node som kjører live integrasjoner
+      </p><p>
+        Tagging av brancher for deployment
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="cicdtdd"></a>5.2.10. CI/CD/TDD?</h4></div></div></div><p>
+        ci-node
+      </p><p>
+        kjører med test-data
+      </p><p>
+        embedded data
+      </p><p>
+        NB!! nye cli fra 1.18.1(separat testdata-fodler)
+      </p><p>
+        NB!! ikke koblet til live systemer, ikke legg inn secrets som
+        ikke skal være der
+      </p><p>
+        node-env
+      </p><p>
+        conditional source
+      </p><p>
+        embedded data
+      </p><p>
+        NB!! nye cli fra 1.18.1(separat testdata-folder)
+      </p><p>
+        conditional transform
+      </p><p>
+        Hvordan bruker vi versjonskontroll(git, vcs, svn)
+      </p><p>
+        initiere repo (se docs)
+      </p><p>
+        protected branches
+      </p><p>
+        merge regler
+      </p><p>
+        byggserver
+      </p><p>
+        Autodeploy/vs ikke
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="workflow-in-projects"></a>5.2.11. Workflow in Projects</h4></div></div></div><p>
+        Get task
+      </p><p>
+        [Document task]
+      </p><p>
+        Pull repo
+      </p><p>
+        Create branch
+      </p><p>
+        Do changes
+      </p><p>
+        Test changes
+      </p><p>
+        [Create more test cases]
+      </p><p>
+        Update expected data
+      </p><p>
+        Push changes
+      </p><p>
+        Document solution
+      </p><p>
+        Deploy to test
+      </p><p>
+        Test changes in test &#8211; go back to create branch if necessary.
+      </p><p>
+        Deploy to prod
+      </p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-projects-infrastructure-intermediate"></a>5.2.12. Tasks for Projects &amp; Infrastructure:
+      Intermediate</h4></div></div></div><p>
+      </p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="epilogue-3"></a>5.3. Epilogue</h3></div></div></div><p>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </p><p>
+      In relation to the introduction, tell them what they&#8217;ve learned
+      and what they should be capable of using this knowledge to do.
+    </p></div></div>
+  
+  
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="microservices"></a>6. Microservices</h2></div></div></div>
+    
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="introduction-4"></a>6.1. Introduction</h3></div></div></div>
+      
+      <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+          <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+          </li></ol></div>
+        </li></ol></div>
+      <p>
+      Nevn bruksområder
+    </p>
+      <p>
+      språk
+    </p>
+      <p>
+      Docker
+    </p>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="why-use-microservices-in-sesam"></a>6.1.1. Why use Microservices in Sesam?</h4></div></div></div>
+        
+        <p>
+        System som gjør ting andre systemer ikke kan
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="how-are-microservices-used-in-sesam"></a>6.1.2. How are Microservices used in Sesam?</h4></div></div></div>
+        
+        <p>
+        Ekte Use caser
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="microservice-hosting"></a>6.1.3. Microservice hosting</h4></div></div></div>
+        
+        <p>
+        Sesamcommunity Git &amp; Docker
+      </p>
+        <p>
+        Intro til Hosting
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="running-a-microservice-in-sesam"></a>6.1.4. Running a microservice in Sesam</h4></div></div></div>
+        
+        <p>
+        Intro til Running I sesam
+      </p>
+        <p>
+        Forklare GUI
+      </p>
+        <p>
+        Pull &amp; Restart
+      </p>
+        <div class="blockquote"><blockquote class="blockquote">
+          <p>
+          Status
+        </p>
+          <p>
+          Refresh
+        </p>
+        </blockquote></div>
+        <p>
+        Forklare Config
+      </p>
+        <p>
+        Pipe source/sink/http
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="types-of-microservices"></a>6.1.5. Types of Microservices</h4></div></div></div>
+        
+        <div class="blockquote"><blockquote class="blockquote">
+          <p>
+          Interne
+        </p>
+          <p>
+          http-transform
+        </p>
+          <p>
+          Source, sink (begge i 1?)
+        </p>
+          <p>
+          Eksterne
+        </p>
+          <p>
+          Monitorering av Sesam
+        </p>
+        </blockquote></div>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="naming-convention"></a>6.1.6. Naming Convention</h4></div></div></div>
+        
+        <p>
+        _id standard system naming convention (source/sink system name)
+      </p>
+        <p>
+        Repo/microservice naming convention recommendation:
+        sesam-&lt;system&gt;[-&lt;special-functionality&gt;]
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-microservices-beginner-tasks"></a>6.1.7. Tasks for Microservices: Beginner &#8211; Tasks</h4></div></div></div>
+        
+        <p>
+        Run a microservice in Sesam [could be sink, http, source]
+      </p>
+        <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+            <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="8">
+            </li></ol></div>
+          </li></ol></div>
+        <p>
+        Sesam push/pull protocol
+      </p>
+        <p>
+        Error handling/logging
+      </p>
+        <p>
+        Pipes
+      </p>
+        <p>
+        Statuslogg [Hvordan bruke &amp; Lese]
+      </p>
+        <p>
+        Log-level
+      </p>
+        <p>
+        Trigger/Call
+      </p>
+        <p>
+        Endepunkt i ms (/&lt;paramater&gt;)
+      </p>
+        <p>
+        Hvordan sender man info til ms fra sesam
+      </p>
+        <p>
+        url-i pipe
+      </p>
+        <p>
+        url-parameter
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="microservice-development-prerequisites"></a>6.1.8. Microservice Development Prerequisites</h4></div></div></div>
+        
+        <div class="blockquote"><blockquote class="blockquote">
+          <p>
+          Docker
+        </p>
+          <p>
+          User
+        </p>
+          <p>
+          Program
+        </p>
+          <p>
+          GitHub
+        </p>
+          <p>
+          User
+        </p>
+          <p>
+          CLI/Desktop
+        </p>
+        </blockquote></div>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="changing-a-microservice"></a>6.1.9. Changing a Microservice</h4></div></div></div>
+        
+        <div class="blockquote"><blockquote class="blockquote">
+          <p>
+          Workflow
+        </p>
+          <p>
+          Fork [Vi må lage et repo]
+        </p>
+          <p>
+          Change
+        </p>
+          <p>
+          Test
+        </p>
+          <p>
+          Teste lokalt
+        </p>
+          <p>
+          Bygge docker konteiner
+        </p>
+          <p>
+          Pushe docker konteiner
+        </p>
+          <p>
+          Explanation of Bare Bones DockerFile
+        </p>
+          <p>
+          How DockerFiles run [Sequentally, cache]
+        </p>
+        </blockquote></div>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="authentication-with-microservices"></a>6.1.10. Authentication with microservices</h4></div></div></div>
+        
+        <p>
+        Docker hosting site login
+      </p>
+        <p>
+        Passing Env-vars/Secrets i Sesam
+      </p>
+        <p>
+        Oauth2 standard &#8211; Salesforce microservice
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="sesam-io"></a>6.1.11. Sesam I/O</h4></div></div></div>
+        
+        <p>
+        Common for sesams input &amp; output
+      </p>
+        <p>
+        Sesam push/pull protocol
+      </p>
+        <p>
+        Sesam-json (formattering)
+      </p>
+        <p>
+        Lister av entiteter
+      </p>
+        <p>
+        query-parameter
+      </p>
+        <p>
+        url-parameter
+      </p>
+        <p>
+        is-first
+      </p>
+        <p>
+        is-last
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="using-a-microservice-as-input-in-sesam"></a>6.1.12. Using a Microservice as Input in Sesam</h4></div></div></div>
+        
+        <p>
+        Inside sesam
+      </p>
+        <p>
+        Best practise:
+      </p>
+        <p>
+        Delta/last seen
+      </p>
+        <p>
+        request-params
+      </p>
+        <p>
+        is-first
+      </p>
+        <p>
+        is-last
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="looking-inside-an-input-microservice"></a>6.1.13. Looking inside an Input Microservice</h4></div></div></div>
+        
+        <p>
+        Inside the microservice
+      </p>
+        <p>
+        Transparens (minst mulig transformasjon i microservice)
+      </p>
+        <p>
+        Måter å returnere entiteter på (Transform i MS vs transform i
+        pipe)
+      </p>
+        <p>
+        Streaming
+      </p>
+        <p>
+        Logging
+      </p>
+        <p>
+        Gi gode feilmeldinger på http, catch spesifikke exceptions
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-microservices-novice"></a>6.1.14. Tasks for Microservices: Novice</h4></div></div></div>
+        
+        <p>
+        Run a microservice in Sesam [could be sink, http, source]
+      </p>
+        <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="2">
+            <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="15">
+            </li></ol></div>
+          </li></ol></div>
+        <p>
+        Ukjent: Business logikk
+      </p>
+        <p>
+        Eventual Consistency 1.4.30
+      </p>
+        <p>
+        NB!! _properties blir med ut!! NB!!
+      </p>
+        <p>
+        Filter
+      </p>
+        <p>
+        _filtered - blir ikke sendt videre
+      </p>
+        <p>
+        _deleted - blir sendt videre
+      </p>
+        <p>
+        Endpoints fjerner namespaces
+      </p>
+        <p>
+        Batching/streaming
+      </p>
+        <p>
+        NB! siste batch sendt fra sesam er alltid en tom liste
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="looking-inside-an-output-microservice"></a>6.1.15. Looking inside an Output Microservice</h4></div></div></div>
+        
+        <p>
+        Create vs update
+      </p>
+        <p>
+        Formattering
+      </p>
+        <p>
+        Transparens (minst mulig transformasjon i microservice)
+      </p>
+        <p>
+        transit-encoding fra sesam
+      </p>
+        <p>
+        Logging
+      </p>
+        <p>
+        Gi gode feilmeldinger på http, catch spesifikke exceptions
+      </p>
+        <p>
+        Batching/streaming
+      </p>
+        <p>
+        NB! siste batch sendt fra sesam er alltid en tom liste
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="guidelines-for-microservice-development"></a>6.1.16. Guidelines for Microservice Development</h4></div></div></div>
+        
+        <p>
+          <span class="emphasis"><em>Check if it already exists</em></span>
+        </p>
+        <p>
+        Documentation: Readme
+      </p>
+        <p>
+        Define Scope
+      </p>
+        <p>
+        Gjenbrukbarhet
+      </p>
+        <p>
+        Sesamutils
+      </p>
+        <p>
+        Templates
+      </p>
+        <p>
+        Env var for dynamiske MS&#8217;er
+      </p>
+        <p>
+        Videreutvikling
+      </p>
+        <p>
+        Release/tagging
+      </p>
+        <p>
+        Ref. Optimalisering 5.3.17
+      </p>
+        <p>
+        Requirements.txt
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="microservices-and-github-vcs"></a>6.1.17. Microservices and GitHub [VCS]</h4></div></div></div>
+        
+        <p>
+        Lisenser
+      </p>
+        <p>
+        For community bruk
+      </p>
+        <p>
+        For privat bruk
+      </p>
+        <p>
+        Community github/slack/stackoverflow
+      </p>
+        <p>
+        Krav til microservices i sesam-community
+      </p>
+        <p>
+        Videreutvikling
+      </p>
+        <p>
+        Release/tagging
+      </p>
+        <p>
+        Byggserver &#8211; Travis, Azure ContainerRegistry
+      </p>
+        <p>
+        For community bruk
+      </p>
+        <p>
+        For privat bruk
+      </p>
+        <p>
+        Reference the &#8220;5.2.8 Changing a Microservice&#8221; for workflow
+      </p>
+        <p>
+        Ref appendix with complete microservice workflow (create a
+        sequence diagram Gabriell/Daniel?)
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="optimizing-a-microservice"></a>6.1.18. Optimizing a Microservice</h4></div></div></div>
+        
+        <p>
+        Minnebruk
+      </p>
+        <p>
+        Streaming / Yield
+      </p>
+        <p>
+        Delta/last seen
+      </p>
+        <p>
+        Transparens (minst mulig transformasjon i microservice)
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="microservice-system-types"></a>6.1.19. Microservice System types</h4></div></div></div>
+        
+        <p>
+        Lots of examples!
+      </p>
+        <p>
+        How should microservices which read or write to/from these types
+        work? What have we learned?
+      </p>
+        <p>
+        Source &amp; Sink
+      </p>
+        <p>
+        Apier
+      </p>
+        <div class="blockquote"><blockquote class="blockquote">
+          <p>
+          Paging
+        </p>
+          <p>
+          Update VS Create
+        </p>
+        </blockquote></div>
+        <p>
+        Filer
+      </p>
+        <p>
+        sFtp
+      </p>
+        <p>
+        SOAP
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-microservices-intermediate"></a>6.1.20. Tasks for Microservices: Intermediate</h4></div></div></div>
+        
+        <p>
+        Run a microservice in Sesam [could be sink, http, source]
+      </p>
+        <p>
+        Create a microservice
+      </p>
+        <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+            <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem" value="21">
+            </li></ol></div>
+          </li></ol></div>
+        <p>
+        Env vars
+      </p>
+        <p>
+        Lokal testing
+      </p>
+        <p>
+        Returnerer riktig format (json som sesam kan lese)
+      </p>
+        <p>
+        Unit testing
+      </p>
+        <p>
+        [Experimental] Undersøke:
+      </p>
+        <div class="literallayout"><p>[Experimental] Morten? (docker-compose att: Gabriell)<br>
+ </p></div>
+        <p>
+        [Experimental] !!NB!! Definer testing i ms // Lag en
+        test-ms-template // Implementer MVP testing på sesam-community
+        [great expectations python-lib Daniel har info]!!
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="proxy-endpoint-jonas"></a>6.1.21. Proxy Endpoint [Jonas]</h4></div></div></div>
+        
+        <p>
+        Kan lage en ms med frontend f.eks og eksponere den fra sesam
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="chaining"></a>6.1.22. Chaining</h4></div></div></div>
+        
+        <p>
+        Ref advanced system 2.4.13.
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-microservices-intermediate-1"></a>6.1.23. Tasks for Microservices: Intermediate</h4></div></div></div>
+        
+        <p>
+        Run a microservice in Sesam [could be sink, http, source]
+      </p>
+        <p>
+        Create a microservice
+      </p>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="epilogue-4"></a>6.2. Epilogue</h3></div></div></div>
+      
+      <p>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </p>
+      <p>
+      In relation to the introduction, tell them what they&#8217;ve learned
+      and what they should be capable of using this knowledge to do.
+    </p>
+    </div>
+  </div>
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sesam-in-the-wild-wip"></a>7. Sesam in the Wild [WIP]</h2></div></div></div>
+    
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="introduction-5"></a>7.1. Introduction</h3></div></div></div>
+      
+      <p>
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="sesam-in-the-wild-beginner"></a>7.2. Sesam in the Wild: Beginner</h3></div></div></div>
+      
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="beginner-topic"></a>7.2.1. 6.1.1 Beginner topic</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-sesam-in-the-wild-beginner"></a>7.2.2. 6.1 Tasks for Sesam in the Wild: Beginner</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="sesam-in-the-wild-novice"></a>7.3. Sesam in the Wild: Novice</h3></div></div></div>
+      
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="x-novice-topic"></a>7.3.1. 6.2.X: Novice topic</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-sesam-in-the-wild-novice"></a>7.3.2. 6.2 Tasks for Sesam in the Wild: Novice</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="sesam-in-the-wild-intermediate"></a>7.4. Sesam in the Wild: Intermediate</h3></div></div></div>
+      
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="x-intermediate-topic"></a>7.4.1. 6.3.X: Intermediate topic</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-sesam-in-the-wild-intermediate"></a>7.4.2. 6.3 Tasks for Sesam in the Wild: Intermediate</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="sesam-in-the-wild-advanced"></a>7.5. Sesam in the Wild: Advanced</h3></div></div></div>
+      
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="x-advanced-topic"></a>7.5.1. 6.4.X: Advanced topic</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+      <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="tasks-for-sesam-in-the-wild-advanced"></a>7.5.2. 6.4 Tasks for Sesam in the Wild: Advanced</h4></div></div></div>
+        
+        <p>
+      </p>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="epilouge"></a>7.6. Epilouge</h3></div></div></div>
+      
+      <p>
+    </p>
+    </div>
+  </div>
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="appendix"></a>8. Appendix</h2></div></div></div>
+    
+    <p>
+    1.X.X
+  </p>
+    <p>
+    2.X.X
+  </p>
+    <p>
+    3.X.X
+  </p>
+    <p>
+    4.X.X
+  </p>
+    <p>
+    5.X.X
+  </p>
+  </div>
+</div></body></html>

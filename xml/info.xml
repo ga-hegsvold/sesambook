@@ -1,0 +1,42 @@
+<info>
+  <title>Sesambook</title>
+  <authorgroup>
+    <author>
+      <personname>
+        <firstname>Morten</firstname>
+        <surname>Frellumstad</surname>
+      </personname>
+    </author>
+    <author>
+      <personname>
+        <firstname>Erik</firstname>
+        <surname>Leven</surname>
+      </personname>
+    </author>
+    <author>
+      <personname>
+        <firstname>Gabriel Constantin</firstname>
+        <surname>Vig</surname>
+      </personname>
+    </author>
+    <author>
+      <personname>
+        <firstname>Geir Atle</firstname>
+        <surname>Hegsvold</surname>
+      </personname>
+    </author>
+  </authorgroup>
+  <revhistory>
+    <revision>
+      <revnumber>01</revnumber>
+      <date>2021-03-01</date>
+      <authorinitials>GAH</authorinitials>
+      <revremark>Initial version.</revremark>
+    </revision>
+  </revhistory>
+  <abstract>
+    <para>
+				Lorem ipsum.
+			</para>
+  </abstract>
+</info>

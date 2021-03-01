@@ -1,0 +1,606 @@
+<sect1 id="architecture-and-concepts">
+  <title>Architecture and Concepts</title>
+  <sect2 id="introduction">
+    <title>Introduction</title>
+    <para>
+      Sesam opens the door to running a data-driven business, but what
+      is a data driven business and how does the journey towards it
+      look?
+    </para>
+    <para>
+      In this chapter we will introduce you to Sesam as a way of not
+      only developing but thinking. You will learn about overarching
+      themes for designing integrations, the components you build with
+      and the pitfalls to look out for along the way.
+    </para>
+    <para>
+      After reading you can expect to recognize and design a data driven
+      Integration of your own.
+    </para>
+  </sect2>
+  <sect2 id="architecture">
+    <title>Architecture</title>
+    <para>
+      What do we mean about architecture
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </orderedlist>
+    <para>
+      There are some integration architectures which have been used
+      historically and today even. One is p2p, where systems create
+      connections on-demand between them, as seen in Figure 1.1.1A:
+      Point 2 Point.
+    </para>
+    <para>
+      * P2P
+    </para>
+    <para>
+      * ESB
+    </para>
+    <para>
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="media/image1.png" width="1.00000in" depth="1.00000in" />
+        </imageobject>
+      </inlinemediaobject>
+    </para>
+    <para>
+      Figure 1 .1.1A: Point 2 Point
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+      </listitem>
+      <listitem>
+      </listitem>
+    </orderedlist>
+    <para>
+      What do we mean about datahub, and why is sesam a datahub
+    </para>
+    <para>
+      Pros/Cons
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+      </listitem>
+      <listitem>
+      </listitem>
+    </orderedlist>
+    <para>
+      Terminology
+    </para>
+    <para>
+      Systems, pipes, datasets
+    </para>
+    <para>
+      In order to understand how Sesam works, it is important to
+      understand the parts Sesam is made up of.
+    </para>
+    <para>
+      There are three central re-occurring concepts in Sesam which you
+      will encounter in your everyday life working with the integration
+      platform: systems, pipes and datasets. These are the fundamental
+      parts which make up a Sesam integration pipeline. Figure 1.1.5A
+      gives you an insight into how a standard Sesam integration
+      pipeline would look.
+    </para>
+    <para>
+      <inlinemediaobject>
+        <imageobject>
+          <objectinfo>
+            <title>
+              Fig 1.1.5A
+            </title>
+          </objectinfo>
+          <imagedata fileref="media/image3.png" width="5.00000in" depth="0.50000in" />
+        </imageobject>
+      </inlinemediaobject>
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Systems:
+        </para>
+      </listitem>
+    </itemizedlist>
+    <blockquote>
+      <para>
+        A system’s main feature is to import and export data into and
+        out of the Sesam portal. They are therefore found in the
+        beginning and end of the pipeline flows. A system could connect
+        to a REST API, directly to a database of simply send data to a
+        waiting http server. Sesam has several of these system types
+        built into the product to simplify the workings inside the
+        portal. In situations where the built-in system types are not
+        enough for your requirements Sesam also supports connecting
+        systems to a microservice which in turn can manipulate and
+        delegate data according to your own specifications, making Sesam
+        a very robust and comprehensive tool.
+      </para>
+    </blockquote>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Pipes:
+        </para>
+      </listitem>
+    </itemizedlist>
+    <blockquote>
+      <para>
+        Pipes handles the transformation of the data and specifies where
+        the data is supposed to be sent. Manipulation of the data is
+        done through Sesam’s own Data Transformation Language (DTL)
+        which allows you to add, remove, transform and combine data
+        according to you own needs. A pipe generally acquires data from
+        a system or from a dataset depending on where the pipe is
+        located inside the integration pipeline.
+      </para>
+    </blockquote>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Datasets:
+        </para>
+      </listitem>
+    </itemizedlist>
+    <blockquote>
+      <para>
+        Datasets are Sesam’s storage units. This is where pipes store
+        the data after configuring them and in a pipeline flow, they are
+        generally found between pipes. Sesam stores data in order to be
+        able to perform tracking and indexing, but you will learn more
+        about these functionalities later in this book (maybe a link?).
+      </para>
+    </blockquote>
+    <sect3 id="the-sesam-portal">
+      <title>The Sesam portal</title>
+      <para>
+        Show <emphasis><emphasis>basics</emphasis></emphasis> of portal
+      </para>
+      <para>
+        (Here also refer to a full chapter for portal or from the
+        projects chapter?)
+      </para>
+      <para>
+        Integrations, connections and configurations can all be accessed
+        inside the Sesam portal; the user interface of the Sesam
+        product, The Sesam portal can be accessed at portal.sesam.io,
+        and in this section you will learn the most commonly used parts
+        of the portal such that you can orient yourself, as well as
+        manage existing integrations. For a full explanation if the
+        workings and functionality of the Sesam portal, please look
+        [here (with a link)].
+      </para>
+      <para>
+        When logging in to the portal you will be met with a page like
+        figure 1.1.6A
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="media/image4.png" width="6.18589in" depth="2.01042in" />
+          </imageobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        The cards on the Dashboard are often referred to as
+        “subscriptions” or “nodes” and they represent separate instances
+        of Sesam installations. Each node comes in different sizes
+        (memory available) depending on the requirements of the
+        customer/project/user. In this example you will be shown the
+        portal inside the node called “Training Node”, but all nodes
+        will have the same setup, only different set of systems, pipes
+        and datasets.
+      </para>
+      <para>
+        When entering the “Training Node” you will be met with the page
+        seen in figure 1.1.6B.
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="media/image5.png" width="6.14584in" depth="2.99609in" />
+          </imageobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        In this section we will only focus on the specific parts of the
+        portal needed to start working with Sesam, namely the “Pipes”
+        page and the “Systems” page.
+      </para>
+      <para>
+        When entering the “Pipes” page you will be met by figure 1.1.6C.
+        This figure shows you all the available pipes in your
+        subscription as well as some of their corresponding meta-data.
+        There are also several search and filter options available,
+        which are specially handy when trying to located one, or a set
+        of pipes, in a subscription with many pipes.
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="media/image6.png" width="6.26042in" depth="2.98674in" />
+          </imageobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        If you now enter the pipe called “person-cmm” we can look into
+        more of details regarding how you may use the portal to
+        navigate, troubleshoot and configure you pipes.
+      </para>
+      <para>
+        Upon entering a pipe you by default be sent to the pipe’s
+        “Graph” view, as seen in figure 1.1.6D.
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="media/image7.png" width="5.00000in" depth="2.44792in" />
+          </imageobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        The graph view shows you which pipes are upstream and downstream
+        to your the specific pipe you have selected, and it also shows
+        connections to related pipes (you will learn more about
+        connected pipes later [link maybe?]). For now we will focus on
+        three of the pipe’s subpages; Config, Input and Output.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Config: The config subpage is where the actual coding takes
+            place. This is where you define what this specific pipe is
+            supposed to do.
+          </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Something general about JSON
+      </para>
+      <para>
+        JSON configuration of pipes and systems
+      </para>
+      <para>
+        DTL also validated as JSON?
+      </para>
+    </sect3>
+    <sect3 id="namegiving-conventions">
+      <title>Namegiving conventions</title>
+      <para>
+        How (maybe a table) to give good names to the different parts in
+        sesam
+      </para>
+      <para>
+        Why this is <emphasis><emphasis>really</emphasis></emphasis>
+        important
+      </para>
+    </sect3>
+    <sect3 id="systems">
+      <title>Systems</title>
+      <para>
+        Short about systems (where in the sesam-world-map)
+      </para>
+      <para>
+        Something more general about pipes maybe in context of pipes and
+        datasets
+      </para>
+      <para>
+        Very low level but enough to set up an inputpipe after maybe?
+      </para>
+      <para>
+        and refer to systems chapter
+      </para>
+      <para>
+        Namegivingconventions ref. 1.1.8
+      </para>
+      <para>
+        Where to make new ref 1.1.6
+      </para>
+    </sect3>
+    <sect3 id="pipes">
+      <title>Pipes</title>
+      <para>
+        Something more general about pipes maybe in context of systems
+        and datasets
+      </para>
+      <para>
+        Inbound(Input?)/Preparation/Outbound(Output?)
+      </para>
+      <para>
+        Very low level but enough to connect to system?
+      </para>
+      <para>
+        and refer to pipes chapter
+      </para>
+      <para>
+        Pump
+      </para>
+      <para>
+        Input &amp; output(sink)
+      </para>
+      <para>
+        Namegivingconventions ref. 1.1.8
+      </para>
+      <para>
+        Where to make new ref 1.1.6
+      </para>
+    </sect3>
+    <sect3 id="datasets">
+      <title>Datasets</title>
+      <para>
+        Something more general about pipes maybe in context of systems
+        and pipes
+      </para>
+      <para>
+        Very low level but enough to see entities?
+      </para>
+      <para>
+        and refer to entities subchapter ref. 1.1.12
+      </para>
+      <para>
+        Namegivingconventions ref. 1.1.8
+      </para>
+      <para>
+        Where to make new ref 1.1.6
+      </para>
+    </sect3>
+    <sect3 id="datasets-vs.-tables">
+      <title>Datasets vs. tables</title>
+      <para>
+        Examples end ref to 1.1.13
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+      <para>
+        Why globals
+      </para>
+      <para>
+        Golden records
+      </para>
+      <para>
+        Gjør data tilgjengelig
+      </para>
+      <para>
+        Ref. 1.2.19, 3.2.14
+      </para>
+    </sect3>
+    <sect3 id="special-sesam-attributes">
+      <title>Special sesam attributes</title>
+      <para>
+        Namespace
+      </para>
+      <para>
+        Rdf:type
+      </para>
+      <para>
+        _id
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-architecture-and-concepts-beginner">
+      <title>1.1 Tasks for Architecture and Concepts: Beginner</title>
+      <para>
+        1. <emphasis>In what component is data stored in
+        Sesam?</emphasis>
+      </para>
+      <para>
+        2. <emphasis>Which component moves data in Sesam?</emphasis>
+      </para>
+      <para>
+        3. <emphasis>What moves through Sesam?</emphasis>
+      </para>
+<literallayout><emphasis>4. Name the input pipe for this system &amp; table:</emphasis>
+<emphasis>System name : IFS
+Table name: workorder
+Pipe name: ______</emphasis></literallayout>
+      <para>
+        5. <emphasis>in an entity representing a row, how would the
+        column “personalid” with row value “123” look after it is read
+        by a pipe named crm-person and stored inside an entity of the
+        output dataset?</emphasis>
+      </para>
+      <para>
+        6. <emphasis>What is the difference between and entity stored as
+        a row in a table vs in a Sesam Dataset?</emphasis>
+      </para>
+      <para>
+        7. <emphasis>What is the minimum required to define an
+        entity?</emphasis>
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+          <orderedlist numeration="arabic">
+            <listitem override="16">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        The value of joining data
+      </para>
+      <para>
+        Short overview of what data joining is
+      </para>
+      <para>
+        1-1, 1-n, n-m
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="16">
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+      <para>
+        All data from input ends up in output
+      </para>
+    </sect3>
+    <sect3 id="left-join-hops">
+      <title>Left Join (Hops)</title>
+      <para>
+        Data is appended to the output
+      </para>
+    </sect3>
+    <sect3 id="global">
+      <title>Global</title>
+      <para>
+        Golden – the best truth about common attributes of a concept
+        collected from multiple sources
+      </para>
+      <para>
+        Coalesce, prioritization of source data (master data)
+      </para>
+    </sect3>
+    <sect3 id="generic-input-pipes-custom-output-pipes">
+      <title>Generic input pipes, custom output pipes</title>
+      <para>
+        Write about where globals fit into the bigger picture of data
+        flows, how do pipes going in look and how do pipes going out
+        look?
+      </para>
+    </sect3>
+    <sect3 id="filter-entities-on-the-way-out">
+      <title>Filter entities on the way out</title>
+<literallayout>Filter gives the ability to stop entities from being sent by providing a logical gate.
+On the other hand, it can make sure you only send the entities you wish to receive in an endpoint.</literallayout>
+<literallayout>Makes sure the endpoint only receives the entities they want.
+Can stop entities from triggering events they shouldn’t trigger.</literallayout>
+<literallayout>+ + many examples
+filtering on source data
+on target data (from hops f.ex) – typical example, hop to global-classification and map status, if cancelled then filter</literallayout>
+    </sect3>
+    <sect3 id="tag-your-entities---categorization-of-sub-concepts">
+      <title>Tag your entities - Categorization of sub-concepts</title>
+      <para>
+        Extra:type
+      </para>
+    </sect3>
+    <sect3 id="customize-data-structure-for-endpoints">
+      <title>Customize data structure for endpoints</title>
+<literallayout>Sesam has transformative functions to add, remove,Copy the attributes you want the end system to receive.
+All changes to attributes you add to the target will cause an entity update.</literallayout>
+      <para>
+        Referring to namespace 1.1.15 to know property origin, rename,
+        add, copy
+      </para>
+    </sect3>
+    <sect3 id="change-tracking-data-delta">
+      <title>Change tracking &amp; data delta</title>
+      <para>
+        All entities stored inside sesam have a _hash value. This is a
+        quantification of an entity and is calculated every time an
+        entity is processed by a pipe. If the _hash value changes or is
+        new, the entity will be stored as a new version in dataset. We
+        call this change in _hash value a data-delta.
+      </para>
+      <para>
+        Any data-delta for an entity in a dataset causes downstream
+        pipes to see this as a new sequence number they haven’t yet
+        read. This in turn makes the pipe process the entity. If the
+        processed entity does not exist or gets a new _hash in the
+        output of the pipe, it will cause an update to the output
+        dataset.
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="26">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Dependency tracking
+      </para>
+      <para>
+        Stacking av hops (dvs flere datasett)
+      </para>
+      <para>
+        Indeksering
+      </para>
+    </sect3>
+    <sect3 id="incremental-system-queries">
+      <title>Incremental System queries</title>
+      <para>
+        Dataset vs database-tabell (oppdatere data)
+      </para>
+    </sect3>
+    <sect3 id="subset">
+      <title>Subset</title>
+      <para>
+        Grabbing the rdf:type or type of data you need from a global
+      </para>
+    </sect3>
+    <sect3 id="dynamic-static-timeseries-data">
+      <title>Dynamic, Static &amp; Timeseries Data</title>
+<literallayout>Dynamic data = frequent updates to the same object
+Static data = rare/never update to the same object
+Timeseries = Frequent new entities about the same object. (f.ex _id = meterpoint &amp; timestamp and attribute attached is reading the last hour)</literallayout>
+    </sect3>
+    <sect3 id="when-to-use-a-microservice">
+      <title>When to use a microservice</title>
+      <para>
+        For everything Sesam is bad at or can’t do.
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-architecture-and-concepts-intermediate">
+      <title>1.3 Tasks for Architecture and Concepts:
+      Intermediate</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="architecture-and-concepts-advanced">
+    <title>1.4 Architecture and Concepts: Advanced</title>
+    <sect3 id="choosing-a-source-dataset-for-your-pipe">
+      <title>Choosing a source dataset for your pipe</title>
+      <para>
+        Do not create children based on a hop, rather read from the
+        dataset you hop to.
+      </para>
+    </sect3>
+    <sect3 id="eventual-consistency">
+      <title>Eventual Consistency</title>
+      <para>
+        Dependency tracking causes reprocessing of source entity in the
+        pipe with the hops.
+      </para>
+      <para>
+        Idempotency
+      </para>
+    </sect3>
+    <sect3 id="create-child-emit-children">
+      <title>Create Child &amp; Emit children</title>
+      <para>
+        Change-tracking
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-architecture-and-concepts-advanced">
+      <title>1.4 Tasks for Architecture and Concepts: Advanced</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="epilogue">
+    <title>Epilogue</title>
+    <para>
+      Congratulations on making your way through this treacherous
+      territory and finding your way out. Let’s have a quick chat about
+      the path you’ve walked before moving on to greener pastures.
+    </para>
+  </sect2>
+</sect1>

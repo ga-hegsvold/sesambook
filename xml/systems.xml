@@ -1,0 +1,202 @@
+<sect1 id="systems-1">
+  <title>Systems</title>
+  <sect2 id="introduction-1">
+    <title>Introduction</title>
+    <para>
+      In this chapter you will learn about Systems; the component which
+      connects Sesam to the external world. They are an integral
+      component of Sesam and have a wide array of uses, so we will start
+      off by introducing the general knowledge you should have at-hand
+      while setting one up.
+    </para>
+    <para>
+      Onwards you will learn how Systems interface with Pipes and how to
+      use customized solutions when Sesams built-in systems cannot.
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </orderedlist>
+    <para>
+      Everything external to the node
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+      </listitem>
+      <listitem>
+      </listitem>
+    </orderedlist>
+    <para>
+      Input, output (mention transform?)
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+      </listitem>
+      <listitem>
+      </listitem>
+    </orderedlist>
+    <para>
+      How are secrets stored in the backend? – Discuss with product
+    </para>
+    <para>
+      How do systems read secrets? Encrypted and decrypted in
+      transmission or passed as plain text?
+    </para>
+    <para>
+      $SECRET
+    </para>
+    <para>
+      $ENV
+    </para>
+    <sect3 id="json-push-pull-protocol">
+      <title>JSON Push &amp; Pull protocol</title>
+      <para>
+        Lots of info in docs.
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-systems-beginner">
+      <title>Tasks for Systems: Beginner</title>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+<literallayout>General introduction to what systems are and what problems they solve.
+Everything external to the node</literallayout>
+    </sect3>
+    <sect3 id="systems-as-a-pipe-source">
+      <title>Systems as a pipe source</title>
+      <para>
+        System configuration (mostly) defines the possibilities pipes
+        have to pull data.
+      </para>
+      <para>
+        We need to write about what a system is in the context of a pipe
+        source, with not only configs but explanations. Keep it simple
+        don’t go into too many system types (json &amp; SQL?). Write
+        more text than configurations, draw stuff. (1-N)
+      </para>
+    </sect3>
+    <sect3 id="systems-as-a-pipe-sink">
+      <title>Systems as a pipe sink</title>
+      <para>
+        Same as above only with system as a sink. What is a system in
+        the context of a sink? What does the pipe see? What does the
+        system see? (1-N)
+      </para>
+    </sect3>
+    <sect3 id="system-authentication-methods">
+      <title>[System?] Authentication methods </title>
+<literallayout>Default authentication methods built in for systems handling URLS $SECRET()
+Basic, Oauth2, JWT, microservices</literallayout>
+<literallayout>Authentication methods for specific systems: ?? worth mentioning
+SQL, oracle</literallayout>
+    </sect3>
+    <sect3 id="system-types">
+      <title>System Types</title>
+<literallayout>Mention all built in system types, is there a common denominator?
+refer to appendix/documentation for more information</literallayout>
+      <para>
+        “Type”: “system_XXXX”
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="12">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        How does Sesam look at microservices?
+      </para>
+      <para>
+        What is a microservice?
+      </para>
+      <para>
+        How do I use one?
+      </para>
+      <para>
+        Don’t go too deep, we have a whole module for these.
+      </para>
+      <para>
+        Probably want to wait with this subchapter until we’ve written
+        the microservices module.
+      </para>
+    </sect3>
+    <sect3 id="http-transforms">
+      <title>HTTP Transforms</title>
+      <para>
+        When you need to transform or append information which Sesam
+        isn’t good at handling, you’d use an http_transform.
+      </para>
+      <para>
+        When you don’t want all the data from a system, but need to
+        append it to the data you’re processing, you’d typically do a
+        http_transform.
+      </para>
+      <para>
+        Example: You want to get the current weather for a location, but
+        you don’t want to read all the weather around the world
+        constantly into sesam. What you’re interested in is the weather
+        for a location specified by an entity at runtime. You can get
+        this by querying an API per entity being processed.vor
+      </para>
+      <para>
+        Example: You need to convert UTM to LatLong coordinates. Sesam
+        doesn’t have a function to do this built in, so you make a
+        microservice to do the conversion and call this with an
+        http_transform.
+      </para>
+      <para>
+        General Example: appending time-dependent datapoints to your
+        output without reading absolutely all of the time-dependented
+        data.
+      </para>
+    </sect3>
+    <sect3 id="chaining-of-systems">
+      <title>Chaining of Systems</title>
+      <para>
+        Microservices are easily re-used if they do generic stuff.
+      </para>
+      <para>
+        The point of chaining microservices or API’s is to use multiple
+        generic, simple services to solve a bigger complex problem.
+      </para>
+      <para>
+        Pros: Usually re-use of microservices makes development time
+        shorter
+      </para>
+      <para>
+        Cons: Debugging can be complex and unforeseen issues hard to
+        find &amp; pinpoint. Can’t see it in the graph, need to search
+        the whole node configuration to find the systems.
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-systems-intermediate">
+      <title>2.3 Tasks for Systems: Intermediate</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="epilogue-1">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </sect2>
+</sect1>

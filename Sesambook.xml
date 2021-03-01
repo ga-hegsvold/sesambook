@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0">
+  <xi:include href="info.xml"/>
+  <xi:include href="prolog.xml"/>
+  <xi:include href="architecture-and-concepts.xml"/>
+  <xi:include href="systems.xml"/>
+  <xi:include href="dtl.xml"/>
+  <xi:include href="projects-infrastructure.xml"/>
+  <!--
+  <index/>
+  -->
+  <!--
+  <glossary role="auto"/>
+  -->
+  <sect1 id="microservices">
+    <title>Microservices</title>
+    <sect2 id="introduction-4">
+      <title>Introduction</title>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem>
+          </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+      Nevn bruksområder
+    </para>
+      <para>
+      språk
+    </para>
+      <para>
+      Docker
+    </para>
+      <sect3 id="why-use-microservices-in-sesam">
+        <title>Why use Microservices in Sesam?</title>
+        <para>
+        System som gjør ting andre systemer ikke kan
+      </para>
+      </sect3>
+      <sect3 id="how-are-microservices-used-in-sesam">
+        <title>How are Microservices used in Sesam?</title>
+        <para>
+        Ekte Use caser
+      </para>
+      </sect3>
+      <sect3 id="microservice-hosting">
+        <title>Microservice hosting</title>
+        <para>
+        Sesamcommunity Git &amp; Docker
+      </para>
+        <para>
+        Intro til Hosting
+      </para>
+      </sect3>
+      <sect3 id="running-a-microservice-in-sesam">
+        <title>Running a microservice in Sesam</title>
+        <para>
+        Intro til Running I sesam
+      </para>
+        <para>
+        Forklare GUI
+      </para>
+        <para>
+        Pull &amp; Restart
+      </para>
+        <blockquote>
+          <para>
+          Status
+        </para>
+          <para>
+          Refresh
+        </para>
+        </blockquote>
+        <para>
+        Forklare Config
+      </para>
+        <para>
+        Pipe source/sink/http
+      </para>
+      </sect3>
+      <sect3 id="types-of-microservices">
+        <title>Types of Microservices</title>
+        <blockquote>
+          <para>
+          Interne
+        </para>
+          <para>
+          http-transform
+        </para>
+          <para>
+          Source, sink (begge i 1?)
+        </para>
+          <para>
+          Eksterne
+        </para>
+          <para>
+          Monitorering av Sesam
+        </para>
+        </blockquote>
+      </sect3>
+      <sect3 id="naming-convention">
+        <title>Naming Convention</title>
+        <para>
+        _id standard system naming convention (source/sink system name)
+      </para>
+        <para>
+        Repo/microservice naming convention recommendation:
+        sesam-&lt;system&gt;[-&lt;special-functionality&gt;]
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-microservices-beginner-tasks">
+        <title>Tasks for Microservices: Beginner – Tasks</title>
+        <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <orderedlist numeration="arabic">
+              <listitem override="8">
+            </listitem>
+            </orderedlist>
+          </listitem>
+        </orderedlist>
+        <para>
+        Sesam push/pull protocol
+      </para>
+        <para>
+        Error handling/logging
+      </para>
+        <para>
+        Pipes
+      </para>
+        <para>
+        Statuslogg [Hvordan bruke &amp; Lese]
+      </para>
+        <para>
+        Log-level
+      </para>
+        <para>
+        Trigger/Call
+      </para>
+        <para>
+        Endepunkt i ms (/&lt;paramater&gt;)
+      </para>
+        <para>
+        Hvordan sender man info til ms fra sesam
+      </para>
+        <para>
+        url-i pipe
+      </para>
+        <para>
+        url-parameter
+      </para>
+      </sect3>
+      <sect3 id="microservice-development-prerequisites">
+        <title>Microservice Development Prerequisites</title>
+        <blockquote>
+          <para>
+          Docker
+        </para>
+          <para>
+          User
+        </para>
+          <para>
+          Program
+        </para>
+          <para>
+          GitHub
+        </para>
+          <para>
+          User
+        </para>
+          <para>
+          CLI/Desktop
+        </para>
+        </blockquote>
+      </sect3>
+      <sect3 id="changing-a-microservice">
+        <title>Changing a Microservice</title>
+        <blockquote>
+          <para>
+          Workflow
+        </para>
+          <para>
+          Fork [Vi må lage et repo]
+        </para>
+          <para>
+          Change
+        </para>
+          <para>
+          Test
+        </para>
+          <para>
+          Teste lokalt
+        </para>
+          <para>
+          Bygge docker konteiner
+        </para>
+          <para>
+          Pushe docker konteiner
+        </para>
+          <para>
+          Explanation of Bare Bones DockerFile
+        </para>
+          <para>
+          How DockerFiles run [Sequentally, cache]
+        </para>
+        </blockquote>
+      </sect3>
+      <sect3 id="authentication-with-microservices">
+        <title>Authentication with microservices</title>
+        <para>
+        Docker hosting site login
+      </para>
+        <para>
+        Passing Env-vars/Secrets i Sesam
+      </para>
+        <para>
+        Oauth2 standard – Salesforce microservice
+      </para>
+      </sect3>
+      <sect3 id="sesam-io">
+        <title>Sesam I/O</title>
+        <para>
+        Common for sesams input &amp; output
+      </para>
+        <para>
+        Sesam push/pull protocol
+      </para>
+        <para>
+        Sesam-json (formattering)
+      </para>
+        <para>
+        Lister av entiteter
+      </para>
+        <para>
+        query-parameter
+      </para>
+        <para>
+        url-parameter
+      </para>
+        <para>
+        is-first
+      </para>
+        <para>
+        is-last
+      </para>
+      </sect3>
+      <sect3 id="using-a-microservice-as-input-in-sesam">
+        <title>Using a Microservice as Input in Sesam</title>
+        <para>
+        Inside sesam
+      </para>
+        <para>
+        Best practise:
+      </para>
+        <para>
+        Delta/last seen
+      </para>
+        <para>
+        request-params
+      </para>
+        <para>
+        is-first
+      </para>
+        <para>
+        is-last
+      </para>
+      </sect3>
+      <sect3 id="looking-inside-an-input-microservice">
+        <title>Looking inside an Input Microservice</title>
+        <para>
+        Inside the microservice
+      </para>
+        <para>
+        Transparens (minst mulig transformasjon i microservice)
+      </para>
+        <para>
+        Måter å returnere entiteter på (Transform i MS vs transform i
+        pipe)
+      </para>
+        <para>
+        Streaming
+      </para>
+        <para>
+        Logging
+      </para>
+        <para>
+        Gi gode feilmeldinger på http, catch spesifikke exceptions
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-microservices-novice">
+        <title>Tasks for Microservices: Novice</title>
+        <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+        <orderedlist numeration="arabic">
+          <listitem override="2">
+            <orderedlist numeration="arabic">
+              <listitem override="15">
+            </listitem>
+            </orderedlist>
+          </listitem>
+        </orderedlist>
+        <para>
+        Ukjent: Business logikk
+      </para>
+        <para>
+        Eventual Consistency 1.4.30
+      </para>
+        <para>
+        NB!! _properties blir med ut!! NB!!
+      </para>
+        <para>
+        Filter
+      </para>
+        <para>
+        _filtered - blir ikke sendt videre
+      </para>
+        <para>
+        _deleted - blir sendt videre
+      </para>
+        <para>
+        Endpoints fjerner namespaces
+      </para>
+        <para>
+        Batching/streaming
+      </para>
+        <para>
+        NB! siste batch sendt fra sesam er alltid en tom liste
+      </para>
+      </sect3>
+      <sect3 id="looking-inside-an-output-microservice">
+        <title>Looking inside an Output Microservice</title>
+        <para>
+        Create vs update
+      </para>
+        <para>
+        Formattering
+      </para>
+        <para>
+        Transparens (minst mulig transformasjon i microservice)
+      </para>
+        <para>
+        transit-encoding fra sesam
+      </para>
+        <para>
+        Logging
+      </para>
+        <para>
+        Gi gode feilmeldinger på http, catch spesifikke exceptions
+      </para>
+        <para>
+        Batching/streaming
+      </para>
+        <para>
+        NB! siste batch sendt fra sesam er alltid en tom liste
+      </para>
+      </sect3>
+      <sect3 id="guidelines-for-microservice-development">
+        <title>Guidelines for Microservice Development</title>
+        <para>
+          <emphasis>Check if it already exists</emphasis>
+        </para>
+        <para>
+        Documentation: Readme
+      </para>
+        <para>
+        Define Scope
+      </para>
+        <para>
+        Gjenbrukbarhet
+      </para>
+        <para>
+        Sesamutils
+      </para>
+        <para>
+        Templates
+      </para>
+        <para>
+        Env var for dynamiske MS’er
+      </para>
+        <para>
+        Videreutvikling
+      </para>
+        <para>
+        Release/tagging
+      </para>
+        <para>
+        Ref. Optimalisering 5.3.17
+      </para>
+        <para>
+        Requirements.txt
+      </para>
+      </sect3>
+      <sect3 id="microservices-and-github-vcs">
+        <title>Microservices and GitHub [VCS]</title>
+        <para>
+        Lisenser
+      </para>
+        <para>
+        For community bruk
+      </para>
+        <para>
+        For privat bruk
+      </para>
+        <para>
+        Community github/slack/stackoverflow
+      </para>
+        <para>
+        Krav til microservices i sesam-community
+      </para>
+        <para>
+        Videreutvikling
+      </para>
+        <para>
+        Release/tagging
+      </para>
+        <para>
+        Byggserver – Travis, Azure ContainerRegistry
+      </para>
+        <para>
+        For community bruk
+      </para>
+        <para>
+        For privat bruk
+      </para>
+        <para>
+        Reference the “5.2.8 Changing a Microservice” for workflow
+      </para>
+        <para>
+        Ref appendix with complete microservice workflow (create a
+        sequence diagram Gabriell/Daniel?)
+      </para>
+      </sect3>
+      <sect3 id="optimizing-a-microservice">
+        <title>Optimizing a Microservice</title>
+        <para>
+        Minnebruk
+      </para>
+        <para>
+        Streaming / Yield
+      </para>
+        <para>
+        Delta/last seen
+      </para>
+        <para>
+        Transparens (minst mulig transformasjon i microservice)
+      </para>
+      </sect3>
+      <sect3 id="microservice-system-types">
+        <title>Microservice System types</title>
+        <para>
+        Lots of examples!
+      </para>
+        <para>
+        How should microservices which read or write to/from these types
+        work? What have we learned?
+      </para>
+        <para>
+        Source &amp; Sink
+      </para>
+        <para>
+        Apier
+      </para>
+        <blockquote>
+          <para>
+          Paging
+        </para>
+          <para>
+          Update VS Create
+        </para>
+        </blockquote>
+        <para>
+        Filer
+      </para>
+        <para>
+        sFtp
+      </para>
+        <para>
+        SOAP
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-microservices-intermediate">
+        <title>Tasks for Microservices: Intermediate</title>
+        <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+        <para>
+        Create a microservice
+      </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <orderedlist numeration="arabic">
+              <listitem override="21">
+            </listitem>
+            </orderedlist>
+          </listitem>
+        </orderedlist>
+        <para>
+        Env vars
+      </para>
+        <para>
+        Lokal testing
+      </para>
+        <para>
+        Returnerer riktig format (json som sesam kan lese)
+      </para>
+        <para>
+        Unit testing
+      </para>
+        <para>
+        [Experimental] Undersøke:
+      </para>
+        <literallayout>[Experimental] Morten? (docker-compose att: Gabriell)
+ </literallayout>
+        <para>
+        [Experimental] !!NB!! Definer testing i ms // Lag en
+        test-ms-template // Implementer MVP testing på sesam-community
+        [great expectations python-lib Daniel har info]!!
+      </para>
+      </sect3>
+      <sect3 id="proxy-endpoint-jonas">
+        <title>Proxy Endpoint [Jonas]</title>
+        <para>
+        Kan lage en ms med frontend f.eks og eksponere den fra sesam
+      </para>
+      </sect3>
+      <sect3 id="chaining">
+        <title>Chaining</title>
+        <para>
+        Ref advanced system 2.4.13.
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-microservices-intermediate-1">
+        <title>Tasks for Microservices: Intermediate</title>
+        <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+        <para>
+        Create a microservice
+      </para>
+      </sect3>
+    </sect2>
+    <sect2 id="epilogue-4">
+      <title>Epilogue</title>
+      <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+      <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+    </sect2>
+  </sect1>
+  <sect1 id="sesam-in-the-wild-wip">
+    <title>Sesam in the Wild [WIP]</title>
+    <sect2 id="introduction-5">
+      <title>Introduction</title>
+      <para>
+    </para>
+    </sect2>
+    <sect2 id="sesam-in-the-wild-beginner">
+      <title>Sesam in the Wild: Beginner</title>
+      <sect3 id="beginner-topic">
+        <title>6.1.1 Beginner topic</title>
+        <para>
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-sesam-in-the-wild-beginner">
+        <title>6.1 Tasks for Sesam in the Wild: Beginner</title>
+        <para>
+      </para>
+      </sect3>
+    </sect2>
+    <sect2 id="sesam-in-the-wild-novice">
+      <title>Sesam in the Wild: Novice</title>
+      <sect3 id="x-novice-topic">
+        <title>6.2.X: Novice topic</title>
+        <para>
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-sesam-in-the-wild-novice">
+        <title>6.2 Tasks for Sesam in the Wild: Novice</title>
+        <para>
+      </para>
+      </sect3>
+    </sect2>
+    <sect2 id="sesam-in-the-wild-intermediate">
+      <title>Sesam in the Wild: Intermediate</title>
+      <sect3 id="x-intermediate-topic">
+        <title>6.3.X: Intermediate topic</title>
+        <para>
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-sesam-in-the-wild-intermediate">
+        <title>6.3 Tasks for Sesam in the Wild: Intermediate</title>
+        <para>
+      </para>
+      </sect3>
+    </sect2>
+    <sect2 id="sesam-in-the-wild-advanced">
+      <title>Sesam in the Wild: Advanced</title>
+      <sect3 id="x-advanced-topic">
+        <title>6.4.X: Advanced topic</title>
+        <para>
+      </para>
+      </sect3>
+      <sect3 id="tasks-for-sesam-in-the-wild-advanced">
+        <title>6.4 Tasks for Sesam in the Wild: Advanced</title>
+        <para>
+      </para>
+      </sect3>
+    </sect2>
+    <sect2 id="epilouge">
+      <title>Epilouge</title>
+      <para>
+    </para>
+    </sect2>
+  </sect1>
+  <sect1 id="appendix">
+    <title>Appendix</title>
+    <para>
+    1.X.X
+  </para>
+    <para>
+    2.X.X
+  </para>
+    <para>
+    3.X.X
+  </para>
+    <para>
+    4.X.X
+  </para>
+    <para>
+    5.X.X
+  </para>
+  </sect1>
+</article>

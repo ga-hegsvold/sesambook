@@ -1,0 +1,483 @@
+<sect1 id="projects-infrastructure">
+  <title>4. Projects &amp; Infrastructure</title>
+  <sect2 id="introduction-3">
+    <title>Introduction</title>
+    <para>
+      @todo Gabriell
+    </para>
+  </sect2>
+  <sect2 id="projects-infrastructure-beginner">
+    <title>4.1 Projects &amp; Infrastructure Beginner</title>
+    <sect3 id="portal-gui">
+      <title>Portal GUI</title>
+      <para>
+        Bli kjent med gui
+      </para>
+      <para>
+        Datasets
+      </para>
+      <para>
+        previous version etc.
+      </para>
+      <para>
+        Task på å sette opp ting som gjøres når man er i prosjekt
+      </para>
+      <para>
+        Laste opp/ned node i tools
+      </para>
+      <para>
+        Legge til brukere
+      </para>
+      <para>
+        Legge til env-vars/secrets (system secrets vs secrets)
+      </para>
+      <para>
+        Lage JWT
+      </para>
+      <para>
+        se på Execution logs/system dataset
+      </para>
+      <para>
+        system:config-dataset
+      </para>
+      <para>
+        Lage grupp/tilganger
+      </para>
+    </sect3>
+    <sect3 id="sesam-cli">
+      <title>sesam-CLI</title>
+      <para>
+        NB!! IKKE BRUK SYNCCONFIG TIL Å LASTE OPP/NED TIL AKTIVE NODER
+        (PROD)
+      </para>
+      <para>
+        pre-requisite lære seg hvordan man installerer det.
+      </para>
+      <para>
+        lag en sesam-init &lt;- feature request
+      </para>
+      <para>
+        setup
+      </para>
+      <para>
+        expected folder
+      </para>
+      <para>
+        test.conf.json
+      </para>
+      <para>
+        whitelist/blacklist
+      </para>
+      <para>
+        test.json
+      </para>
+      <para>
+        entiteter
+      </para>
+      <para>
+        env-var-folder
+      </para>
+      <para>
+        set up vars for different environments
+      </para>
+      <para>
+        test-env
+      </para>
+      <para>
+        .syncconfig
+      </para>
+      <para>
+        jwt, node
+      </para>
+      <para>
+        kommandoer
+      </para>
+      <para>
+        sesam upload/download
+      </para>
+      <para>
+        test
+      </para>
+      <para>
+        update
+      </para>
+      <para>
+        -print-scheduler-log
+      </para>
+      <para>
+        -vv
+      </para>
+      <para>
+        -use-internal-scheduler
+      </para>
+      <para>
+        wipe
+      </para>
+      <para>
+        restart
+      </para>
+      <para>
+        verify
+      </para>
+      <para>
+        run
+      </para>
+      <para>
+        -version
+      </para>
+      <para>
+        Hvordan funker expected output
+      </para>
+    </sect3>
+    <sect3 id="testing-testdata">
+      <title>Testing &amp; Testdata</title>
+      <para>
+        testing
+      </para>
+      <para>
+        Manuell testing med sesam-cli før opplasting til
+        versjonskontroll
+      </para>
+      <para>
+        Manuell testing med config-group på live node
+      </para>
+      <para>
+        Automatisk testing med ci-node
+      </para>
+      <para>
+        Testdata
+      </para>
+      <para>
+        Bør lage data som reflekterer virkelige koblinger mellom data i
+        systemer
+      </para>
+      <para>
+        Bør være nok for å beskrive de caser man kan møte i
+        virkeligheten
+      </para>
+      <para>
+        Bør ikke være all data i prod
+      </para>
+      <para>
+        Bør være anonymisert
+      </para>
+      <para>
+        Bør reflektere *innkommende* data
+      </para>
+      <para>
+        Bør utvidet behov legges til data, ikke endre eksisterende
+      </para>
+      <para>
+        Bør gis navn utfra det case du vil teste, f.eks gi entiteten
+        navn utfra casen
+      </para>
+      <para>
+        Dokumenter testdata
+      </para>
+      <para>
+        \\oppdater prosjekt i docs utfra hva vi skriver\\
+      </para>
+      <para>
+        Hvordan funker expected output
+      </para>
+    </sect3>
+    <sect3 id="dokumentasjon">
+      <title>Dokumentasjon</title>
+      <para>
+        Hvordan bruke docs.sesam.io
+      </para>
+      <para>
+        developer guide!!
+      </para>
+      <para>
+        ctrl + f &quot;hva du tror funksjon heter&quot;
+      </para>
+      <para>
+        Hvordan dokumentere
+      </para>
+      <para>
+        Schema definition
+      </para>
+      <para>
+        hva mener vi er dokumentasjon
+      </para>
+      <para>
+        Generell dokumentasjon
+      </para>
+      <para>
+        DTL dokumentasjon(comments)
+      </para>
+      <para>
+        clean code
+      </para>
+    </sect3>
+    <sect3 id="jwtauthentisering">
+      <title>JWT/Authentisering</title>
+      <para>
+        Hvordan fungerer JWT’er?
+      </para>
+      <para>
+        NB: Skal snake mer om API I sesam-in-the-wild
+      </para>
+    </sect3>
+    <sect3 id="groups-permissions">
+      <title>Groups &amp; Permissions</title>
+      <para>
+        Hvordan virker det
+      </para>
+      <para>
+        Får man satt opp tilgangsstyring i Sesam?
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Mappestruktur
+      </para>
+      <para>
+        System
+      </para>
+      <para>
+        Pipes
+      </para>
+      <para>
+        Node-metadata.conf.json
+      </para>
+      <para>
+        +expected
+      </para>
+      <para>
+        Global metadata
+      </para>
+      <para>
+        Namespaces
+      </para>
+      <para>
+        Tag for å inkludere c++ ext.
+      </para>
+      <para>
+        Dependency tracking hops limit
+      </para>
+      <para>
+        signalling
+      </para>
+      <para>
+        Referer mye til dokumentasjon
+      </para>
+    </sect3>
+    <sect3 id="deployment">
+      <title>Deployment</title>
+      <para>
+        Når trenger man å resette pipes?/Når trenger man ikke det
+      </para>
+      <para>
+        Update last seen
+      </para>
+      <para>
+        reset to end
+      </para>
+      <para>
+        reset
+      </para>
+      <para>
+        Disable/enable pipes (spesifik endpoint)
+      </para>
+      <para>
+        Indexering
+      </para>
+    </sect3>
+    <sect3 id="monitorering">
+      <title>Monitorering </title>
+      <para>
+        microservices
+      </para>
+      <para>
+        pipes
+      </para>
+      <para>
+        ekstern monitorering
+      </para>
+      <para>
+        Execution logs/system dataset
+      </para>
+    </sect3>
+    <sect3 id="arbeidsmetodikk">
+      <title>Arbeidsmetodikk</title>
+      <para>
+        1. Dokumentere source-data og sink-data før en flyt
+      </para>
+      <para>
+        formater
+      </para>
+      <para>
+        datamengde
+      </para>
+      <para>
+        frekvens
+      </para>
+      <para>
+        2. Analysere innkommende data for globala dataset
+      </para>
+      <para>
+        3. Lage testdata
+      </para>
+      <para>
+        4. Drøfte behov &amp; Løsninger
+      </para>
+      <para>
+        5. Velge løsning
+      </para>
+      <para>
+        6. Lag løsning
+      </para>
+      <para>
+        Mer?
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="8">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        dev = personlig node der utvikling foregår
+      </para>
+      <para>
+        test = node som kjører samme config som prod med testdata for å
+        finne bugs
+      </para>
+      <para>
+        CI = do tests for pull requests /deployments before deploying.
+      </para>
+      <para>
+        prod = live node som kjører live integrasjoner
+      </para>
+      <para>
+        Tagging av brancher for deployment
+      </para>
+    </sect3>
+    <sect3 id="cicdtdd">
+      <title>CI/CD/TDD?</title>
+      <para>
+        ci-node
+      </para>
+      <para>
+        kjører med test-data
+      </para>
+      <para>
+        embedded data
+      </para>
+      <para>
+        NB!! nye cli fra 1.18.1(separat testdata-fodler)
+      </para>
+      <para>
+        NB!! ikke koblet til live systemer, ikke legg inn secrets som
+        ikke skal være der
+      </para>
+      <para>
+        node-env
+      </para>
+      <para>
+        conditional source
+      </para>
+      <para>
+        embedded data
+      </para>
+      <para>
+        NB!! nye cli fra 1.18.1(separat testdata-folder)
+      </para>
+      <para>
+        conditional transform
+      </para>
+      <para>
+        Hvordan bruker vi versjonskontroll(git, vcs, svn)
+      </para>
+      <para>
+        initiere repo (se docs)
+      </para>
+      <para>
+        protected branches
+      </para>
+      <para>
+        merge regler
+      </para>
+      <para>
+        byggserver
+      </para>
+      <para>
+        Autodeploy/vs ikke
+      </para>
+    </sect3>
+    <sect3 id="workflow-in-projects">
+      <title>Workflow in Projects</title>
+      <para>
+        Get task
+      </para>
+      <para>
+        [Document task]
+      </para>
+      <para>
+        Pull repo
+      </para>
+      <para>
+        Create branch
+      </para>
+      <para>
+        Do changes
+      </para>
+      <para>
+        Test changes
+      </para>
+      <para>
+        [Create more test cases]
+      </para>
+      <para>
+        Update expected data
+      </para>
+      <para>
+        Push changes
+      </para>
+      <para>
+        Document solution
+      </para>
+      <para>
+        Deploy to test
+      </para>
+      <para>
+        Test changes in test – go back to create branch if necessary.
+      </para>
+      <para>
+        Deploy to prod
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-projects-infrastructure-intermediate">
+      <title>Tasks for Projects &amp; Infrastructure:
+      Intermediate</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="epilogue-3">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </sect2>
+</sect1>
+

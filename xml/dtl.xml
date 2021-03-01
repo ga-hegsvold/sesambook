@@ -1,0 +1,884 @@
+<sect1 id="dtl-the-language-of-pipes">
+  <title>DTL – The language of Pipes</title>
+  <sect2 id="introduction-2">
+    <title>Introduction</title>
+    <sect3 id="what-is-dtl">
+      <title>What is DTL?</title>
+      <para>
+        Data transformation language - Programming language, mix of JSON
+        &amp; func_programming etc
+      </para>
+    </sect3>
+    <sect3 id="why-dtl">
+      <title>Why DTL?</title>
+      <para>
+        What problems does it solve? Why did we need to make a new
+        programming language?
+      </para>
+    </sect3>
+    <sect3 id="where-is-dtl-used-can-fit-into-3.1.1-probably.">
+      <title>Where is DTL used? – Can fit into 3.1.1 probably.</title>
+      <para>
+        Where do you write it? Why only in pipes?
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        What happens when a pipe runs?
+      </para>
+      <para>
+        What is the relationship of pipes and DTL?
+      </para>
+    </sect3>
+    <sect3 id="entities-pipes-and-_id">
+      <title>Entities, pipes and <code>_id</code> @Geir Atle</title>
+      <para>
+        What is an <code><code>_id</code></code>? Why do we need it? Is it used for the same thing
+        always? What is it good for?
+        <emphasis role="strikethrough">Absolutely nothing</emphasis>
+        quite a bit!
+      </para>
+      <sect4 id="the-reserved-property-_id">
+        <title>The reserved property <code>_id</code></title>
+        <para>
+          Everything in Sesam must have a unique identity, whether it is
+          a system configuration, a pipe configuration, a dataset, an
+          entity within a dataset, etc.
+        </para>
+        <para>
+          The reserved property named <code>_id</code> is used as unique identity for
+          components in Sesam.
+        </para>
+        <para>
+          This unique identity allows for precise references between
+          configurations and precise connections between data entities.
+        </para>
+        <para>
+          See &lt;ref to <code>_id</code> restrictions&gt; for more information on
+          how to create valid identifiers.
+        </para>
+      </sect4>
+      <sect4 id="system-_id">
+        <title>System <code>_id</code></title>
+        <para>
+          The identity (<code>_id</code>) of a system must be unique within a Sesam
+          node instance.
+        </para>
+        <para>
+          Once a system configuration is saved, its identity cannot be
+          changed. If you need to change a system’s identity, you can
+          Duplicate the system configuration, save the duplicated
+          configuration with the desired identity, and then delete the
+          original configuration.
+        </para>
+        <para>
+          Remember to also update any other configurations that were
+          referencing the original system to reference the new identity.
+        </para>
+        <para>
+          In the Sesam Management Studio, when you view the list of all
+          systems in the Systems menu, the System column will by default
+          show you the identity of all the defined systems in that Sesam
+          node.
+        </para>
+        <para>
+          If the name property is also defined for a system
+          configuration, then the System column will show that value
+          instead of the identity.
+        </para>
+        <para>
+          Regardless, if you need to reference a system configuration
+          from another configuration in Sesam, you reference the
+          system’s identity.
+        </para>
+        <para>
+          See &lt;ref to naming conventions&gt; for more information on
+          system naming conventions.
+        </para>
+        <para>
+          See &lt;ref to system config&gt; for more information on how
+          to define systems in Sesam.
+        </para>
+      </sect4>
+      <sect4 id="pipe-_id">
+        <title>Pipe <code>_id</code></title>
+        <para>
+          The identity (<code>_id</code>) of a pipe must be unique within a Sesam
+          node instance.
+        </para>
+        <para>
+          Once a pipe configuration is saved, its identity cannot be
+          changed. If you need to change a pipe’s identity, you can
+          Duplicate the pipe configuration, save the duplicated
+          configuration with the desired identity, and then delete the
+          original configuration.
+        </para>
+        <para>
+          In the Sesam Management Studio, when you view the list of all
+          pipes in the Pipes menu, the Pipe column will by default show
+          you the identity of all the defined pipes in that Sesam node.
+        </para>
+        <para>
+          If the name property is also defined for a pipe configuration,
+          then the Pipe column will show that value instead of the
+          identity.
+        </para>
+        <para>
+          Regardless, if you need to reference a pipe configuration from
+          another configuration in Sesam, you reference the pipe’s
+          identity.
+        </para>
+        <para>
+          See &lt;ref to naming conventions&gt; for more information on
+          pipe naming conventions.
+        </para>
+        <para>
+          See &lt;ref to system config&gt; for more information on how
+          to define pipes in Sesam.
+        </para>
+      </sect4>
+      <sect4 id="dataset-_id">
+        <title>Dataset <code>_id</code></title>
+        <para>
+          The identity (<code>_id</code>) of a dataset must be unique within a Sesam
+          node instance.
+        </para>
+        <para>
+          By default, a dataset will have the same identity as the pipe
+          it is generated from.
+        </para>
+        <para>
+          You can override the default dataset identity by defining the
+          dataset property in the pipe’s sink configuration. (reference
+          to sink config).
+        </para>
+        <para>
+          Once a dataset is generated, its identity cannot be changed.
+          If you need to change a dataset’s identity, you can edit the
+          dataset property in the pipe’s sink configuration, delete the
+          sink dataset, and restart the pipe. This will generate a new
+          dataset with the new identity.
+        </para>
+        <para>
+          Remember to also update any other configurations that were
+          referencing the original dataset to reference the new
+          identity.
+        </para>
+        <para>
+          In the Sesam Management Studio, when you view the list of all
+          datasets in the Datasets menu, the Dataset column will show
+          you the identity of all the datasets in that Sesam node.
+        </para>
+        <para>
+          If you need to reference a dataset from another configuration
+          in Sesam, you reference the pipe’s identity.
+        </para>
+      </sect4>
+      <sect4 id="entity-_id">
+        <title>Entity <code>_id</code></title>
+        <para>
+          The identity (<code>_id</code>) of an entity must be unique within the
+          dataset in which it resides. The identity for an entity is
+          similar to a primary key in a database table.
+        </para>
+        <para>
+          What makes an entity unique is usually dictated by the source
+          system the entity is imported from. This can typically be the
+          primary key(s) of a database table.
+        </para>
+        <para>
+          This means that you usually define the identity for entities
+          in inbound pipes.
+        </para>
+        <para>
+          If the source system has multiple properties that combined
+          makes the entity unique, you must combine all these properties
+          into the <code>_id</code> property to ensure that uniqueness is preserved
+          in Sesam.
+        </para>
+        <para>
+          In some cases, you can handle this in the source configuration
+          part of the inbound pipe. SQL sources, as an example, allows
+          you to specify multiple columns from the source database as
+          primary keys. Sesam will then combine these columns
+          automatically into the <code>_id</code> during import.
+        </para>
+        <para>
+          In other cases, you may have to explicitly add the <code>_id</code>
+          property with DTL in a transform step in the inbound pipe.
+          This may be relevant when the source configuration does not
+          support specifying multiple properties as primary keys.
+        </para>
+      </sect4>
+      <sect4 id="entity-_id-and-namespaces">
+        <title>Entity <code>_id</code> and namespaces</title>
+        <para>
+          By default, the pipe identity of the pipe where the entity
+          originates is used as namespace for both the entity’s
+          identifier and the entity’s properties.
+        </para>
+        <para>
+          Note that there is a slight, but significant, difference in
+          the placement of the namespace for the entity’s <code>_id</code> property
+          compared to its other properties.
+        </para>
+        <para>
+          For the <code>_id</code> property, the namespace prefixes the property
+          <emphasis role="strong">value</emphasis>:
+        </para>
+        <programlisting>
+“<code>_id</code>”: ”<emphasis role="strong">&lt;namespace&gt;</emphasis>:&lt;value&gt;”
+        </programlisting>
+        <para>
+          For other properties, the namespace prefixes the property
+          <emphasis role="strong">name</emphasis>:
+        </para>
+        <programlisting>
+“<emphasis role="strong">&lt;namespace&gt;</emphasis>:property1”: ”&lt;value&gt;”
+        </programlisting>
+        <para>
+          The reason the namespace is put into the value of the <code>_id</code> is
+          to ensure that all entities are unique across all source
+          systems.
+        </para>
+        <para>
+          Example:
+        </para>
+        <para>
+          An entity imported from a system called “crm” with a “user”
+          table consisting of a primary key “userId” with value “123”,
+          and a column “email” with value “john.doe@foo.no” would look
+          something like this:
+        </para>
+        <programlisting>
+{
+  “<code>_id</code>”: “<emphasis role="strong">crm-user</emphasis>:123”,
+  “<emphasis role="strong">crm-user</emphasis>:userId”: “123”,
+  “<emphasis role="strong">crm-user</emphasis>:email”: “john.doe@foo.com”
+}
+        </programlisting>
+        <para>
+          Now imagine you have another source where one of the entities
+          are also identified by “123”.
+        </para>
+        <para>
+          Unless the namespace is part of the property value of <code>_id</code>,
+          both entities would have the same <code>_id</code>, namely “123”. So by
+          prefixing this value with a namespace we ensure that these
+          entities do not come into conflict with each other.
+        </para>
+        <para>
+          See &lt;namespace ref&gt; for more info on namespaces.
+        </para>
+        <para>
+          See &lt;make-ni ref&gt; for more info on namespaced
+          identifiers and connecting data in Sesam.
+        </para>
+      </sect4>
+      <sect4 id="the-autogenerated-property-ids">
+        <title>The autogenerated property $ids</title>
+        <para>
+          Should probably write something sensible about the connection
+          between <code>_id</code> and $ids somewhere. Maybe related to merge pipes?
+        </para>
+      </sect4>
+    </sect3>
+    <sect3 id="entity-data-model-data-types-gabriell">
+      <title>Entity Data model – Data Types @Gabriell</title>
+      <para>
+        Give quick examples of each of these types.
+      </para>
+      <para>
+        Dict {}
+      </para>
+      <para>
+        Entity {<code>_id</code>}
+      </para>
+      <para>
+        Må inneholde en identifikator <code>_id</code>
+      </para>
+      <para>
+        List
+      </para>
+      <para>
+        String
+      </para>
+      <para>
+        Integer
+      </para>
+      <para>
+        Decimal
+      </para>
+      <para>
+        Float
+      </para>
+      <para>
+        Boolean
+      </para>
+      <para>
+        Null
+      </para>
+    </sect3>
+    <sect3 id="syntax">
+      <title>Syntax</title>
+      <para>
+        All configurations in JSON
+      </para>
+      <para>
+        [&lt;func_name&gt;, &lt;key&gt;, +&lt;arg/value&gt;]
+      </para>
+      <itemizedlist>
+        <listitem>
+          <blockquote>
+            <para>
+              Transformative funksjoner, funksjoner for å endre Target
+            </para>
+          </blockquote>
+          <itemizedlist>
+            <listitem>
+              <blockquote>
+                <para>
+                  Kopierer value fra Source til Target og kan endre key
+                </para>
+              </blockquote>
+              <itemizedlist>
+                <listitem>
+                  <blockquote>
+                    <para>
+                      Copy kopierer hele key-value parret.
+                    </para>
+                  </blockquote>
+                </listitem>
+                <listitem>
+                  <blockquote>
+                    <para>
+                      Rename setter ny key og kopierer value
+                    </para>
+                  </blockquote>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+            <listitem>
+              <blockquote>
+                <para>
+                  Legger til ny Key som et datapunkt. Verdien kan være
+                  en transformasjon av et datapunkt eller et helt nytt
+                  datapunkt på Target.
+                </para>
+              </blockquote>
+              <itemizedlist>
+                <listitem>
+                  <blockquote>
+                    <para>
+                      Add, key, value : Her legger du på en ny key, hvor
+                      verdien ikke nødvendigvis finnes fra før. Derfor
+                      er det ikke implisitt om det er fra _T eller _S
+                    </para>
+                  </blockquote>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Utrykk/Expressions
+            </para>
+          </blockquote>
+          <itemizedlist>
+            <listitem>
+              <blockquote>
+                <para>
+                  Utregninger, funksjoner på verdier
+                </para>
+              </blockquote>
+              <orderedlist numeration="arabic">
+                <listitem>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Gå gjennom prosessen fra man trykker &quot;New pipe&quot; til
+        &quot;Save&quot; til &quot;Start&quot; til &quot;Restart&quot;
+      </para>
+      <itemizedlist>
+        <listitem>
+          <blockquote>
+            <para>
+              Sette <code>_id</code>
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Bruke templater
+            </para>
+          </blockquote>
+          <itemizedlist>
+            <listitem>
+              <blockquote>
+                <para>
+                  Source system &quot;sesam:node&quot; (refers to
+                  itself)
+                </para>
+              </blockquote>
+              <itemizedlist>
+                <listitem>
+                  <blockquote>
+                    <para>
+                      Provider: premade dataset
+                    </para>
+                  </blockquote>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+            <listitem>
+              <blockquote>
+                <para>
+                  &quot;add DTL transform&quot;
+                </para>
+              </blockquote>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              [&quot;add&quot;, &quot;hello&quot;, &quot;world&quot;]
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Save
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Starte
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              [&quot;add&quot;, &quot;key&quot;, &quot;value&quot;]
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Save
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Start - ikke noe nytt i output
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Referer &quot;Proessser ny data&quot; over, vis det også.
+            </para>
+          </blockquote>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Preview, Ctrl + Enter
+      </para>
+      <para>
+        Formatering alt + .
+      </para>
+      <para>
+        Save ctrl + s
+      </para>
+      <para>
+        Find/replace
+      </para>
+      <para>
+        Ctrl+space = Search/autocomplete
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Explain copy, based on ref 3.1.4 above
+      </para>
+      <para>
+        Wildcard * [namespace:*]
+      </para>
+      <para>
+        &quot;Copy&quot; whitelist, blacklist
+      </para>
+    </sect3>
+    <sect3 id="add">
+      <title>“Add”</title>
+      <para>
+        Explain the add, based on ref 3.1.4 above
+      </para>
+    </sect3>
+    <sect3 id="concat-concatination">
+      <title>“Concat” – Concatination</title>
+      <para>
+        Concatenation of strings, examples etc
+      </para>
+    </sect3>
+    <sect3 id="rdftype">
+      <title>rdf:type</title>
+      <para>
+        Resource Description Framework (?) explain what it means in
+        Sesam context
+      </para>
+    </sect3>
+    <sect3 id="namespace">
+      <title>Namespace</title>
+      <para>
+        Explain namespace in <code>_id</code> (value) and keys.
+      </para>
+      <para>
+        EXAMPLESSS
+      </para>
+    </sect3>
+    <sect3 id="make-ni">
+      <title>“Make-ni”</title>
+      <para>
+        Declaraiton of foreign key in Sesam, explain /reference
+        Namespace
+      </para>
+    </sect3>
+    <sect3 id="eq-equality">
+      <title>“Eq” – Equality</title>
+      <para>
+        Equality for joins [n-n]
+      </para>
+    </sect3>
+    <sect3 id="merge-as-a-source">
+      <title>Merge as a Source</title>
+      <para>
+        Examples, steal from PP training, show in tables vs json,
+        everything coming in goes out.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <blockquote>
+            <para>
+              Strategy
+            </para>
+          </blockquote>
+        </listitem>
+        <listitem>
+          <blockquote>
+            <para>
+              Identidy - <code>_id</code> etter merge
+            </para>
+          </blockquote>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <blockquote>
+            <para>
+              datasets
+            </para>
+          </blockquote>
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Explain in the context of reading from global pipes
+      </para>
+    </sect3>
+    <sect3 id="coalesce">
+      <title>Coalesce</title>
+      <para>
+        ref 1.2.19
+      </para>
+    </sect3>
+    <sect3 id="nested-dictionaries">
+      <title>Nested dictionaries</title>
+      <para>
+        As you can see in <emphasis>Example 3.2.17A: Dotted
+        Notation</emphasis>, we can get attributes inside dictionaries
+        by using “.”
+      </para>
+      <para>
+        Dotted notation
+      </para>
+      <para>
+        list of dicts can give you list of values from a single key.
+      </para>
+      <para>
+        A: [{“foo”:1},{“foo”:2}] -&gt; _S.A.foo = [1,2]
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <para>
+            [“add”, “some-nested-attribute”,
+            “_S.somedict.some-nested-attribute”] 
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        <emphasis>Example 3.2.17A: Dotted Notation</emphasis>,
+      </para>
+    </sect3>
+    <sect3 id="apply-custom-functions">
+      <title>Apply – Custom Functions</title>
+      <para>
+        Basic, bare bruk på data fra _S, forklar det uten å bruke hops
+      </para>
+    </sect3>
+    <sect3 id="merge-as-a-function">
+      <title>Merge as a function</title>
+      <para>
+        Source type Merge VS Transformation Merge
+      </para>
+      <para>
+        Merging dictionaries up to the root level of entities.
+      </para>
+    </sect3>
+    <sect3 id="hops-1">
+      <title>Hops</title>
+      <para>
+        Basics, uten apply
+      </para>
+    </sect3>
+    <sect3 id="properties">
+      <title>_ Properties</title>
+      <para>
+        (_deleted, filtered, <code>_id</code>, _previous, _updated, <emphasis>_hash?
+        REF 1.2.24</emphasis>)
+      </para>
+    </sect3>
+    <sect3 id="type-examples">
+      <title>Type examples</title>
+      <para>
+        Type eksempler:
+      </para>
+      <para>
+        • Datettime
+      </para>
+      <para>
+        • Dict {}
+      </para>
+      <para>
+        • List
+      </para>
+      <para>
+        ○ First
+      </para>
+      <para>
+        ○ Unique/Distinct
+      </para>
+      <para>
+        ○ Last
+      </para>
+      <para>
+        ○ Count
+      </para>
+      <para>
+        ○ nth
+      </para>
+      <para>
+        • String
+      </para>
+      <para>
+        • Integer
+      </para>
+      <para>
+        • Decimal
+      </para>
+      <para>
+        • Float
+      </para>
+      <para>
+        • Boolean
+      </para>
+      <para>
+        ○ And
+      </para>
+      <para>
+        ○ Or
+      </para>
+      <para>
+        ○ Not
+      </para>
+      <para>
+        ○ In
+      </para>
+      <para>
+        ○ Eq
+      </para>
+      <para>
+        ○ If-null
+      </para>
+      <para>
+        ○ Is-empty
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="23">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        • Pump
+      </para>
+      <para>
+        ○ Dead-letter…
+      </para>
+      <para>
+        • Metadata
+      </para>
+      <para>
+        • Reset-to-end
+      </para>
+      <para>
+        • Stop
+      </para>
+      <para>
+        • Enable/disable
+      </para>
+    </sect3>
+    <sect3 id="pipe-sink">
+      <title>Pipe Sink</title>
+      <para>
+        Eksplisitt (vs implicit dataset) Sink - til system/fil
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="23">
+        </listitem>
+        <listitem>
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+    </sect3>
+    <sect3 id="dependency-tracking-in-hops">
+      <title>3.3.27 Dependency tracking in Hops</title>
+      <para>
+        When does dependency tracking work? How does it work? When
+        doesn’t it work (multiple transforms) Ref 1.3.25
+      </para>
+    </sect3>
+    <sect3 id="apply-hops">
+      <title>&quot;Apply-hops&quot;</title>
+      <para>
+        Apply a function to the entities retrieved by your hop
+      </para>
+    </sect3>
+    <sect3 id="source-subset">
+      <title>Source Subset</title>
+      <para>
+        You don’t really need to filter :P
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-dtl-intermediate">
+      <title>Tasks for DTL: Intermediate</title>
+      <orderedlist numeration="arabic">
+        <listitem override="4">
+          <orderedlist numeration="arabic">
+            <listitem override="30">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        VS as a transform (filter objects in list)
+      </para>
+    </sect3>
+    <sect3 id="syntax-and-functions">
+      <title>_. Syntax and Functions</title>
+      <para>
+        _. : path, map, filter, what does it reference? How does it
+        work?
+      </para>
+    </sect3>
+    <sect3 id="map">
+      <title>Map</title>
+      <para>
+        Map, map-values, map-dict
+      </para>
+    </sect3>
+    <sect3 id="p-_r-parent-root">
+      <title>_P &amp; _R – Parent &amp; Root</title>
+      <para>
+        How do I use _P. notation? Where does it point?
+      </para>
+    </sect3>
+    <sect3 id="create-child">
+      <title>“Create-child”</title>
+      <para>
+        1-N
+      </para>
+      <para>
+        dep. Tracking, $children, emit_child transform type (2 pipes
+        necessary for all updates to propagate)
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="30">
+        </listitem>
+        <listitem>
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+      <para>
+        Add ::hello
+      </para>
+    </sect3>
+    <sect3 id="tasks-for-dtl-advanced">
+      <title>3.4 Tasks for DTL: Advanced</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="epilogue-2">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </sect2>
+</sect1>
