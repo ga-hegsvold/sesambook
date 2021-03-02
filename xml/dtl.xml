@@ -247,9 +247,7 @@
           to ensure that all entities are unique across all source
           systems.
         </para>
-        <para>
-          Example:
-        </para>
+        <example><title><code>_id</code> and namespaces</title>
         <para>
           An entity imported from a system called “crm” with a “user”
           table consisting of a primary key “userId” with value “123”,
@@ -273,6 +271,7 @@
           prefixing this value with a namespace we ensure that these
           entities do not come into conflict with each other.
         </para>
+        </example>
         <para>
           See &lt;namespace ref&gt; for more info on namespaces.
         </para>

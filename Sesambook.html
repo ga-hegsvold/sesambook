@@ -584,9 +584,7 @@ refer to appendix/documentation for more information</p></div><p>
           The reason the namespace is put into the value of the <code class="code">_id</code> is
           to ensure that all entities are unique across all source
           systems.
-        </p><p>
-          Example:
-        </p><p>
+        </p><div class="example"><a name="idp3"></a><div class="example-title">Example 1. <code class="code">_id</code> and namespaces</div><div class="example-contents"><p>
           An entity imported from a system called &#8220;crm&#8221; with a &#8220;user&#8221;
           table consisting of a primary key &#8220;userId&#8221; with value &#8220;123&#8221;,
           and a column &#8220;email&#8221; with value &#8220;john.doe@foo.no&#8221; would look
@@ -605,7 +603,7 @@ refer to appendix/documentation for more information</p></div><p>
           both entities would have the same <code class="code">_id</code>, namely &#8220;123&#8221;. So by
           prefixing this value with a namespace we ensure that these
           entities do not come into conflict with each other.
-        </p><p>
+        </p></div></div><br class="example-break"><p>
           See &lt;namespace ref&gt; for more info on namespaces.
         </p><p>
           See &lt;make-ni ref&gt; for more info on namespaced
