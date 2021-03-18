@@ -1,0 +1,3017 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article>
+<article
+  xmlns="http://docbook.org/ns/docbook" version="5.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <info>
+    <title></title>
+  </info>
+<section xml:id="prologue">
+  <title>Prologue</title>
+  <blockquote>
+    <para>
+      Introduction to the book
+    </para>
+    <para>
+      Who is this book for?
+    </para>
+    <para>
+      Who are we?
+    </para>
+    <para>
+      What is Sesam?
+    </para>
+    <para>
+      What problems do we seek to solve?
+    </para>
+    <para>
+      What should you expect to learn?
+    </para>
+    <para>
+      Innholdsfortegnelse og forklaring/justification for det.
+    </para>
+  </blockquote>
+</section>
+<section xml:id="architecture-and-concepts">
+  <title>Architecture and Concepts</title>
+  <section xml:id="introduction">
+    <title>Introduction</title>
+    <para>
+      Sesam opens the door to running a data-driven business, but what
+      is a data driven business and how does the journey towards it
+      look?
+    </para>
+    <para>
+      In this chapter we will introduce you to Sesam as a way of not
+      only developing but thinking. You will learn about overarching
+      themes for designing integrations, the components you build with
+      and the pitfalls to look out for along the way.
+    </para>
+    <para>
+      After reading you can expect to recognize and design a data driven
+      Integration of your own.
+    </para>
+  </section>
+  <section xml:id="architecture">
+    <title>Architecture</title>
+    <para>
+      What do we mean about architecture
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </orderedlist>
+    <para>
+      When modelling data, integration architectures (IA) lay the
+      foundation upon which data is shaped and structured as it moves
+      through one system to another. Within IA, Point-to-point (P2P) and
+      Enterprise Service Bus (ESB) have been used extensively. Recent
+      trends, however move away from these established integration
+      principles and places data and its mobility at its center.
+    </para>
+    <para>
+      Albeit, before elaborating on how integration principles has
+      undergone recent radical changes, you should first dive into P2P
+      and ESB.
+    </para>
+    <orderedlist numeration="arabic" spacing="compact">
+      <listitem>
+        <para>
+          Point-to-Point
+        </para>
+      </listitem>
+    </orderedlist>
+    <para>
+      This kind of IA is a simple integration principle. As an example
+      of P2P imagine sending a message generated in one system to a
+      single receiver in another system. This simplified example shows
+      both the pros and cons to using P2P. It is simple and therefore
+      easy to manage, albeit what if another system is introduced and so
+      multiple new messages need to be send? Well, in this case P2P is
+      not your best option, and the issue of scalability presents
+      itself. To illustrate how complexity can make P2P a non-viable
+      option look at the below <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="media/image1.png" width="4.01389in" depth="2.09722in" />
+        </imageobject>
+      </inlinemediaobject>Figure 1 – Point-to-Point:
+    </para>
+    <para>
+      As illustrated on the right-hand side of the above figure “Complex
+      integration”, you have to maintain multiple connections separately
+      which, in this case, will make P2P time consuming and expensive to
+      manage. Therefore, amongst other things, new architectural
+      principles have been developed. One of the more prominent ones
+      being ESB.
+    </para>
+    <orderedlist numeration="arabic" spacing="compact">
+      <listitem>
+        <para>
+          Enterprise Service Bus
+        </para>
+      </listitem>
+    </orderedlist>
+    <para>
+      The ESB is a more robust IA and plays a critical role in
+      connecting diverse systems and services in a Service Oriented
+      Architecture (SOA). The ESB takes on the responsibility of
+      ensuring that data sent from one system conforms to the
+      requirements in another system. This core functionality is an
+      important feature as to why the ESB is such an established
+      architectural principle. In addition, the ESB aids in simplifying
+      integration efforts when connecting differing applications that
+      need to communicate with each other. See Figure 2 – Enterprise
+      Service Bus.
+    </para>
+    <figure>
+      <title>Diagram, text Description automatically generated</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="media/image2.png" width="2.94637in" depth="1.62963in" />
+        </imageobject>
+        <textobject><phrase>Diagram, text Description automatically
+        generated</phrase></textobject>
+      </mediaobject>
+    </figure>
+    <para>
+      Taking into account the positives from using an ESB for your IA -
+      some challenges still remain unresolved. Recent years transition
+      towards more cloud-based solutions, hybrid solutions and the
+      remaining tendency to focus on the systems in the ESB rather than
+      the data itself has propelled what is called “Data Driven
+      Architecture”.
+    </para>
+    <section xml:id="section">
+      <title></title>
+      <para>
+      </para>
+    </section>
+    <section xml:id="data-driven-architecture-jonas">
+      <title>Data driven architecture @Jonas</title>
+      <para>
+        As opposed to both the P2P and the ESB integration principles
+        the Data Driven Architecture (DDA) does not focus on systems –
+        rather the data and how modelling a data-centric ecosystem takes
+        precedence in order to realize an agile meanwhile robust IA, see
+        Figure 3 – Data Driven Architecture.
+      </para>
+      <figure>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="media/image5.png" width="3.01503in" depth="2.53704in" />
+          </imageobject>
+          <textobject><phrase></phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>
+        Figure 3 - Data Driven Architecture
+      </para>
+      <para>
+        As opposed to P2P and ESB, DDA is, respectively, scalable and
+        agile - in that it does not need the “Bus” to orchestrate data
+        flows, rather DDA relies on natural flows of connected data to
+        trigger data flows. You may think that this also presents a risk
+        - that is correct.
+      </para>
+      <para>
+        In order to utilize DDA you need to create logical, robust
+        albeit flexible data flows. If done correctly nothing beats the
+        scalability, cost-effectiveness and possibilities DDA provides.
+        A word of caution however, if such guidelines is not agreed upon
+        and followed up on, you risk creating a waterfall of technical
+        depth as time goes by and these natural flows of data grows
+        unhinged.
+      </para>
+    </section>
+    <section xml:id="datahub-jonas">
+      <title>Datahub @Jonas</title>
+      <para>
+        Continuing on the path of building data-centric solutions, the
+        term “Datahub” comes into play. A datahub is recognized by its
+        frictionless data flow and as such builds upon the architectural
+        principles presented in DDA. A datahub can be described as a
+        solution that consists of multiple different technologies, i.e.,
+        a data warehouse, microservices, databases etc.
+      </para>
+      <para>
+        A Datahub shares data by connecting generators of data with
+        consumers of data. In practice this allows data to be delivered
+        in endpoints that can interact with the datahub in terms of
+        injecting data into the datahub or exposing data to an external
+        system. As such, a datahub mediates and manages how data flows
+        between systems and makes states of data visible to consumers
+        outside the datahub.
+      </para>
+      <para>
+        In a sense, you could say that a datahub is a digital
+        representation of an enterprise and also what SESAM often
+        becomes when it is used properly. As with any other technologies
+        there are pros and cons to any technology.
+      </para>
+      <para>
+        Some of these are listed below, so you might be able to
+        recognize them – “down the road”.
+      </para>
+      <para>
+        Pros:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Has enterprise scope, i.e. cloud, hybrid.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Creates visibility into all data.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Centralizes data control.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Moves data in, close to, real time.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Connects data.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Cons:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Data does not persist.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Demands advanced capabilities.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Does not operate in silos.
+          </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Terminology
+      </para>
+      <para>
+        Systems, pipes, datasets
+      </para>
+      <para>
+        In order to understand how Sesam works, it is important to
+        understand the parts Sesam is made up of.
+      </para>
+      <para>
+        There are three central re-occurring concepts in Sesam which you
+        will encounter in your everyday life working with the
+        integration platform: systems, pipes and datasets. These are the
+        fundamental parts which make up a Sesam integration pipeline.
+        Figure 1.1.5A gives you an insight into how a standard Sesam
+        integration pipeline would look.
+      </para>
+      <figure>
+        <title>A general pipeline flow in Sesam depicting the three
+        central parts of a Sesam integration, systems, pipes and
+        datasets. The arrows symbolizes the direction of data
+        flow.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="media/image6.png" width="5.00000in" depth="0.50000in" />
+          </imageobject>
+          <textobject><phrase>A general pipeline flow in Sesam depicting
+          the three central parts of a Sesam integration, systems, pipes
+          and datasets. The arrows symbolizes the direction of data
+          flow.</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            Systems:
+          </para>
+        </listitem>
+      </itemizedlist>
+      <blockquote>
+        <para>
+          A system’s main feature is to import and export data into and
+          out of the Sesam portal. They are therefore found in the
+          beginning and end of the pipeline flows. A system could
+          connect to a REST API, directly to a database of simply send
+          data to a waiting http server. Sesam has several of these
+          system types built into the product to simplify the workings
+          inside the portal. In situations where the built-in system
+          types are not enough for your requirements Sesam also supports
+          connecting systems to a microservice which in turn can
+          manipulate and delegate data according to your own
+          specifications, making Sesam a very robust and comprehensive
+          tool.
+        </para>
+      </blockquote>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            Pipes:
+          </para>
+        </listitem>
+      </itemizedlist>
+      <blockquote>
+        <para>
+          Pipes handles the transformation of the data and specifies
+          where the data is supposed to be sent. Manipulation of the
+          data is done through Sesam’s own Data Transformation Language
+          (DTL) which allows you to add, remove, transform and combine
+          data according to you own needs. A pipe generally acquires
+          data from a system or from a dataset depending on where the
+          pipe is located inside the integration pipeline.
+        </para>
+      </blockquote>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            Datasets:
+          </para>
+        </listitem>
+      </itemizedlist>
+      <blockquote>
+        <para>
+          Datasets are Sesam’s storage units. This is where pipes store
+          the data after configuring them and in a pipeline flow, they
+          are generally found between pipes. Sesam stores data in order
+          to be able to perform tracking and indexing, but you will
+          learn more about these functionalities later in this book
+          (maybe a link?).
+        </para>
+      </blockquote>
+    </section>
+    <section xml:id="the-sesam-portal">
+      <title>The Sesam portal</title>
+      <para>
+        Show <emphasis role="strong">basics</emphasis> of portal
+      </para>
+      <para>
+        (Here also refer to a full chapter for portal or from the
+        projects chapter?)
+      </para>
+      <para>
+        Integrations, connections and configurations can all be accessed
+        inside the Sesam portal; the user interface of the Sesam
+        product, The Sesam portal can be accessed at portal.sesam.io,
+        and in this section you will learn the most commonly used parts
+        of the portal such that you can orient yourself, as well as
+        manage existing integrations. For a full explanation if the
+        workings and functionality of the Sesam portal, please look
+        [here (with a link)].
+      </para>
+      <para>
+        When logging in to the portal you will be met with a page like
+        figure 1.1.6A
+      </para>
+      <figure>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="media/image7.png" width="6.18589in" depth="2.01042in" />
+          </imageobject>
+          <textobject><phrase></phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>
+        The cards on the Dashboard are often referred to as
+        “subscriptions” or “nodes” and they represent separate instances
+        of Sesam installations. Each node comes in different sizes
+        (memory available) depending on the requirements of the
+        customer/project/user. In this example you will be shown the
+        portal inside the node called “Training Node”, but all nodes
+        will have the same setup, only different set of systems, pipes
+        and datasets.
+      </para>
+      <para>
+        When entering the “Training Node” you will be met with the page
+        seen in figure 1.1.6B.
+      </para>
+      <figure>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="media/image8.png" width="6.14584in" depth="2.99609in" />
+          </imageobject>
+          <textobject><phrase></phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>
+        In this section we will only focus on the specific parts of the
+        portal needed to start working with Sesam, namely the “Pipes”
+        page and the “Systems” page.
+      </para>
+      <para>
+        When entering the “Pipes” page you will be met by figure 1.1.6C.
+        This figure shows you all the available pipes in your
+        subscription as well as some of their corresponding meta-data.
+        There are also several search and filter options available,
+        which are specially handy when trying to located one, or a set
+        of pipes, in a subscription with many pipes.
+      </para>
+      <figure>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="media/image9.png" width="6.26042in" depth="2.98674in" />
+          </imageobject>
+          <textobject><phrase></phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>
+        If you now enter the pipe called “person-cmm” we can look into
+        more of details regarding how you may use the portal to
+        navigate, troubleshoot and configure you pipes.
+      </para>
+      <para>
+        Upon entering a pipe you by default be sent to the pipe’s
+        “Graph” view, as seen in figure 1.1.6D.
+      </para>
+      <figure>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="media/image10.png" width="5.00000in" depth="2.44792in" />
+          </imageobject>
+          <textobject><phrase></phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>
+        The graph view shows you which pipes are upstream and downstream
+        to your the specific pipe you have selected, and it also shows
+        connections to related pipes (you will learn more about
+        connected pipes later [link maybe?]). For now we will focus on
+        three of the pipe’s subpages; Config, Input and Output.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Config: The config subpage is where the actual coding takes
+            place. This is where you define what this specific pipe is
+            supposed to do.
+          </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Something general about JSON
+      </para>
+      <para>
+        JSON configuration of pipes and systems
+      </para>
+      <para>
+        DTL also validated as JSON?
+      </para>
+    </section>
+    <section xml:id="namegiving-conventions">
+      <title>Namegiving conventions</title>
+      <para>
+        How (maybe a table) to give good names to the different parts in
+        sesam
+      </para>
+      <para>
+        Why this is <emphasis role="strong">really</emphasis> important
+      </para>
+    </section>
+    <section xml:id="systems">
+      <title>Systems</title>
+      <para>
+        Short about systems (where in the sesam-world-map)
+      </para>
+      <para>
+        Something more general about pipes maybe in context of pipes and
+        datasets
+      </para>
+      <para>
+        Very low level but enough to set up an inputpipe after maybe?
+      </para>
+      <para>
+        and refer to systems chapter
+      </para>
+      <para>
+        Namegivingconventions ref. 1.1.8
+      </para>
+      <para>
+        Where to make new ref 1.1.6
+      </para>
+    </section>
+    <section xml:id="pipes">
+      <title>Pipes</title>
+      <para>
+        Something more general about pipes maybe in context of systems
+        and datasets
+      </para>
+      <para>
+        Inbound(Input?)/Preparation/Outbound(Output?)
+      </para>
+      <para>
+        Very low level but enough to connect to system?
+      </para>
+      <para>
+        and refer to pipes chapter
+      </para>
+      <para>
+        Pump
+      </para>
+      <para>
+        Input &amp; output(sink)
+      </para>
+      <para>
+        Namegivingconventions ref. 1.1.8
+      </para>
+      <para>
+        Where to make new ref 1.1.6
+      </para>
+    </section>
+    <section xml:id="datasets">
+      <title>Datasets</title>
+      <para>
+        Something more general about pipes maybe in context of systems
+        and pipes
+      </para>
+      <para>
+        Very low level but enough to see entities?
+      </para>
+      <para>
+        and refer to entities subchapter ref. 1.1.12
+      </para>
+      <para>
+        Namegivingconventions ref. 1.1.8
+      </para>
+      <para>
+        Where to make new ref 1.1.6
+      </para>
+    </section>
+    <section xml:id="datasets-vs.-tables">
+      <title>Datasets vs. tables</title>
+      <para>
+        Examples end ref to 1.1.13
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+      <para>
+        Why globals
+      </para>
+      <para>
+        Golden records
+      </para>
+      <para>
+        Gjør data tilgjengelig
+      </para>
+      <para>
+        Ref. 1.2.19, 3.2.14
+      </para>
+    </section>
+    <section xml:id="special-sesam-attributes">
+      <title>Special sesam attributes</title>
+      <para>
+        Namespace
+      </para>
+      <para>
+        Rdf:type
+      </para>
+      <para>
+        _id
+      </para>
+    </section>
+    <section xml:id="tasks-for-architecture-and-concepts-beginner">
+      <title>1.1 Tasks for Architecture and Concepts: Beginner</title>
+      <para>
+        1. <emphasis>In what component is data stored in
+        Sesam?</emphasis>
+      </para>
+      <para>
+        2. <emphasis>Which component moves data in Sesam?</emphasis>
+      </para>
+      <para>
+        3. <emphasis>What moves through Sesam?</emphasis>
+      </para>
+<literallayout><emphasis>4. Name the input pipe for this system &amp; table:</emphasis>
+<emphasis>System name : IFS
+Table name: workorder
+Pipe name: ______</emphasis></literallayout>
+      <para>
+        5. <emphasis>in an entity representing a row, how would the
+        column “personalid” with row value “123” look after it is read
+        by a pipe named crm-person and stored inside an entity of the
+        output dataset?</emphasis>
+      </para>
+      <para>
+        6. <emphasis>What is the difference between and entity stored as
+        a row in a table vs in a Sesam Dataset?</emphasis>
+      </para>
+      <para>
+        7. <emphasis>What is the minimum required to define an
+        entity?</emphasis>
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+          <orderedlist numeration="arabic">
+            <listitem override="16">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        The value of joining data
+      </para>
+      <para>
+        Short overview of what data joining is
+      </para>
+      <para>
+        1-1, 1-n, n-m
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="16">
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+      <para>
+        All data from input ends up in output
+      </para>
+    </section>
+    <section xml:id="left-join-hops">
+      <title>Left Join (Hops)</title>
+      <para>
+        Data is appended to the output
+      </para>
+    </section>
+    <section xml:id="global">
+      <title>Global</title>
+      <para>
+        Golden – the best truth about common attributes of a concept
+        collected from multiple sources
+      </para>
+      <para>
+        Coalesce, prioritization of source data (master data)
+      </para>
+    </section>
+    <section xml:id="generic-input-pipes-custom-output-pipes">
+      <title>Generic input pipes, custom output pipes</title>
+      <para>
+        Write about where globals fit into the bigger picture of data
+        flows, how do pipes going in look and how do pipes going out
+        look?
+      </para>
+    </section>
+    <section xml:id="filter-entities-on-the-way-out">
+      <title>Filter entities on the way out</title>
+<literallayout>Filter gives the ability to stop entities from being sent by providing a logical gate.
+On the other hand, it can make sure you only send the entities you wish to receive in an endpoint.</literallayout>
+<literallayout>Makes sure the endpoint only receives the entities they want.
+Can stop entities from triggering events they shouldn’t trigger.</literallayout>
+      <itemizedlist>
+        <listitem>
+          <itemizedlist spacing="compact">
+            <listitem>
+<literallayout>many examples
+filtering on source data
+on target data (from hops f.ex) – typical example, hop to global-classification and map status, if cancelled then filter</literallayout>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section xml:id="tag-your-entities---categorization-of-sub-concepts">
+      <title>Tag your entities - Categorization of sub-concepts</title>
+      <para>
+        Extra:type
+      </para>
+    </section>
+    <section xml:id="customize-data-structure-for-endpoints">
+      <title>Customize data structure for endpoints</title>
+<literallayout>Sesam has transformative functions to add, remove,Copy the attributes you want the end system to receive.
+All changes to attributes you add to the target will cause an entity update.</literallayout>
+      <para>
+        Referring to namespace 1.1.15 to know property origin, rename,
+        add, copy
+      </para>
+    </section>
+    <section xml:id="change-tracking-data-delta">
+      <title>Change tracking &amp; data delta</title>
+      <para>
+        All entities stored inside sesam have a _hash value. This is a
+        quantification of an entity and is calculated every time an
+        entity is processed by a pipe. If the _hash value changes or is
+        new, the entity will be stored as a new version in dataset. We
+        call this change in _hash value a data-delta.
+      </para>
+      <para>
+        Any data-delta for an entity in a dataset causes downstream
+        pipes to see this as a new sequence number they haven’t yet
+        read. This in turn makes the pipe process the entity. If the
+        processed entity does not exist or gets a new _hash in the
+        output of the pipe, it will cause an update to the output
+        dataset.
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="26">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Dependency tracking
+      </para>
+      <para>
+        Stacking av hops (dvs flere datasett)
+      </para>
+      <para>
+        Indeksering
+      </para>
+    </section>
+    <section xml:id="incremental-system-queries">
+      <title>Incremental System queries</title>
+      <para>
+        Dataset vs database-tabell (oppdatere data)
+      </para>
+    </section>
+    <section xml:id="subset">
+      <title>Subset</title>
+      <para>
+        Grabbing the rdf:type or type of data you need from a global
+      </para>
+    </section>
+    <section xml:id="dynamic-static-timeseries-data">
+      <title>Dynamic, Static &amp; Timeseries Data</title>
+<literallayout>Dynamic data = frequent updates to the same object
+Static data = rare/never update to the same object
+Timeseries = Frequent new entities about the same object. (f.ex _id = meterpoint &amp; timestamp and attribute attached is reading the last hour)</literallayout>
+    </section>
+    <section xml:id="when-to-use-a-microservice">
+      <title>When to use a microservice</title>
+      <para>
+        For everything Sesam is bad at or can’t do.
+      </para>
+    </section>
+    <section xml:id="tasks-for-architecture-and-concepts-intermediate">
+      <title>1.3 Tasks for Architecture and Concepts:
+      Intermediate</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="architecture-and-concepts-advanced">
+    <title>1.4 Architecture and Concepts: Advanced</title>
+    <section xml:id="choosing-a-source-dataset-for-your-pipe">
+      <title>Choosing a source dataset for your pipe</title>
+      <para>
+        Do not create children based on a hop, rather read from the
+        dataset you hop to.
+      </para>
+    </section>
+    <section xml:id="eventual-consistency">
+      <title>Eventual Consistency</title>
+      <para>
+        Dependency tracking causes reprocessing of source entity in the
+        pipe with the hops.
+      </para>
+      <para>
+        Idempotency
+      </para>
+    </section>
+    <section xml:id="create-child-emit-children">
+      <title>Create Child &amp; Emit children</title>
+      <para>
+        Change-tracking
+      </para>
+    </section>
+    <section xml:id="tasks-for-architecture-and-concepts-advanced">
+      <title>1.4 Tasks for Architecture and Concepts: Advanced</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="epilogue">
+    <title>Epilogue</title>
+    <para>
+      Congratulations on making your way through this treacherous
+      territory and finding your way out. Let’s have a quick chat about
+      the path you’ve walked before moving on to greener pastures.
+    </para>
+  </section>
+</section>
+<section xml:id="systems-1">
+  <title>Systems</title>
+  <section xml:id="introduction-1">
+    <title>Introduction</title>
+    <para>
+      In this chapter you will learn about Systems; the component which
+      connects Sesam to the external world. They are an integral
+      component of Sesam and have a wide array of uses, so we will start
+      off by introducing the general knowledge you should have at-hand
+      while setting one up.
+    </para>
+    <para>
+      Onwards you will learn how Systems interface with Pipes and how to
+      use customized solutions when Sesams built-in systems cannot.
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </orderedlist>
+    <para>
+      Everything external to the node
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+      </listitem>
+      <listitem>
+      </listitem>
+    </orderedlist>
+    <para>
+      Input, output (mention transform?)
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+      </listitem>
+      <listitem>
+      </listitem>
+    </orderedlist>
+    <para>
+      How are secrets stored in the backend? – Discuss with product
+    </para>
+    <para>
+      How do systems read secrets? Encrypted and decrypted in
+      transmission or passed as plain text?
+    </para>
+    <para>
+      $SECRET
+    </para>
+    <para>
+      $ENV
+    </para>
+    <section xml:id="json-push-pull-protocol">
+      <title>JSON Push &amp; Pull protocol</title>
+      <para>
+        Lots of info in docs.
+      </para>
+    </section>
+    <section xml:id="tasks-for-systems-beginner">
+      <title>Tasks for Systems: Beginner</title>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+<literallayout>General introduction to what systems are and what problems they solve.
+Everything external to the node</literallayout>
+    </section>
+    <section xml:id="systems-as-a-pipe-source">
+      <title>Systems as a pipe source</title>
+      <para>
+        System configuration (mostly) defines the possibilities pipes
+        have to pull data.
+      </para>
+      <para>
+        We need to write about what a system is in the context of a pipe
+        source, with not only configs but explanations. Keep it simple
+        don’t go into too many system types (json &amp; SQL?). Write
+        more text than configurations, draw stuff. (1-N)
+      </para>
+    </section>
+    <section xml:id="systems-as-a-pipe-sink">
+      <title>Systems as a pipe sink</title>
+      <para>
+        Same as above only with system as a sink. What is a system in
+        the context of a sink? What does the pipe see? What does the
+        system see? (1-N)
+      </para>
+    </section>
+    <section xml:id="system-authentication-methods">
+      <title>[System?] Authentication methods</title>
+<literallayout>Default authentication methods built in for systems handling URLS $SECRET()
+Basic, Oauth2, JWT, microservices</literallayout>
+<literallayout>Authentication methods for specific systems: ?? worth mentioning
+SQL, oracle</literallayout>
+    </section>
+    <section xml:id="system-types">
+      <title>System Types</title>
+<literallayout>Mention all built in system types, is there a common denominator?
+refer to appendix/documentation for more information</literallayout>
+      <para>
+        “Type”: “system_XXXX”
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="12">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        How does Sesam look at microservices?
+      </para>
+      <para>
+        What is a microservice?
+      </para>
+      <para>
+        How do I use one?
+      </para>
+      <para>
+        Don’t go too deep, we have a whole module for these.
+      </para>
+      <para>
+        Probably want to wait with this subchapter until we’ve written
+        the microservices module.
+      </para>
+    </section>
+    <section xml:id="http-transforms">
+      <title>HTTP Transforms</title>
+      <para>
+        When you need to transform or append information which Sesam
+        isn’t good at handling, you’d use an http_transform.
+      </para>
+      <para>
+        When you don’t want all the data from a system, but need to
+        append it to the data you’re processing, you’d typically do a
+        http_transform.
+      </para>
+      <para>
+        Example: You want to get the current weather for a location, but
+        you don’t want to read all the weather around the world
+        constantly into sesam. What you’re interested in is the weather
+        for a location specified by an entity at runtime. You can get
+        this by querying an API per entity being processed.vor
+      </para>
+      <para>
+        Example: You need to convert UTM to LatLong coordinates. Sesam
+        doesn’t have a function to do this built in, so you make a
+        microservice to do the conversion and call this with an
+        http_transform.
+      </para>
+      <para>
+        General Example: appending time-dependent datapoints to your
+        output without reading absolutely all of the time-dependented
+        data.
+      </para>
+    </section>
+    <section xml:id="chaining-of-systems">
+      <title>Chaining of Systems</title>
+      <para>
+        Microservices are easily re-used if they do generic stuff.
+      </para>
+      <para>
+        The point of chaining microservices or API’s is to use multiple
+        generic, simple services to solve a bigger complex problem.
+      </para>
+      <para>
+        Pros: Usually re-use of microservices makes development time
+        shorter
+      </para>
+      <para>
+        Cons: Debugging can be complex and unforeseen issues hard to
+        find &amp; pinpoint. Can’t see it in the graph, need to search
+        the whole node configuration to find the systems.
+      </para>
+    </section>
+    <section xml:id="tasks-for-systems-intermediate">
+      <title>2.3 Tasks for Systems: Intermediate</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="epilogue-1">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </section>
+</section>
+<section xml:id="dtl-the-language-of-pipes">
+  <title>DTL – The language of Pipes</title>
+  <section xml:id="introduction-2">
+    <title>Introduction</title>
+    <section xml:id="what-is-dtl">
+      <title>What is DTL?</title>
+      <para>
+        Data transformation language - Programming language, mix of JSON
+        &amp; func_programming etc
+      </para>
+    </section>
+    <section xml:id="why-dtl">
+      <title>Why DTL?</title>
+      <para>
+        What problems does it solve? Why did we need to make a new
+        programming language?
+      </para>
+    </section>
+    <section xml:id="where-is-dtl-used-can-fit-into-3.1.1-probably.">
+      <title>Where is DTL used? – Can fit into 3.1.1 probably.</title>
+      <para>
+        Where do you write it? Why only in pipes?
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        What happens when a pipe runs?
+      </para>
+      <para>
+        What is the relationship of pipes and DTL?
+      </para>
+    </section>
+    <section xml:id="entities-pipes-and-_id-geir-atle">
+      <title>Entities, pipes and _id @Geir Atle</title>
+      <para>
+        What is an _id? Why do we need it? Is it used for the same thing
+        always? What is it good for?
+        <emphasis role="strikethrough">Absolutely nothing</emphasis>
+        quite a bit!
+      </para>
+      <section xml:id="the-reserved-property-_id">
+        <title>The reserved property _id</title>
+        <para>
+          Everything in Sesam must have a unique identity, whether it is
+          a system configuration, a pipe configuration, a dataset, an
+          entity within a dataset, etc.
+        </para>
+        <para>
+          The reserved property named _id is used as unique identity for
+          components in Sesam.
+        </para>
+        <para>
+          This unique identity allows for precise references between
+          configurations and precise connections between data entities.
+        </para>
+        <para>
+          See &lt;ref to _id restrictions&gt; for more information on
+          how to create valid identifiers.
+        </para>
+      </section>
+      <section xml:id="system-_id">
+        <title>System _id</title>
+        <para>
+          The identity (_id) of a system must be unique within a Sesam
+          node instance.
+        </para>
+        <para>
+          Once a system configuration is saved, its identity cannot be
+          changed. If you need to change a system’s identity, you can
+          Duplicate the system configuration, save the duplicated
+          configuration with the desired identity, and then delete the
+          original configuration.
+        </para>
+        <para>
+          Remember to also update any other configurations that were
+          referencing the original system to reference the new identity.
+        </para>
+        <para>
+          In the Sesam Management Studio, when you view the list of all
+          systems in the Systems menu, the System column will by default
+          show you the identity of all the defined systems in that Sesam
+          node.
+        </para>
+        <para>
+          If the name property is also defined for a system
+          configuration, then the System column will show that value
+          instead of the identity.
+        </para>
+        <para>
+          Regardless, if you need to reference a system configuration
+          from another configuration in Sesam, you reference the
+          system’s identity.
+        </para>
+        <para>
+          See &lt;ref to naming conventions&gt; for more information on
+          system naming conventions.
+        </para>
+        <para>
+          See &lt;ref to system config&gt; for more information on how
+          to define systems in Sesam.
+        </para>
+      </section>
+      <section xml:id="pipe-_id">
+        <title>Pipe _id</title>
+        <para>
+          The identity (_id) of a pipe must be unique within a Sesam
+          node instance.
+        </para>
+        <para>
+          Once a pipe configuration is saved, its identity cannot be
+          changed. If you need to change a pipe’s identity, you can
+          Duplicate the pipe configuration, save the duplicated
+          configuration with the desired identity, and then delete the
+          original configuration.
+        </para>
+        <para>
+          In the Sesam Management Studio, when you view the list of all
+          pipes in the Pipes menu, the Pipe column will by default show
+          you the identity of all the defined pipes in that Sesam node.
+        </para>
+        <para>
+          If the name property is also defined for a pipe configuration,
+          then the Pipe column will show that value instead of the
+          identity.
+        </para>
+        <para>
+          Regardless, if you need to reference a pipe configuration from
+          another configuration in Sesam, you reference the pipe’s
+          identity.
+        </para>
+        <para>
+          See &lt;ref to naming conventions&gt; for more information on
+          pipe naming conventions.
+        </para>
+        <para>
+          See &lt;ref to system config&gt; for more information on how
+          to define pipes in Sesam.
+        </para>
+      </section>
+      <section xml:id="dataset-_id">
+        <title>Dataset _id</title>
+        <para>
+          The identity (_id) of a dataset must be unique within a Sesam
+          node instance.
+        </para>
+        <para>
+          By default, a dataset will have the same identity as the pipe
+          it is generated from.
+        </para>
+        <para>
+          You can override the default dataset identity by defining the
+          dataset property in the pipe’s sink configuration. (reference
+          to sink config).
+        </para>
+        <para>
+          Once a dataset is generated, its identity cannot be changed.
+          If you need to change a dataset’s identity, you can edit the
+          dataset property in the pipe’s sink configuration, delete the
+          sink dataset, and restart the pipe. This will generate a new
+          dataset with the new identity.
+        </para>
+        <para>
+          Remember to also update any other configurations that were
+          referencing the original dataset to reference the new
+          identity.
+        </para>
+        <para>
+          In the Sesam Management Studio, when you view the list of all
+          datasets in the Datasets menu, the Dataset column will show
+          you the identity of all the datasets in that Sesam node.
+        </para>
+        <para>
+          If you need to reference a dataset from another configuration
+          in Sesam, you reference the pipe’s identity.
+        </para>
+      </section>
+      <section xml:id="entity-_id">
+        <title>Entity _id</title>
+        <para>
+          The identity (_id) of an entity must be unique within the
+          dataset in which it resides. The identity for an entity is
+          similar to a primary key in a database table.
+        </para>
+        <para>
+          What makes an entity unique is usually dictated by the source
+          system the entity is imported from. This can typically be the
+          primary key(s) of a database table.
+        </para>
+        <para>
+          This means that you usually define the identity for entities
+          in inbound pipes.
+        </para>
+        <para>
+          If the source system has multiple properties that combined
+          makes the entity unique, you must combine all these properties
+          into the _id property to ensure that uniqueness is preserved
+          in Sesam.
+        </para>
+        <para>
+          In some cases, you can handle this in the source configuration
+          part of the inbound pipe. SQL sources, as an example, allows
+          you to specify multiple columns from the source database as
+          primary keys. Sesam will then combine these columns
+          automatically into the _id during import.
+        </para>
+        <para>
+          In other cases, you may have to explicitly add the _id
+          property with DTL in a transform step in the inbound pipe.
+          This may be relevant when the source configuration does not
+          support specifying multiple properties as primary keys.
+        </para>
+      </section>
+      <section xml:id="entity-_id-and-namespaces">
+        <title>Entity _id and namespaces</title>
+        <para>
+          By default, the pipe identity of the pipe where the entity
+          originates is used as namespace for both the entity’s
+          identifier and the entity’s properties.
+        </para>
+        <para>
+          Note that there is a slight, but significant, difference in
+          the placement of the namespace for the entity’s _id property
+          compared to its other properties.
+        </para>
+        <para>
+          For the _id property, the namespace prefixes the property
+          <emphasis role="strong">value</emphasis>:
+        </para>
+        <para>
+          “_id”:
+          ”<emphasis role="strong">&lt;namespace&gt;</emphasis>:&lt;value&gt;”
+        </para>
+        <para>
+          For other properties, the namespace prefixes the property
+          <emphasis role="strong">name</emphasis>:
+        </para>
+        <para>
+          “<emphasis role="strong">&lt;namespace&gt;</emphasis>:property1”:
+          ”&lt;value&gt;”
+        </para>
+        <para>
+          The reason the namespace is put into the value of the _id is
+          to ensure that all entities are unique across all source
+          systems.
+        </para>
+        <para>
+          Example:
+        </para>
+        <para>
+          An entity imported from a system called “crm” with a “user”
+          table consisting of a primary key “userId” with value “123”,
+          and a column “email” with value “john.doe@foo.no” would look
+          something like this:
+        </para>
+        <para>
+          {
+        </para>
+        <para>
+          “_id”: “<emphasis role="strong">crm-user</emphasis>:123”,
+        </para>
+        <para>
+          “<emphasis role="strong">crm-user</emphasis>:userId”: “123”,
+        </para>
+        <para>
+          “<emphasis role="strong">crm-user</emphasis>:email”:
+          “john.doe@foo.com”
+        </para>
+        <para>
+          }
+        </para>
+        <para>
+          Now imagine you have another source where one of the entities
+          are also identified by “123”.
+        </para>
+        <para>
+          Unless the namespace is part of the property value of _id,
+          both entities would have the same _id, namely “123”. So by
+          prefixing this value with a namespace we ensure that these
+          entities do not come into conflict with each other.
+        </para>
+        <para>
+          See &lt;namespace ref&gt; for more info on namespaces.
+        </para>
+        <para>
+          See &lt;make-ni ref&gt; for more info on namespaced
+          identifiers and connecting data in Sesam.
+        </para>
+      </section>
+      <section xml:id="the-autogenerated-property-ids">
+        <title>The autogenerated property $ids</title>
+        <para>
+          Should probably write something sensible about the connection
+          between _id and $ids somewhere. Maybe related to merge pipes?
+        </para>
+      </section>
+    </section>
+    <section xml:id="entity-data-model-data-types-gabriell">
+      <title>Entity Data model – Data Types @Gabriell</title>
+      <para>
+        Give quick examples of each of these types.
+      </para>
+      <para>
+        Dict {}
+      </para>
+      <para>
+        Entity {_id}
+      </para>
+      <para>
+        Må inneholde en identifikator _id
+      </para>
+      <para>
+        List
+      </para>
+      <para>
+        String
+      </para>
+      <para>
+        Integer
+      </para>
+      <para>
+        Decimal
+      </para>
+      <para>
+        Float
+      </para>
+      <para>
+        Boolean
+      </para>
+      <para>
+        Null
+      </para>
+    </section>
+    <section xml:id="syntax">
+      <title>Syntax</title>
+      <para>
+        All configurations in JSON
+      </para>
+      <para>
+        [&lt;func_name&gt;, &lt;key&gt;, +&lt;arg/value&gt;]
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Transformative funksjoner, funksjoner for å endre Target
+          </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                Kopierer value fra Source til Target og kan endre key
+              </para>
+              <itemizedlist>
+                <listitem>
+                  <para>
+                    Copy kopierer hele key-value parret.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Rename setter ny key og kopierer value
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+            <listitem>
+              <para>
+                Legger til ny Key som et datapunkt. Verdien kan være en
+                &gt; transformasjon av et datapunkt eller et helt nytt
+                datapunkt på &gt; Target.
+              </para>
+              <itemizedlist spacing="compact">
+                <listitem>
+                  <para>
+                    Add, key, value : Her legger du på en ny key, hvor
+                    verdien &gt; ikke nødvendigvis finnes fra før.
+                    Derfor er det ikke &gt; implisitt om det er fra _T
+                    eller _S
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>
+            Utrykk/Expressions
+          </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                Utregninger, funksjoner på verdier
+              </para>
+              <orderedlist numeration="arabic">
+                <listitem>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Gå gjennom prosessen fra man trykker &quot;New pipe&quot; til
+        &quot;Save&quot; til &quot;Start&quot; til &quot;Restart&quot;
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Sette _id
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Bruke templater
+          </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                Source system &quot;sesam:node&quot; (refers to itself)
+              </para>
+              <itemizedlist spacing="compact">
+                <listitem>
+                  <para>
+                    Provider: premade dataset
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+            <listitem>
+              <para>
+                &quot;add DTL transform&quot;
+              </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>
+            [&quot;add&quot;, &quot;hello&quot;, &quot;world&quot;]
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Save
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Starte
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            [&quot;add&quot;, &quot;key&quot;, &quot;value&quot;]
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Save
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Start - ikke noe nytt i output
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Referer &quot;Proessser ny data&quot; over, vis det også.
+          </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Preview, Ctrl + Enter
+      </para>
+      <para>
+        Formatering alt + .
+      </para>
+      <para>
+        Save ctrl + s
+      </para>
+      <para>
+        Find/replace
+      </para>
+      <para>
+        Ctrl+space = Search/autocomplete
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Explain copy, based on ref 3.1.4 above
+      </para>
+      <para>
+        Wildcard * [namespace:*]
+      </para>
+      <para>
+        &quot;Copy&quot; whitelist, blacklist
+      </para>
+    </section>
+    <section xml:id="add">
+      <title>“Add”</title>
+      <para>
+        Explain the add, based on ref 3.1.4 above
+      </para>
+    </section>
+    <section xml:id="concat-concatination">
+      <title>“Concat” – Concatination</title>
+      <para>
+        Concatenation of strings, examples etc
+      </para>
+    </section>
+    <section xml:id="rdftype">
+      <title>rdf:type</title>
+      <para>
+        Resource Description Framework (?) explain what it means in
+        Sesam context
+      </para>
+    </section>
+    <section xml:id="namespace">
+      <title>Namespace</title>
+      <para>
+        Explain namespace in _id (value) and keys.
+      </para>
+      <para>
+        EXAMPLESSS
+      </para>
+    </section>
+    <section xml:id="make-ni">
+      <title>“Make-ni”</title>
+      <para>
+        Declaraiton of foreign key in Sesam, explain /reference
+        Namespace
+      </para>
+    </section>
+    <section xml:id="eq-equality">
+      <title>“Eq” – Equality</title>
+      <para>
+        Equality for joins [n-n]
+      </para>
+    </section>
+    <section xml:id="merge-as-a-source">
+      <title>Merge as a Source</title>
+      <para>
+        Examples, steal from PP training, show in tables vs json,
+        everything coming in goes out.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Strategy
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Identidy - _id etter merge
+          </para>
+        </listitem>
+      </itemizedlist>
+      <itemizedlist>
+        <listitem>
+          <para>
+            datasets
+          </para>
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Explain in the context of reading from global pipes
+      </para>
+    </section>
+    <section xml:id="coalesce">
+      <title>Coalesce</title>
+      <para>
+        ref 1.2.19
+      </para>
+    </section>
+    <section xml:id="nested-dictionaries">
+      <title>Nested dictionaries</title>
+      <para>
+        As you can see in <emphasis>Example 3.2.17A: Dotted
+        Notation</emphasis>, we can get attributes inside dictionaries
+        by using “.”
+      </para>
+      <para>
+        Dotted notation
+      </para>
+      <para>
+        list of dicts can give you list of values from a single key.
+      </para>
+      <para>
+        A: [{“foo”:1},{“foo”:2}] -&gt; _S.A.foo = [1,2]
+      </para>
+      <orderedlist numeration="arabic" spacing="compact">
+        <listitem>
+          <para>
+            [“add”, “some-nested-attribute”,
+            “_S.somedict.some-nested-attribute”] 
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        <emphasis>Example 3.2.17A: Dotted Notation</emphasis>,
+      </para>
+    </section>
+    <section xml:id="apply-custom-functions">
+      <title>Apply – Custom Functions</title>
+      <para>
+        Basic, bare bruk på data fra _S, forklar det uten å bruke hops
+      </para>
+    </section>
+    <section xml:id="merge-as-a-function">
+      <title>Merge as a function</title>
+      <para>
+        Source type Merge VS Transformation Merge
+      </para>
+      <para>
+        Merging dictionaries up to the root level of entities.
+      </para>
+    </section>
+    <section xml:id="hops-1">
+      <title>Hops</title>
+      <para>
+        Basics, uten apply
+      </para>
+    </section>
+    <section xml:id="properties">
+      <title>_ Properties</title>
+      <para>
+        (_deleted, filtered, _id, _previous, _updated, <emphasis>_hash?
+        REF 1.2.24</emphasis>)
+      </para>
+    </section>
+    <section xml:id="type-examples">
+      <title>Type examples</title>
+      <para>
+        Type eksempler:
+      </para>
+      <para>
+        • Datettime
+      </para>
+      <para>
+        • Dict {}
+      </para>
+      <para>
+        • List
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            First
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Unique/Distinct
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Last
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Count
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            nth
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        • String
+      </para>
+      <para>
+        • Integer
+      </para>
+      <para>
+        • Decimal
+      </para>
+      <para>
+        • Float
+      </para>
+      <para>
+        • Boolean
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            And
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Or
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Not
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            In
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Eq
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            If-null
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Is-empty
+          </para>
+        </listitem>
+      </itemizedlist>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="23">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        • Pump
+      </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            Dead-letter…
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        • Metadata
+      </para>
+      <para>
+        • Reset-to-end
+      </para>
+      <para>
+        • Stop
+      </para>
+      <para>
+        • Enable/disable
+      </para>
+    </section>
+    <section xml:id="pipe-sink">
+      <title>Pipe Sink</title>
+      <para>
+        Eksplisitt (vs implicit dataset) Sink - til system/fil
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="23">
+        </listitem>
+        <listitem>
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section xml:id="dependency-tracking-in-hops">
+      <title>3.3.27 Dependency tracking in Hops</title>
+      <para>
+        When does dependency tracking work? How does it work? When
+        doesn’t it work (multiple transforms) Ref 1.3.25
+      </para>
+    </section>
+    <section xml:id="apply-hops">
+      <title>&quot;Apply-hops&quot;</title>
+      <para>
+        Apply a function to the entities retrieved by your hop
+      </para>
+    </section>
+    <section xml:id="source-subset">
+      <title>Source Subset</title>
+      <para>
+        You don’t really need to filter :P
+      </para>
+    </section>
+    <section xml:id="tasks-for-dtl-intermediate">
+      <title>Tasks for DTL: Intermediate</title>
+      <orderedlist numeration="arabic">
+        <listitem override="4">
+          <orderedlist numeration="arabic">
+            <listitem override="30">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        VS as a transform (filter objects in list)
+      </para>
+    </section>
+    <section xml:id="syntax-and-functions">
+      <title>_. Syntax and Functions</title>
+      <para>
+        _. : path, map, filter, what does it reference? How does it
+        work?
+      </para>
+    </section>
+    <section xml:id="map">
+      <title>Map</title>
+      <para>
+        Map, map-values, map-dict
+      </para>
+    </section>
+    <section xml:id="p-_r-parent-root">
+      <title>_P &amp; _R – Parent &amp; Root</title>
+      <para>
+        How do I use _P. notation? Where does it point?
+      </para>
+    </section>
+    <section xml:id="create-child">
+      <title>“Create-child”</title>
+      <para>
+        1-N
+      </para>
+      <para>
+        dep. Tracking, $children, emit_child transform type (2 pipes
+        necessary for all updates to propagate)
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="30">
+        </listitem>
+        <listitem>
+        </listitem>
+        <listitem>
+        </listitem>
+      </orderedlist>
+      <para>
+        Add ::hello
+      </para>
+    </section>
+    <section xml:id="tasks-for-dtl-advanced">
+      <title>3.4 Tasks for DTL: Advanced</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="epilogue-2">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </section>
+</section>
+<section xml:id="projects-infrastructure">
+  <title>4. Projects &amp; Infrastructure</title>
+  <section xml:id="introduction-3">
+    <title>Introduction</title>
+    <para>
+      @todo Gabriell
+    </para>
+  </section>
+  <section xml:id="projects-infrastructure-beginner">
+    <title>4.1 Projects &amp; Infrastructure Beginner</title>
+    <section xml:id="portal-gui">
+      <title>Portal GUI</title>
+      <para>
+        Bli kjent med gui
+      </para>
+      <para>
+        Datasets
+      </para>
+      <para>
+        previous version etc.
+      </para>
+      <para>
+        Task på å sette opp ting som gjøres når man er i prosjekt
+      </para>
+      <para>
+        Laste opp/ned node i tools
+      </para>
+      <para>
+        Legge til brukere
+      </para>
+      <para>
+        Legge til env-vars/secrets (system secrets vs secrets)
+      </para>
+      <para>
+        Lage JWT
+      </para>
+      <para>
+        se på Execution logs/system dataset
+      </para>
+      <para>
+        system:config-dataset
+      </para>
+      <para>
+        Lage grupp/tilganger
+      </para>
+    </section>
+    <section xml:id="sesam-cli">
+      <title>sesam-CLI</title>
+      <para>
+        NB!! IKKE BRUK SYNCCONFIG TIL Å LASTE OPP/NED TIL AKTIVE NODER
+        (PROD)
+      </para>
+      <para>
+        pre-requisite lære seg hvordan man installerer det.
+      </para>
+      <para>
+        lag en sesam-init &lt;- feature request
+      </para>
+      <para>
+        setup
+      </para>
+      <para>
+        expected folder
+      </para>
+      <para>
+        test.conf.json
+      </para>
+      <para>
+        whitelist/blacklist
+      </para>
+      <para>
+        test.json
+      </para>
+      <para>
+        entiteter
+      </para>
+      <para>
+        env-var-folder
+      </para>
+      <para>
+        set up vars for different environments
+      </para>
+      <para>
+        test-env
+      </para>
+      <para>
+        .syncconfig
+      </para>
+      <para>
+        jwt, node
+      </para>
+      <para>
+        kommandoer
+      </para>
+      <para>
+        sesam upload/download
+      </para>
+      <para>
+        test
+      </para>
+      <para>
+        update
+      </para>
+      <para>
+        -print-scheduler-log
+      </para>
+      <para>
+        -vv
+      </para>
+      <para>
+        -use-internal-scheduler
+      </para>
+      <para>
+        wipe
+      </para>
+      <para>
+        restart
+      </para>
+      <para>
+        verify
+      </para>
+      <para>
+        run
+      </para>
+      <para>
+        -version
+      </para>
+      <para>
+        Hvordan funker expected output
+      </para>
+    </section>
+    <section xml:id="testing-testdata">
+      <title>Testing &amp; Testdata</title>
+      <para>
+        testing
+      </para>
+      <para>
+        Manuell testing med sesam-cli før opplasting til
+        versjonskontroll
+      </para>
+      <para>
+        Manuell testing med config-group på live node
+      </para>
+      <para>
+        Automatisk testing med ci-node
+      </para>
+      <para>
+        Testdata
+      </para>
+      <para>
+        Bør lage data som reflekterer virkelige koblinger mellom data i
+        systemer
+      </para>
+      <para>
+        Bør være nok for å beskrive de caser man kan møte i
+        virkeligheten
+      </para>
+      <para>
+        Bør ikke være all data i prod
+      </para>
+      <para>
+        Bør være anonymisert
+      </para>
+      <para>
+        Bør reflektere *innkommende* data
+      </para>
+      <para>
+        Bør utvidet behov legges til data, ikke endre eksisterende
+      </para>
+      <para>
+        Bør gis navn utfra det case du vil teste, f.eks gi entiteten
+        navn utfra casen
+      </para>
+      <para>
+        Dokumenter testdata
+      </para>
+      <para>
+        \\oppdater prosjekt i docs utfra hva vi skriver\\
+      </para>
+      <para>
+        Hvordan funker expected output
+      </para>
+    </section>
+    <section xml:id="dokumentasjon">
+      <title>Dokumentasjon</title>
+      <para>
+        Hvordan bruke docs.sesam.io
+      </para>
+      <para>
+        developer guide!!
+      </para>
+      <para>
+        ctrl + f &quot;hva du tror funksjon heter&quot;
+      </para>
+      <para>
+        Hvordan dokumentere
+      </para>
+      <para>
+        Schema definition
+      </para>
+      <para>
+        hva mener vi er dokumentasjon
+      </para>
+      <para>
+        Generell dokumentasjon
+      </para>
+      <para>
+        DTL dokumentasjon(comments)
+      </para>
+      <para>
+        clean code
+      </para>
+    </section>
+    <section xml:id="jwtauthentisering">
+      <title>JWT/Authentisering</title>
+      <para>
+        Hvordan fungerer JWT’er?
+      </para>
+      <para>
+        NB: Skal snake mer om API I sesam-in-the-wild
+      </para>
+    </section>
+    <section xml:id="groups-permissions">
+      <title>Groups &amp; Permissions</title>
+      <para>
+        Hvordan virker det
+      </para>
+      <para>
+        Får man satt opp tilgangsstyring i Sesam?
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="7">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Mappestruktur
+      </para>
+      <para>
+        System
+      </para>
+      <para>
+        Pipes
+      </para>
+      <para>
+        Node-metadata.conf.json
+      </para>
+      <para>
+        +expected
+      </para>
+      <para>
+        Global metadata
+      </para>
+      <para>
+        Namespaces
+      </para>
+      <para>
+        Tag for å inkludere c++ ext.
+      </para>
+      <para>
+        Dependency tracking hops limit
+      </para>
+      <para>
+        signalling
+      </para>
+      <para>
+        Referer mye til dokumentasjon
+      </para>
+    </section>
+    <section xml:id="deployment">
+      <title>Deployment</title>
+      <para>
+        Når trenger man å resette pipes?/Når trenger man ikke det
+      </para>
+      <para>
+        Update last seen
+      </para>
+      <para>
+        reset to end
+      </para>
+      <para>
+        reset
+      </para>
+      <para>
+        Disable/enable pipes (spesifik endpoint)
+      </para>
+      <para>
+        Indexering
+      </para>
+    </section>
+    <section xml:id="monitorering">
+      <title>Monitorering</title>
+      <para>
+        microservices
+      </para>
+      <para>
+        pipes
+      </para>
+      <para>
+        ekstern monitorering
+      </para>
+      <para>
+        Execution logs/system dataset
+      </para>
+    </section>
+    <section xml:id="arbeidsmetodikk">
+      <title>Arbeidsmetodikk</title>
+      <para>
+        1. Dokumentere source-data og sink-data før en flyt
+      </para>
+      <para>
+        formater
+      </para>
+      <para>
+        datamengde
+      </para>
+      <para>
+        frekvens
+      </para>
+      <para>
+        2. Analysere innkommende data for globala dataset
+      </para>
+      <para>
+        3. Lage testdata
+      </para>
+      <para>
+        4. Drøfte behov &amp; Løsninger
+      </para>
+      <para>
+        5. Velge løsning
+      </para>
+      <para>
+        6. Lag løsning
+      </para>
+      <para>
+        Mer?
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+        </listitem>
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="8">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        dev = personlig node der utvikling foregår
+      </para>
+      <para>
+        test = node som kjører samme config som prod med testdata for å
+        finne bugs
+      </para>
+      <para>
+        CI = do tests for pull requests /deployments before deploying.
+      </para>
+      <para>
+        prod = live node som kjører live integrasjoner
+      </para>
+      <para>
+        Tagging av brancher for deployment
+      </para>
+    </section>
+    <section xml:id="cicdtdd">
+      <title>CI/CD/TDD?</title>
+      <para>
+        ci-node
+      </para>
+      <para>
+        kjører med test-data
+      </para>
+      <para>
+        embedded data
+      </para>
+      <para>
+        NB!! nye cli fra 1.18.1(separat testdata-fodler)
+      </para>
+      <para>
+        NB!! ikke koblet til live systemer, ikke legg inn secrets som
+        ikke skal være der
+      </para>
+      <para>
+        node-env
+      </para>
+      <para>
+        conditional source
+      </para>
+      <para>
+        embedded data
+      </para>
+      <para>
+        NB!! nye cli fra 1.18.1(separat testdata-folder)
+      </para>
+      <para>
+        conditional transform
+      </para>
+      <para>
+        Hvordan bruker vi versjonskontroll(git, vcs, svn)
+      </para>
+      <para>
+        initiere repo (se docs)
+      </para>
+      <para>
+        protected branches
+      </para>
+      <para>
+        merge regler
+      </para>
+      <para>
+        byggserver
+      </para>
+      <para>
+        Autodeploy/vs ikke
+      </para>
+    </section>
+    <section xml:id="workflow-in-projects">
+      <title>Workflow in Projects</title>
+      <para>
+        Get task
+      </para>
+      <para>
+        [Document task]
+      </para>
+      <para>
+        Pull repo
+      </para>
+      <para>
+        Create branch
+      </para>
+      <para>
+        Do changes
+      </para>
+      <para>
+        Test changes
+      </para>
+      <para>
+        [Create more test cases]
+      </para>
+      <para>
+        Update expected data
+      </para>
+      <para>
+        Push changes
+      </para>
+      <para>
+        Document solution
+      </para>
+      <para>
+        Deploy to test
+      </para>
+      <para>
+        Test changes in test – go back to create branch if necessary.
+      </para>
+      <para>
+        Deploy to prod
+      </para>
+    </section>
+    <section xml:id="tasks-for-projects-infrastructure-intermediate">
+      <title>Tasks for Projects &amp; Infrastructure:
+      Intermediate</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="epilogue-3">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </section>
+</section>
+<section xml:id="microservices">
+  <title>Microservices</title>
+  <section xml:id="introduction-4">
+    <title>Introduction</title>
+    <orderedlist numeration="arabic">
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </orderedlist>
+    <para>
+      Nevn bruksområder
+    </para>
+    <para>
+      språk
+    </para>
+    <para>
+      Docker
+    </para>
+    <section xml:id="why-use-microservices-in-sesam">
+      <title>Why use Microservices in Sesam?</title>
+      <para>
+        System som gjør ting andre systemer ikke kan
+      </para>
+    </section>
+    <section xml:id="how-are-microservices-used-in-sesam">
+      <title>How are Microservices used in Sesam?</title>
+      <para>
+        Ekte Use caser
+      </para>
+    </section>
+    <section xml:id="microservice-hosting">
+      <title>Microservice hosting</title>
+      <para>
+        Sesamcommunity Git &amp; Docker
+      </para>
+      <para>
+        Intro til Hosting
+      </para>
+    </section>
+    <section xml:id="running-a-microservice-in-sesam">
+      <title>Running a microservice in Sesam</title>
+      <para>
+        Intro til Running I sesam
+      </para>
+      <para>
+        Forklare GUI
+      </para>
+      <para>
+        Pull &amp; Restart
+      </para>
+      <blockquote>
+        <para>
+          Status
+        </para>
+        <para>
+          Refresh
+        </para>
+      </blockquote>
+      <para>
+        Forklare Config
+      </para>
+      <para>
+        Pipe source/sink/http
+      </para>
+    </section>
+    <section xml:id="types-of-microservices">
+      <title>Types of Microservices</title>
+      <blockquote>
+        <para>
+          Interne
+        </para>
+        <para>
+          http-transform
+        </para>
+        <para>
+          Source, sink (begge i 1?)
+        </para>
+        <para>
+          Eksterne
+        </para>
+        <para>
+          Monitorering av Sesam
+        </para>
+      </blockquote>
+    </section>
+    <section xml:id="naming-convention">
+      <title>Naming Convention</title>
+      <para>
+        _id standard system naming convention (source/sink system name)
+      </para>
+      <para>
+        Repo/microservice naming convention recommendation:
+        sesam-&lt;system&gt;[-&lt;special-functionality&gt;]
+      </para>
+    </section>
+    <section xml:id="tasks-for-microservices-beginner-tasks">
+      <title>Tasks for Microservices: Beginner – Tasks</title>
+      <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="8">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Sesam push/pull protocol
+      </para>
+      <para>
+        Error handling/logging
+      </para>
+      <para>
+        Pipes
+      </para>
+      <para>
+        Statuslogg [Hvordan bruke &amp; Lese]
+      </para>
+      <para>
+        Log-level
+      </para>
+      <para>
+        Trigger/Call
+      </para>
+      <para>
+        Endepunkt i ms (/&lt;paramater&gt;)
+      </para>
+      <para>
+        Hvordan sender man info til ms fra sesam
+      </para>
+      <para>
+        url-i pipe
+      </para>
+      <para>
+        url-parameter
+      </para>
+    </section>
+    <section xml:id="microservice-development-prerequisites">
+      <title>Microservice Development Prerequisites</title>
+      <blockquote>
+        <para>
+          Docker
+        </para>
+        <para>
+          User
+        </para>
+        <para>
+          Program
+        </para>
+        <para>
+          GitHub
+        </para>
+        <para>
+          User
+        </para>
+        <para>
+          CLI/Desktop
+        </para>
+      </blockquote>
+    </section>
+    <section xml:id="changing-a-microservice">
+      <title>Changing a Microservice</title>
+      <blockquote>
+        <para>
+          Workflow
+        </para>
+        <para>
+          Fork [Vi må lage et repo]
+        </para>
+        <para>
+          Change
+        </para>
+        <para>
+          Test
+        </para>
+        <para>
+          Teste lokalt
+        </para>
+        <para>
+          Bygge docker konteiner
+        </para>
+        <para>
+          Pushe docker konteiner
+        </para>
+        <para>
+          Explanation of Bare Bones DockerFile
+        </para>
+        <para>
+          How DockerFiles run [Sequentally, cache]
+        </para>
+      </blockquote>
+    </section>
+    <section xml:id="authentication-with-microservices">
+      <title>Authentication with microservices</title>
+      <para>
+        Docker hosting site login
+      </para>
+      <para>
+        Passing Env-vars/Secrets i Sesam
+      </para>
+      <para>
+        Oauth2 standard – Salesforce microservice
+      </para>
+    </section>
+    <section xml:id="sesam-io">
+      <title>Sesam I/O</title>
+      <para>
+        Common for sesams input &amp; output
+      </para>
+      <para>
+        Sesam push/pull protocol
+      </para>
+      <para>
+        Sesam-json (formattering)
+      </para>
+      <para>
+        Lister av entiteter
+      </para>
+      <para>
+        query-parameter
+      </para>
+      <para>
+        url-parameter
+      </para>
+      <para>
+        is-first
+      </para>
+      <para>
+        is-last
+      </para>
+    </section>
+    <section xml:id="using-a-microservice-as-input-in-sesam">
+      <title>Using a Microservice as Input in Sesam</title>
+      <para>
+        Inside sesam
+      </para>
+      <para>
+        Best practise:
+      </para>
+      <para>
+        Delta/last seen
+      </para>
+      <para>
+        request-params
+      </para>
+      <para>
+        is-first
+      </para>
+      <para>
+        is-last
+      </para>
+    </section>
+    <section xml:id="looking-inside-an-input-microservice">
+      <title>Looking inside an Input Microservice</title>
+      <para>
+        Inside the microservice
+      </para>
+      <para>
+        Transparens (minst mulig transformasjon i microservice)
+      </para>
+      <para>
+        Måter å returnere entiteter på (Transform i MS vs transform i
+        pipe)
+      </para>
+      <para>
+        Streaming
+      </para>
+      <para>
+        Logging
+      </para>
+      <para>
+        Gi gode feilmeldinger på http, catch spesifikke exceptions
+      </para>
+    </section>
+    <section xml:id="tasks-for-microservices-novice">
+      <title>Tasks for Microservices: Novice</title>
+      <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="2">
+          <orderedlist numeration="arabic">
+            <listitem override="15">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Ukjent: Business logikk
+      </para>
+      <para>
+        Eventual Consistency 1.4.30
+      </para>
+      <para>
+        NB!! _properties blir med ut!! NB!!
+      </para>
+      <para>
+        Filter
+      </para>
+      <para>
+        _filtered - blir ikke sendt videre
+      </para>
+      <para>
+        _deleted - blir sendt videre
+      </para>
+      <para>
+        Endpoints fjerner namespaces
+      </para>
+      <para>
+        Batching/streaming
+      </para>
+      <para>
+        NB! siste batch sendt fra sesam er alltid en tom liste
+      </para>
+    </section>
+    <section xml:id="looking-inside-an-output-microservice">
+      <title>Looking inside an Output Microservice</title>
+      <para>
+        Create vs update
+      </para>
+      <para>
+        Formattering
+      </para>
+      <para>
+        Transparens (minst mulig transformasjon i microservice)
+      </para>
+      <para>
+        transit-encoding fra sesam
+      </para>
+      <para>
+        Logging
+      </para>
+      <para>
+        Gi gode feilmeldinger på http, catch spesifikke exceptions
+      </para>
+      <para>
+        Batching/streaming
+      </para>
+      <para>
+        NB! siste batch sendt fra sesam er alltid en tom liste
+      </para>
+    </section>
+    <section xml:id="guidelines-for-microservice-development">
+      <title>Guidelines for Microservice Development</title>
+      <para>
+        <emphasis>Check if it already exists</emphasis>
+      </para>
+      <para>
+        Documentation: Readme
+      </para>
+      <para>
+        Define Scope
+      </para>
+      <para>
+        Gjenbrukbarhet
+      </para>
+      <para>
+        Sesamutils
+      </para>
+      <para>
+        Templates
+      </para>
+      <para>
+        Env var for dynamiske MS’er
+      </para>
+      <para>
+        Videreutvikling
+      </para>
+      <para>
+        Release/tagging
+      </para>
+      <para>
+        Ref. Optimalisering 5.3.17
+      </para>
+      <para>
+        Requirements.txt
+      </para>
+    </section>
+    <section xml:id="microservices-and-github-vcs">
+      <title>Microservices and GitHub [VCS]</title>
+      <para>
+        Lisenser
+      </para>
+      <para>
+        For community bruk
+      </para>
+      <para>
+        For privat bruk
+      </para>
+      <para>
+        Community github/slack/stackoverflow
+      </para>
+      <para>
+        Krav til microservices i sesam-community
+      </para>
+      <para>
+        Videreutvikling
+      </para>
+      <para>
+        Release/tagging
+      </para>
+      <para>
+        Byggserver – Travis, Azure ContainerRegistry
+      </para>
+      <para>
+        For community bruk
+      </para>
+      <para>
+        For privat bruk
+      </para>
+      <para>
+        Reference the “5.2.8 Changing a Microservice” for workflow
+      </para>
+      <para>
+        Ref appendix with complete microservice workflow (create a
+        sequence diagram Gabriell/Daniel?)
+      </para>
+    </section>
+    <section xml:id="optimizing-a-microservice">
+      <title>Optimizing a Microservice</title>
+      <para>
+        Minnebruk
+      </para>
+      <para>
+        Streaming / Yield
+      </para>
+      <para>
+        Delta/last seen
+      </para>
+      <para>
+        Transparens (minst mulig transformasjon i microservice)
+      </para>
+    </section>
+    <section xml:id="microservice-system-types">
+      <title>Microservice System types</title>
+      <para>
+        Lots of examples!
+      </para>
+      <para>
+        How should microservices which read or write to/from these types
+        work? What have we learned?
+      </para>
+      <para>
+        Source &amp; Sink
+      </para>
+      <para>
+        Apier
+      </para>
+      <blockquote>
+        <para>
+          Paging
+        </para>
+        <para>
+          Update VS Create
+        </para>
+      </blockquote>
+      <para>
+        Filer
+      </para>
+      <para>
+        sFtp
+      </para>
+      <para>
+        SOAP
+      </para>
+    </section>
+    <section xml:id="tasks-for-microservices-intermediate">
+      <title>Tasks for Microservices: Intermediate</title>
+      <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+      <para>
+        Create a microservice
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <orderedlist numeration="arabic">
+            <listitem override="21">
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist>
+      <para>
+        Env vars
+      </para>
+      <para>
+        Lokal testing
+      </para>
+      <para>
+        Returnerer riktig format (json som sesam kan lese)
+      </para>
+      <para>
+        Unit testing
+      </para>
+      <para>
+        [Experimental] Undersøke:
+      </para>
+<literallayout>[Experimental] Morten? (docker-compose att: Gabriell)
+ </literallayout>
+      <para>
+        [Experimental] !!NB!! Definer testing i ms // Lag en
+        test-ms-template // Implementer MVP testing på sesam-community
+        [great expectations python-lib Daniel har info]!!
+      </para>
+    </section>
+    <section xml:id="proxy-endpoint-jonas">
+      <title>Proxy Endpoint [Jonas]</title>
+      <para>
+        Kan lage en ms med frontend f.eks og eksponere den fra sesam
+      </para>
+    </section>
+    <section xml:id="chaining">
+      <title>Chaining</title>
+      <para>
+        Ref advanced system 2.4.13.
+      </para>
+    </section>
+    <section xml:id="tasks-for-microservices-intermediate-1">
+      <title>Tasks for Microservices: Intermediate</title>
+      <para>
+        Run a microservice in Sesam [could be sink, http, source]
+      </para>
+      <para>
+        Create a microservice
+      </para>
+    </section>
+  </section>
+  <section xml:id="epilogue-4">
+    <title>Epilogue</title>
+    <para>
+      Summarize the topics the reader has gone through on a very high
+      level.
+    </para>
+    <para>
+      In relation to the introduction, tell them what they’ve learned
+      and what they should be capable of using this knowledge to do.
+    </para>
+  </section>
+</section>
+<section xml:id="sesam-in-the-wild-wip">
+  <title>Sesam in the Wild [WIP]</title>
+  <section xml:id="introduction-5">
+    <title>Introduction</title>
+    <para>
+    </para>
+  </section>
+  <section xml:id="sesam-in-the-wild-beginner">
+    <title>Sesam in the Wild: Beginner</title>
+    <section xml:id="beginner-topic">
+      <title>6.1.1 Beginner topic</title>
+      <para>
+      </para>
+    </section>
+    <section xml:id="tasks-for-sesam-in-the-wild-beginner">
+      <title>6.1 Tasks for Sesam in the Wild: Beginner</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="sesam-in-the-wild-novice">
+    <title>Sesam in the Wild: Novice</title>
+    <section xml:id="x-novice-topic">
+      <title>6.2.X: Novice topic</title>
+      <para>
+      </para>
+    </section>
+    <section xml:id="tasks-for-sesam-in-the-wild-novice">
+      <title>6.2 Tasks for Sesam in the Wild: Novice</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="sesam-in-the-wild-intermediate">
+    <title>Sesam in the Wild: Intermediate</title>
+    <section xml:id="x-intermediate-topic">
+      <title>6.3.X: Intermediate topic</title>
+      <para>
+      </para>
+    </section>
+    <section xml:id="tasks-for-sesam-in-the-wild-intermediate">
+      <title>6.3 Tasks for Sesam in the Wild: Intermediate</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="sesam-in-the-wild-advanced">
+    <title>Sesam in the Wild: Advanced</title>
+    <section xml:id="x-advanced-topic">
+      <title>6.4.X: Advanced topic</title>
+      <para>
+      </para>
+    </section>
+    <section xml:id="tasks-for-sesam-in-the-wild-advanced">
+      <title>6.4 Tasks for Sesam in the Wild: Advanced</title>
+      <para>
+      </para>
+    </section>
+  </section>
+  <section xml:id="epilouge">
+    <title>Epilouge</title>
+    <para>
+    </para>
+  </section>
+</section>
+<section xml:id="appendix">
+  <title>Appendix</title>
+  <para>
+    1.X.X
+  </para>
+  <para>
+    2.X.X
+  </para>
+  <para>
+    3.X.X
+  </para>
+  <para>
+    4.X.X
+  </para>
+  <para>
+    5.X.X
+  </para>
+</section>
+</article>
